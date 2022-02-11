@@ -921,7 +921,6 @@ def toggle_left(
         None
         ]
 
-
 @app.callback(
     Output('node_data', 'children'),
     Input('output_graph', 'selectedNodeData'))
@@ -946,7 +945,6 @@ def displayTapNodeData(input_selected_nodes):
         display_data.append(html.Pre(formatted_node_data[i]))
 
     return display_data
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
