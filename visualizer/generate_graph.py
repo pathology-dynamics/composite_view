@@ -22,7 +22,14 @@ class Generate_Graph:
 
         self.table_data_initial = self._generate_table()
 
-    def _initialize_data(self, starting_edges_df):
+    def _initialize_data(self, starting_edges_df=pd.DataFrame):
+        """
+        Assigns either dummy data or custom data to main dataframe.
+
+        Args:
+            starting_edges_df (pandas dataframe): Formatted data input.
+
+        """
 
         if isinstance(starting_edges_df, pd.DataFrame):
             pass
@@ -34,6 +41,10 @@ class Generate_Graph:
         self.edges_df_initial = starting_edges_df
 
     def _generate_dummy_data(self):
+        """
+        Generates formatted dummy data, in the case that other data isn't initially used.
+
+        """
 
         start_time = time.time()
 
@@ -96,6 +107,10 @@ class Generate_Graph:
         return dummy_df
 
     def _initialize_graph_state(self):
+        """
+        Initializes attributes/dictionaries that will be used throughout visualizer run.
+
+        """
 
         start_time = time.time()
 
@@ -306,7 +321,11 @@ class Generate_Graph:
 
         print('INITIALIZE GRAPH STATE: ' + str(time.time() - start_time))
         
-    def _adjust_dynamic_variables(self):
+    def _initialize_dynamic_attributes(self):
+        """
+        Initializes attributes (and initial states) that will be used throughout visualizer run.
+
+        """
 
         start_time = time.time()
 
@@ -318,7 +337,7 @@ class Generate_Graph:
         self.target_dropdown_options = None
         self.type_dropdown_options = None
 
-        print('ADJUST DYNAMIC VARIABLES: ' + str(time.time() - start_time))
+        print('INITIALIZE DYNAMIC ATTRIBUTES: ' + str(time.time() - start_time))
 
     def _filter_data(self):
 

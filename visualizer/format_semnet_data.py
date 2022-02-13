@@ -1,7 +1,20 @@
 import pandas as pd
 import os
 
-def visualizer_data_from_topdown_directory(path=str, generate_csv=True):
+def visualizer_data_from_semnet_results(path=str, generate_csv=True):
+    """
+    SemNet specific function to combine multiple outputs into a single, formatted dataframe/.csv.
+
+    Args:
+        path (str): Path to top level directory, where each SemNet output (including multiple targets)
+                    is placed into a sub-directory within the path directory.
+        generate_csv (bool): Bool to generate .csv file for visualizer use.
+
+    Returns:
+        pandas dataframe: Formatted dataframe for use within visualizer.
+
+    """
+
     df_list = []
     semnet_run_count = 0
 
