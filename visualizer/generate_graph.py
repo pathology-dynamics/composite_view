@@ -1,16 +1,25 @@
 import pandas as pd
 import numpy as np
 import networkx as nx
+from colour import Color
+
 from itertools import combinations
 import time
 import json
 
-from colour import Color
-
 class Generate_Graph:
-    def __init__(self, edges_df=None):
+    '''
+    Class for creating an interactive graph object for use in visualizer.py.
+
+    '''
+
+    def __init__(self, edges_df=None, timing=False):
+
+        self.timing = timing
         
         self._initialize_data(edges_df)
+
+        self._initialize_simulation_iterations()
 
         self._initialize_graph_state()
 
@@ -39,6 +48,15 @@ class Generate_Graph:
 
         self.edges_df = starting_edges_df.sort_values(by='edge_value', ascending=False)
         self.edges_df_initial = starting_edges_df
+
+    def _initialize_simulation_iterations(self):
+        """
+        Sets value for number of networkx spring graph simulations.
+
+        """        
+        self.simulation_iterations = 10
+        self.simulation_iterations_initial = self.simulation_iterations
+
 
     def _generate_dummy_data(self):
         """
@@ -102,33 +120,24 @@ class Generate_Graph:
 
         dummy_df = pd.DataFrame(data)
 
-        print('GENERATE DUMMY DATA: ' + str(time.time() - start_time))
+        if self.timing:
+            print('GENERATE DUMMY DATA: ' + str(time.time() - start_time))
         
         return dummy_df
 
     def _initialize_graph_state(self):
         """
-        Initializes attributes/dictionaries that will be used throughout visualizer run.
+        Initializes attributes/dictionaries that will be used throughout visualizer.
 
         """
 
         start_time = time.time()
 
-        self.max_edge_size = 1
-        self.min_edge_size = 0.01
+        self.target_types = list(self.edges_df_initial['target_type'].unique())
+        self.all_types = list(self.edges_df_initial['source_type'].unique()) + self.target_types
 
-        self.max_node_size = 25
-        self.max_node_size_initial = self.max_node_size
-        self.min_node_size = 5
-
-        self.node_size_modifier = 0.1
-        self.node_size_modifier_initial = self.node_size_modifier
-
-        self.edge_size_modifier = 0.1
-        self.edge_size_modifier_initial = self.edge_size_modifier
-
-        self.simulation_iterations = 10
-        self.simulation_iterations_initial = self.simulation_iterations
+        self.target_id_name_dict = dict(zip(self.edges_df_initial['target_id'], self.edges_df_initial['target_name']))
+        self.target_id_name_dict_initial = self.target_id_name_dict
 
         self.max_edge_value = self.edges_df_initial['edge_value'].max()
         self.min_edge_value = self.edges_df_initial['edge_value'].min()
@@ -137,7 +146,6 @@ class Generate_Graph:
         self.min_combined_value = np.inf
 
         self.source_id_combined_scores_dict = {}
-
         for node in list(self.edges_df_initial['source_id'].unique()):
             sub_value_list = self.edges_df_initial[self.edges_df_initial['source_id'] == node]['edge_value'].to_list()
             combined_value = self._combine_values(sub_value_list)
@@ -151,44 +159,6 @@ class Generate_Graph:
                 self.min_combined_value = combined_value
 
         self.source_id_combined_scores_dict_initial = self.source_id_combined_scores_dict
-
-        self.target_size = self.max_combined_value + 0.5 * (self.max_combined_value)
-        self.target_size_initial = self.target_size
-
-        self.unique_source_nodes = list(self.edges_df_initial['source_id'].unique())
-        self.unique_source_nodes_initial = self.unique_source_nodes
-
-        self.unique_target_nodes = list(self.edges_df_initial['target_id'].unique())
-        self.unique_target_nodes_initial = self.unique_target_nodes
-
-        self.source_types = list(self.edges_df_initial['source_type'].unique())
-        self.source_types_initial = self.source_types
-
-        self.target_types = list(self.edges_df_initial['target_type'].unique())
-        self.target_types_initial = self.target_types
-
-        self.all_types = self.source_types_initial + self.target_types_initial
-
-        self.source_id_name_dict = dict(zip(self.edges_df_initial['source_id'], self.edges_df_initial['source_name']))
-        self.source_id_name_dict_initial = self.source_id_name_dict
-
-        self.source_name_id_dict = {}
-        for i, j in self.source_id_name_dict_initial.items():
-            self.source_name_id_dict.setdefault(j, set()).add(i)
-
-        self.source_name_id_dict_initial = self.source_name_id_dict
-
-        self.target_id_name_dict = dict(zip(self.edges_df_initial['target_id'], self.edges_df_initial['target_name']))
-        self.target_id_name_dict_initial = self.target_id_name_dict
-
-        self.target_name_id_dict = {}
-        for i, j in self.target_id_name_dict_initial.items():
-            self.target_name_id_dict.setdefault(j, set()).add(i)
-
-        self.target_name_id_dict_initial = self.target_name_id_dict
-
-        self.unique_id_name_dict = {**self.source_id_name_dict_initial, **self.target_id_name_dict_initial}
-        self.unique_id_name_dict_initial = self.unique_id_name_dict
 
         self.unique_id_data_dict = {}
         source_sub_df = self.edges_df_initial[['source_id', 'source_name', 'source_type']].drop_duplicates()
@@ -207,18 +177,6 @@ class Generate_Graph:
                 'sn_or_tn': 'target_node'
             }
 
-        print('Intermediate initialize graph state: ' + str(time.time() - start_time))
-        '''
-        self.source_target_edge_value_dict = {}
-        for node in list(self.edges_df_initial['source_id'].unique()):
-            if node not in self.source_target_edge_value_dict:
-                self.source_target_edge_value_dict[node] = {}
-
-                for target_val_tuple in list(self.edges_df_initial[self.edges_df_initial['source_id'] == node][['target_id', 'edge_value']].to_records(index=False)):
-                    self.source_target_edge_value_dict[node][target_val_tuple[0]] = target_val_tuple[1]
-
-        self.source_target_edge_value_dict_initial = self.source_target_edge_value_dict
-        '''
         self.source_target_edge_value_dict = {}
         for _, row in self.edges_df_initial.iterrows():
             if row['source_id'] not in self.source_target_edge_value_dict:
@@ -230,8 +188,7 @@ class Generate_Graph:
         self.source_target_edge_value_dict_initial = self.source_target_edge_value_dict
 
         self.unique_target_nodes = list(self.edges_df_initial['target_id'].unique())
-
-        print('Intermediate initialize graph state 2: ' + str(time.time() - start_time))
+        self.unique_target_nodes_initial = self.unique_target_nodes
 
         # Combined value range initialization
         self.combined_value_range = [self.min_edge_value, self.max_edge_value]
@@ -251,7 +208,7 @@ class Generate_Graph:
 
         # Target filtering initialization
         self.target_dropdown_options = []
-        for name in self.target_name_id_dict:
+        for name in list(self.edges_df_initial['target_name'].unique()):
             self.target_dropdown_options.append({'label': name, 'value': name})
 
         self.target_dropdown_options_initial = self.target_dropdown_options
@@ -261,7 +218,7 @@ class Generate_Graph:
 
         # Source filtering initialization
         self.source_dropdown_options = []
-        for name in self.source_name_id_dict:
+        for name in list(self.edges_df_initial['source_name'].unique()):
             self.source_dropdown_options.append({'label': name, 'value': name})
 
         self.source_dropdown_options_initial = self.source_dropdown_options
@@ -287,6 +244,23 @@ class Generate_Graph:
         self.source_spread = 0.1
         self.source_spread_initial = self.source_spread
         self.source_spread_previous = 0.1
+
+        # Node/Edge size initialization
+        self.max_edge_size = 1
+        self.min_edge_size = 0.01
+
+        self.max_node_size = 25
+        self.max_node_size_initial = self.max_node_size
+        self.min_node_size = 5
+
+        self.node_size_modifier = 0.1
+        self.node_size_modifier_initial = self.node_size_modifier
+
+        self.edge_size_modifier = 0.1
+        self.edge_size_modifier_initial = self.edge_size_modifier
+
+        self.target_size = self.max_combined_value + 0.5 * (self.max_combined_value)
+        self.target_size_initial = self.target_size
 
         # Gradient start initialization
         self.gradient_start = '#272B30'
@@ -319,27 +293,34 @@ class Generate_Graph:
         # Shortcut attribute
         self.graph_update_shortcut = True
 
-        print('INITIALIZE GRAPH STATE: ' + str(time.time() - start_time))
-        
-    def _initialize_dynamic_attributes(self):
+        if self.timing:
+            print('INITIALIZE GRAPH STATE: ' + str(time.time() - start_time))
+
+    def _combine_values(self, values=list):
         """
-        Initializes attributes (and initial states) that will be used throughout visualizer run.
+        Helper method that allows for source-target values to be combined. When a source shares an edge with 
+        multiple targets, each edge value for that source is fed into this method. Adjusting this method allows
+        for different linear combinations (or otherwise) for data-specific graph customization.
+
+        Args:
+            values (list): List of edge values shared by a single source.
 
         """
 
-        start_time = time.time()
+        number_of_connections = len(values)
 
-        self.max_node_count = None
-        self.combined_value_range = [None, None]
-        self.edge_value_range = [None, None]
+        linear_combination = 0
+        for value in values:
+            linear_combination = linear_combination + (value / number_of_connections)
 
-        self.source_dropdown_options = None
-        self.target_dropdown_options = None
-        self.type_dropdown_options = None
-
-        print('INITIALIZE DYNAMIC ATTRIBUTES: ' + str(time.time() - start_time))
+        return linear_combination
 
     def _filter_data(self):
+        """
+        Filters main edges dataframe based on slider values. Also adjusts certain dictionaries based 
+        on filtered data.
+
+        """
 
         start_time = time.time()
 
@@ -369,38 +350,33 @@ class Generate_Graph:
         self.source_id_combined_scores_df = pd.DataFrame(self.source_id_combined_scores_dict.items(), columns=['source_id', 'combined_value']).sort_values(by=['combined_value'], ascending=False)
 
         temporary_full_edges_df = temporary_full_edges_df[temporary_full_edges_df['source_id'].isin(self.source_id_combined_scores_df.head(self.max_node_count)['source_id'].to_list())]
-        '''
-        self.source_target_edge_value_dict = {}
-        for node in list(temporary_full_edges_df['source_id'].unique()):
-            if node not in self.source_target_edge_value_dict:
-                self.source_target_edge_value_dict[node] = {}
 
-                for target_val_tuple in list(temporary_full_edges_df[temporary_full_edges_df['source_id'] == node][['target_id', 'edge_value']].to_records(index=False)):
-                    self.source_target_edge_value_dict[node][target_val_tuple[0]] = target_val_tuple[1]
-        '''
         self.unique_target_nodes = list(temporary_full_edges_df['target_id'].unique())
 
         self.edges_df = temporary_full_edges_df
 
-        print('FILTER DATA: ' + str(time.time() - start_time))
+        if self.timing:
+            print('FILTER DATA: ' + str(time.time() - start_time))
 
     def _trim_graph(self):
+        """
+        Runs _generate_nx_graphs() based on user input. If possible, the graph is NOT re-simulated to help 
+        with performance. If certain conditions are met, the elements list is filtered instead.
+
+        """
 
         start_time = time.time()
 
         if self.target_spread != self.target_spread_previous:
             self._generate_nx_graphs()
             self.target_spread_previous = self.target_spread
-            # print('1')
 
         elif self.source_spread != self.source_spread_previous:
             self._generate_nx_graphs()
             self.source_spread_previous = self.source_spread
-            # print('2')
         
         elif self.edges_df.shape[0] > len(self.adjusted_nx_graph.edges):
             self._generate_nx_graphs()
-            # print('3')
             
         else:
             if not self.graph_update_shortcut:
@@ -422,23 +398,25 @@ class Generate_Graph:
                 
                 self.nx_graph = temporary_graph
 
-                # print('4')
+        if self.timing:
+            print('TRIM GRAPH: ' + str(time.time() - start_time))
+
+    def _generate_size(self, value=float, node=True):
+        """
+        Sets node/edge size based on the associated value (combined value for nodes, edge value for edges). 
+        Adjusting this method allows for node/edge size flexibility. Node/edge modifier is adjustable in the app, 
+        acts as a simple coefficient.
+
+        Args:
+            value (float): Value that node/edge size will be based on.
+            node (bool): Bool that activates node sized instead of edge sizing.
+
+        Note:
+            In the current state, size is determined by this formula:
             
-            # print('5')
+                (min_size + max_min_size_difference * ((value - min_size) / max_min_size_difference)) * additional_size_coefficient
 
-        print('TRIM GRAPH: ' + str(time.time() - start_time))
-
-    def _combine_values(self, values=list):
-
-        number_of_connections = len(values)
-
-        linear_combination = 0
-        for value in values:
-            linear_combination = linear_combination + (value / number_of_connections)
-
-        return linear_combination
-
-    def _generate_size(self, value, node=True):
+        """
 
         if node:
             return (self.min_node_size + ((self.max_node_size - self.min_node_size) * ((value - self.min_combined_value) / (self.max_combined_value - self.min_combined_value)))) * self.node_size_modifier
@@ -447,6 +425,11 @@ class Generate_Graph:
             return self.min_edge_size + ((self.max_edge_size - self.min_edge_size) * ((value - self.min_edge_value) / (self.max_edge_value - self.min_edge_value))) * self.edge_size_modifier * 0.3
 
     def _generate_color_mapping(self):
+        """
+        Creates a dictionary that holds all type:color mapping information. There are additional switches that allow for 
+        the dictionary to be edited based on the user's preferences in the app.
+
+        """
 
         start_time = time.time()
 
@@ -499,9 +482,15 @@ class Generate_Graph:
 
             self.target_color_primacy = False
 
-        print('GENERATE COLORS: ' + str(time.time() - start_time))
+        if self.timing:
+            print('GENERATE COLORS: ' + str(time.time() - start_time))
 
     def _generate_nx_graphs(self):
+        """
+        Creates a networkx graph based on the filtered main edges dataframe. If applicable, simulations are performed 
+        (using the Fruchterman-Reingold force-directed algorithm) to improve node layout and spacing.
+
+        """
 
         start_time = time.time()
 
@@ -658,11 +647,17 @@ class Generate_Graph:
         self.nx_graph = nx_graph
         self.final_spring = final_spring
 
-        print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
+        if self.timing:
+            print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
 
         return (nx_graph, final_spring)
 
     def _generate_graph_elements(self):
+        """
+        Combines spacing information (from _generate_nx_graphs()), color information, etc. into a single elements 
+        list that is directly fed into the dash cytoscape object.
+
+        """
 
         start_time = time.time()
 
@@ -707,11 +702,16 @@ class Generate_Graph:
 
         self.elements = elements
 
-        print('GENERATE ELEMENTS: ' + str(time.time() - start_time))
+        if self.timing:
+            print('GENERATE ELEMENTS: ' + str(time.time() - start_time))
 
         return elements
 
     def _generate_table(self):
+        """
+        Creates a table with a similar layout as the data input based on filtered edges dataframe.
+
+        """
 
         start_time = time.time()
 
@@ -727,11 +727,16 @@ class Generate_Graph:
         self.data_table_columns = [{"name": i, "id": i} for i in table_df.columns]
         self.table_data = table_df.to_dict('records')
 
-        print('GENERATE TABLE: ' + str(time.time() - start_time))
+        if self.timing:
+            print('GENERATE TABLE: ' + str(time.time() - start_time))
 
         return self.table_data
 
     def generate_node_data(self, selected_nodes_list):
+        """
+        Creates a node-specific layout for displaying individual node data in the app.
+
+        """
 
         start_time = time.time()
 
@@ -776,11 +781,16 @@ class Generate_Graph:
 
                 formatted_data_list.append(json.dumps(data_dump, indent=2))
 
-        print('NODE ELEMENTS: ' + str(time.time() - start_time))
+        if self.timing:
+            print('NODE ELEMENTS: ' + str(time.time() - start_time))
             
         return formatted_data_list
 
     def update_graph_elements(self):
+        """
+        Updates the elements list based on graph filters/adjustments.
+
+        """
 
         if not self.graph_update_shortcut:
             self._filter_data()
@@ -799,8 +809,10 @@ class Generate_Graph:
         return self.elements        
 
     def reset_graph(self):
+        """
+        Resets graph (and all sliders) based on the state that the data was initially loaded in.
 
-        start_time = time.time()
+        """
 
         self.combined_value_range = self.combined_value_range_initial
         self.edge_value_range = self.edge_value_range_initial
@@ -834,6 +846,7 @@ class Generate_Graph:
         self.edges_df = self.edges_df_initial
 
         self.source_id_combined_scores_dict = self.source_id_combined_scores_dict_initial
+        self.unique_target_nodes = self.unique_target_nodes_initial
 
         self.table_data = self.table_data_initial
 
@@ -841,11 +854,11 @@ class Generate_Graph:
         self.final_spring = self.nx_spring_initial
         self.adjusted_nx_graph = self.nx_graph_initial
 
-        print('RESET GRAPH: ' + str(time.time() - start_time))
-
     def load_additional_data(self, df_input):
+        """
+        Generates graph and slider values based on newly uploaded data.
 
-        start_time = time.time()
+        """
         
         self._initialize_data(df_input)
 
@@ -855,93 +868,25 @@ class Generate_Graph:
 
         self._generate_color_mapping()
 
+        # Allows for simulation iterations to be set BEFORE data upload, potentially increasing load performance
+        self.simulation_iterations_initial = self.simulation_iterations
+
         self.nx_graph_initial, self.nx_spring_initial = self._generate_nx_graphs()
         
         self.starting_elements = self._generate_graph_elements()
 
         self.table_data_initial = self._generate_table()
 
-        print('LOAD ADDTL DATA: ' + str(time.time() - start_time))
-
         return self.elements
 
     def simulate(self):
+        """
+        Essentially a _generate_nx_graphs() method that allows the user to re-simulate the graph if desired.
 
-        # start_time = time.time()
+        """
 
         self._generate_nx_graphs()
 
         self.adjusted_nx_graph = self.nx_graph
 
         self._generate_graph_elements()
-
-        # print('SIMULATION: ' + str(time.time() - start_time))
-
-'''
-app = dash.Dash()
-
-elements = []
-
-for node in generate_graph.nx_graph:
-    elements.append({
-        'data': {
-            'id': node, 
-            'label': node, 
-            'size': '0.01px'
-        }, 
-        'position': {'x': generate_graph.final_spring[node][0], 'y': generate_graph.final_spring[node][1]}
-    })
-    
-
-for node_1 in generate_graph.nx_graph:
-    for node_2 in generate_graph.nx_graph[node_1]:
-        elements.append({
-            'data': {
-                'source': node_1,
-                'target': node_2
-            }
-        })
-
-default_stylesheet = [
-    {
-        'selector': 'node',
-        'style': {
-            'width': 'data(size)',
-            'height': 'data(size)',
-            'content': 'data(label)',
-            'font-size': 'data(label_size)'
-            }
-        },
-    {
-        'selector': 'edge',
-        'style': {
-            'width': 'data(size)', 
-            'font-opacity': 1
-            }
-        }, 
-    {
-        'selector': ':selected',
-        'style': {
-            'border-color': 'black', 
-            'border-opacity': '1', 
-            'border-width': '0.3px'
-            }
-        }
-    ]
-
-cytoscape_graph = cyto.Cytoscape(
-    id='output_graph',
-    layout={'name': 'preset'},
-    style={'width': '100vw', 'height': '100vh'},
-    stylesheet=default_stylesheet, 
-    elements=generate_graph.elements,
-    boxSelectionEnabled=True
-    )
-
-app.layout = html.Div([
-    cytoscape_graph
-])
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
-'''

@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-def visualizer_data_from_semnet_results(path=str, generate_csv=True):
+def visualizer_data_from_semnet(path=str, generate_csv=True):
     """
     SemNet specific function to combine multiple outputs into a single, formatted dataframe/.csv.
 

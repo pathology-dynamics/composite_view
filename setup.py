@@ -14,6 +14,8 @@ setup(
                 'numpy', 
                 'pandas', 
                 'networkx==2.6.3', 
-                'colour'
+                'colour', 
+                'scikit-learn>=1.0.2', 
+                'scipy>=1.7.1'
                 ]
 )

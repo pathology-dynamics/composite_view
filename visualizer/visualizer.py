@@ -6,23 +6,39 @@ from dash.dependencies import Input, Output
 from dash import html, dcc, State
 from dash import dash_table as dt
 
-import base64
-
 import pandas as pd
+
+import base64
 import time
 import io
 
 from generate_graph import Generate_Graph
 
-graph = Generate_Graph()
+# Set to True if you want timing data for graph startup/updates.
+test_timing = True
+if test_timing:
+    start_time_global = time.time()
+    print('================')
+
+graph = Generate_Graph(timing=test_timing)
 
 app = dash.Dash(external_stylesheets=[dbc.themes.SLATE])
 
 class UI_Tracker:
+    '''
+    Class for tracking all UI elements that change throughout app run.
+
+    '''
+
     def __init__(self):
         self.set_initial_state()
 
     def set_initial_state(self):
+        '''
+        Initializes all UI states that don't directly interact with the graph object.
+
+        '''
+
         self.card_stack_tracking = []
         self.dropdown_cards = []
 
@@ -36,8 +52,8 @@ class UI_Tracker:
         self.node_filtering_button_toggle = False
         self.node_filtering_button_class = 'button_disabled'
 
-        self.graph_spread_button_toggle = False
-        self.graph_spread_button_class = 'button_disabled'
+        self.graph_manipulation_button_toggle = False
+        self.graph_manipulation_button_class = 'button_disabled'
 
         self.color_editing_button_toggle = False
         self.color_editing_button_class = 'button_disabled'
@@ -55,6 +71,8 @@ class UI_Tracker:
         self.color_change_only = True
         self.graph_manipulation_only = True
 
+        self.download_graph_clicks = None
+
         self.display_gradient_start_color = graph.gradient_start_initial
         self.display_gradient_end_color = graph.gradient_end_initial
         self.display_selected_type_color = graph.selected_type_color_initial
@@ -63,6 +81,7 @@ class UI_Tracker:
 
 ui_tracker = UI_Tracker()
 
+# DBC card that defines graph slider layout.
 graph_sliders = dbc.Card(
     dbc.CardBody(
         [
@@ -119,6 +138,7 @@ graph_sliders = dbc.Card(
     )
 )
 
+# DBC card that defines graph filter layout.
 node_filtering = dbc.Card(
     dbc.CardBody(
         [
@@ -158,9 +178,10 @@ node_filtering = dbc.Card(
     )
 )
 
-graph_spread = dbc.Card(
+# DBC card that defines graph manipulation layout.
+graph_manipulation = dbc.Card(
     dbc.CardBody(
-        [
+        [   
             html.H6('Target Spread:', className='card-text', style={'marginBottom': '3%'}),
             html.Div(
                 dcc.Slider(
@@ -245,6 +266,7 @@ graph_spread = dbc.Card(
     )
 )
 
+# DBC card that defines color editing layout.
 color_editing = dbc.Card(
     dbc.CardBody(
         [
@@ -318,6 +340,7 @@ color_editing = dbc.Card(
     ),
 )
 
+# DBC card that defines individual node selection layout.
 node_data = dbc.Card(
     dbc.CardBody(
         [
@@ -332,6 +355,7 @@ node_data = dbc.Card(
     )
 )
 
+# DBC card that defines table layout.
 table_data = dbc.Card(
     dbc.CardBody(
         [
@@ -373,6 +397,7 @@ table_data = dbc.Card(
     )
 )
 
+# Defines Cytoscape stylesheet.
 default_stylesheet = [
     {
         'selector': 'node',
@@ -406,6 +431,7 @@ default_stylesheet = [
         }
     ]
 
+# Cytoscape graph object.
 cytoscape_graph = cyto.Cytoscape(
     id='output_graph',
     layout={'name': 'preset'},
@@ -416,6 +442,14 @@ cytoscape_graph = cyto.Cytoscape(
     )
 
 def format_data_input(csv_input, filename):
+    """
+    Function that converts encoded data upload into graph-usable dataframe.
+
+    Args:
+        csv_input (string): Base64 encoded data.
+        filename (string): Uploaded data filename.
+
+    """
 
     for _, data in enumerate(csv_input):
         _, content_string = data.split(',')
@@ -431,6 +465,10 @@ def format_data_input(csv_input, filename):
     return decoded_df
 
 def server_layout():
+    """
+    Function that houses the app layout. Calling the function allows the UI state and graph to be reset.
+
+    """
     ui_tracker.set_initial_state()
 
     app_layout = html.Div([
@@ -479,14 +517,14 @@ def server_layout():
                     is_open=False
                 ), 
                 dbc.Button(
-                    'Graph Spread',
-                    id='graph_spread_button',
-                    className=ui_tracker.graph_spread_button_class,
+                    'Graph Manipulation',
+                    id='graph_manipulation_button',
+                    className=ui_tracker.graph_manipulation_button_class,
                     style={'width': '20vw'}
                 ), 
                 dbc.Collapse(
-                    graph_spread,
-                    id='graph_spread_collapse',
+                    graph_manipulation,
+                    id='graph_manipulation_collapse',
                     is_open=False
                 ), 
                 dbc.Button(
@@ -522,15 +560,23 @@ def server_layout():
                     id='table_data_collapse',
                     is_open=False
                 ), 
-                html.Div(
+
+                html.Div(children=[
                     dcc.Upload(
                         dbc.Button(
                             'Upload Data', 
-                            style={'width': '20vw', 'background': 'linear-gradient(#008a07, #00af0e 40%, #008a07)'}
+                            style={'width': '10vw', 'background': 'linear-gradient(#008a07, #00af0e 40%, #008a07)'}
                         ),
                         id='data_upload', 
                         multiple=True
+                    ), 
+                    dbc.Button(
+                        'Download Image', 
+                        style={'width': '10vw', 'background': 'linear-gradient(#4a018a, #5f00b3 40%, #4a018a)'}, 
+                        id='download_image', 
                     )
+                    ], 
+                    style={'display': 'flex'}
                 )
                 ],
                 id='settings_collapse',
@@ -551,7 +597,7 @@ def server_layout():
 
 app.layout = server_layout
 
-
+# Button callback
 @app.callback(
     Output('settings_collapse', 'is_open'),
     Output('settings_button', 'className'),
@@ -572,13 +618,13 @@ def toggle_settings(settings_button_clicks):
     
     return [ui_tracker.settings_button_toggle, ui_tracker.settings_button_class, ui_tracker.settings_button_text]
 
-
+# Button callback
 @app.callback(
     Output('graph_sliders_collapse', 'is_open'),
     Output('graph_sliders_button', 'className'),
     Input('graph_sliders_button', 'n_clicks')
 )
-def toggle_left(graph_sliders_button_clicks):
+def toggle_sliders(graph_sliders_button_clicks):
     if graph_sliders_button_clicks:
         ui_tracker.graph_sliders_button_toggle = not ui_tracker.graph_sliders_button_toggle
 
@@ -590,12 +636,13 @@ def toggle_left(graph_sliders_button_clicks):
     
     return [ui_tracker.graph_sliders_button_toggle, ui_tracker.graph_sliders_button_class]
 
+# Button callback
 @app.callback(
     Output('node_filtering_collapse', 'is_open'),
     Output('node_filtering_button', 'className'),
     Input('node_filtering_button', 'n_clicks')
 )
-def toggle_left(node_filtering_button_clicks):
+def toggle_filtering(node_filtering_button_clicks):
     if node_filtering_button_clicks:
         ui_tracker.node_filtering_button_toggle = not ui_tracker.node_filtering_button_toggle
 
@@ -607,29 +654,31 @@ def toggle_left(node_filtering_button_clicks):
 
     return [ui_tracker.node_filtering_button_toggle, ui_tracker.node_filtering_button_class]
 
+# Button callback
 @app.callback(
-    Output('graph_spread_collapse', 'is_open'),
-    Output('graph_spread_button', 'className'),
-    Input('graph_spread_button', 'n_clicks')
+    Output('graph_manipulation_collapse', 'is_open'),
+    Output('graph_manipulation_button', 'className'),
+    Input('graph_manipulation_button', 'n_clicks')
 )
-def toggle_left(graph_spread_button_clicks):
-    if graph_spread_button_clicks:
-        ui_tracker.graph_spread_button_toggle = not ui_tracker.graph_spread_button_toggle
+def toggle_manipulation(graph_manipulation_button_clicks):
+    if graph_manipulation_button_clicks:
+        ui_tracker.graph_manipulation_button_toggle = not ui_tracker.graph_manipulation_button_toggle
 
-        if ui_tracker.graph_spread_button_toggle:
-            ui_tracker.graph_spread_button_class = 'button_enabled'
+        if ui_tracker.graph_manipulation_button_toggle:
+            ui_tracker.graph_manipulation_button_class = 'button_enabled'
 
         else:
-            ui_tracker.graph_spread_button_class = 'button_disabled'
+            ui_tracker.graph_manipulation_button_class = 'button_disabled'
 
-    return [ui_tracker.graph_spread_button_toggle, ui_tracker.graph_spread_button_class]
+    return [ui_tracker.graph_manipulation_button_toggle, ui_tracker.graph_manipulation_button_class]
 
+# Button callback
 @app.callback(
     Output('color_editing_collapse', 'is_open'),
     Output('color_editing_button', 'className'),
     Input('color_editing_button', 'n_clicks')
 )
-def toggle_left(color_editing_button_clicks):
+def toggle_coloring(color_editing_button_clicks):
     if color_editing_button_clicks:
         ui_tracker.color_editing_button_toggle = not ui_tracker.color_editing_button_toggle
 
@@ -641,12 +690,13 @@ def toggle_left(color_editing_button_clicks):
 
     return [ui_tracker.color_editing_button_toggle, ui_tracker.color_editing_button_class]
 
+# Button callback
 @app.callback(
     Output('node_data_collapse', 'is_open'),
     Output('node_data_button', 'className'),
     Input('node_data_button', 'n_clicks')
 )
-def toggle_left(node_data_button_clicks):
+def toggle_node_data(node_data_button_clicks):
     if node_data_button_clicks:
         ui_tracker.node_data_button_toggle = not ui_tracker.node_data_button_toggle
 
@@ -658,12 +708,13 @@ def toggle_left(node_data_button_clicks):
 
     return [ui_tracker.node_data_button_toggle, ui_tracker.node_data_button_class]
 
+# Button callback
 @app.callback(
     Output('table_data_collapse', 'is_open'),
     Output('table_data_button', 'className'),
     Input('table_data_button', 'n_clicks')
 )
-def toggle_left(table_data_button_clicks):
+def toggle_table_data(table_data_button_clicks):
     if table_data_button_clicks:
         ui_tracker.table_data_button_toggle = not ui_tracker.table_data_button_toggle
 
@@ -675,7 +726,7 @@ def toggle_left(table_data_button_clicks):
 
     return [ui_tracker.table_data_button_toggle, ui_tracker.table_data_button_class]
 
-
+# Main callback that enables graph updates.
 @app.callback(
     Output(component_id='output_graph', component_property='elements'),
     Output(component_id='combined_value_range_slider', component_property='min'),
@@ -708,6 +759,7 @@ def toggle_left(table_data_button_clicks):
     Output(component_id='data_table', component_property='data'),
     Output(component_id='data_upload', component_property='contents'),
     Output(component_id='data_upload', component_property='filename'),
+    Output(component_id='output_graph', component_property='generateImage'),
     [Input(component_id='combined_value_range_slider', component_property='value')],
     [Input(component_id='edge_value_range_slider', component_property='value')],
     Input(component_id='max_node_slider', component_property='value'),
@@ -728,10 +780,11 @@ def toggle_left(table_data_button_clicks):
     Input(component_id='randomize_colors_button', component_property='n_clicks'), 
     Input(component_id='reset_button', component_property='n_clicks'), 
     Input(component_id='data_upload', component_property='contents'),
-    Input(component_id='data_upload', component_property='filename'),
+    Input(component_id='data_upload', component_property='filename'), 
+    Input(component_id='download_image', component_property='n_clicks'),
     prevent_initial_call=True
 )
-def toggle_left(
+def toggle_graph_update(
     input_combined_value_range_slider, 
     input_edge_value_range_slider, 
     input_max_node_slider, 
@@ -752,9 +805,12 @@ def toggle_left(
     input_randomize_colors_button_clicks, 
     input_reset_button, 
     data_upload_content, 
-    data_upload_filenames):
+    data_upload_filenames, 
+    download_graph_clicks_input):
 
-    start_time = time.time()
+    if test_timing:
+        start_time = time.time()
+        print('================')
 
     if input_combined_value_range_slider != graph.combined_value_range:
         graph.combined_value_range = input_combined_value_range_slider
@@ -853,6 +909,14 @@ def toggle_left(
         
         graph.random_color_primacy = True
 
+    if download_graph_clicks_input != ui_tracker.download_graph_clicks:
+        ui_tracker.download_graph_clicks = download_graph_clicks_input
+
+        image_download = {'type': 'jpg', 'zoom': '200%', 'action': 'download'}
+
+    else:
+        image_download = {'action': ''}
+
     if data_upload_content != None:
         csv_user_input = format_data_input(data_upload_content, data_upload_filenames)
         elements = graph.load_additional_data(csv_user_input)
@@ -884,8 +948,9 @@ def toggle_left(
     else:
         elements = graph.update_graph_elements()
 
-    print('TOTAL TIME: ' + str(time.time() - start_time))
-    print('================')
+    if test_timing:
+        print('TOTAL TIME UPDATE: ' + str(time.time() - start_time))
+        print('================')
 
     return [
         elements,
@@ -918,9 +983,11 @@ def toggle_left(
         graph.data_table_columns, 
         graph.table_data, 
         None, 
-        None
+        None, 
+        image_download
         ]
 
+# Individual node data callback, dissociated with main update callback due to lack of actual graph change.
 @app.callback(
     Output('node_data', 'children'),
     Input('output_graph', 'selectedNodeData'))
@@ -946,5 +1013,9 @@ def displayTapNodeData(input_selected_nodes):
 
     return display_data
 
+if test_timing:
+    print('TOTAL TIME STARTUP: ' + str(time.time() - start_time_global))
+    print('================')
+
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
