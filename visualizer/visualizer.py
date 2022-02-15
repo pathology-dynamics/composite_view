@@ -15,7 +15,7 @@ import io
 from generate_graph import Generate_Graph
 
 # Set to True if you want timing data for graph startup/updates.
-test_timing = True
+test_timing = False
 if test_timing:
     start_time_global = time.time()
     print('================')
