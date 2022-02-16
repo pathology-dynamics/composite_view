@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import networkx as nx
 from colour import Color
+from scipy.stats import gmean
 
 from itertools import combinations
 import time
@@ -158,6 +159,9 @@ class Generate_Graph:
             if combined_value < self.min_combined_value:
                 self.min_combined_value = combined_value
 
+        self.max_combined_value_start = self.max_combined_value
+        self.min_combined_value_start = self.min_combined_value
+
         self.source_id_combined_scores_dict_initial = self.source_id_combined_scores_dict
 
         self.unique_id_data_dict = {}
@@ -190,11 +194,20 @@ class Generate_Graph:
         self.unique_target_nodes = list(self.edges_df_initial['target_id'].unique())
         self.unique_target_nodes_initial = self.unique_target_nodes
 
+        '''
         # Combined value range initialization
         self.combined_value_range = [self.min_edge_value, self.max_edge_value]
         self.combined_value_range_initial = self.combined_value_range
-        self.combined_value_step_size = np.round((self.max_combined_value - self.min_combined_value) / 100, 3)
+        self.combined_value_step_size = np.round((self.max_combined_value_start - self.min_combined_value_start) / 100, 3)
         self.combined_value_bound = [(self.min_edge_value - self.combined_value_step_size), (self.max_edge_value + self.combined_value_step_size)]
+        '''
+
+        # Combined value range initialization
+        self.combined_value_range = [self.min_combined_value_start, self.max_combined_value_start]
+        self.combined_value_range_initial = self.combined_value_range
+        self.combined_value_step_size = np.round((self.max_combined_value_start - self.min_combined_value_start) / 100, 3)
+        self.combined_value_bound = [(self.min_combined_value_start - self.combined_value_step_size), (self.max_combined_value_start + self.combined_value_step_size)]
+        self.combined_value_bound_initial = self.combined_value_bound
 
         # Edge value range initialization
         self.edge_value_range = [self.min_edge_value, self.max_edge_value]
@@ -259,7 +272,7 @@ class Generate_Graph:
         self.edge_size_modifier = 0.1
         self.edge_size_modifier_initial = self.edge_size_modifier
 
-        self.target_size = self.max_combined_value + 0.5 * (self.max_combined_value)
+        self.target_size = self.max_combined_value_start + 0.5 * (self.max_combined_value_start)
         self.target_size_initial = self.target_size
 
         # Gradient start initialization
@@ -306,7 +319,8 @@ class Generate_Graph:
             values (list): List of edge values shared by a single source.
 
         """
-
+        
+        '''
         number_of_connections = len(values)
 
         linear_combination = 0
@@ -314,6 +328,16 @@ class Generate_Graph:
             linear_combination = linear_combination + (value / number_of_connections)
 
         return linear_combination
+        '''
+
+        geometric_mean_val = values[0]
+        if len(values) > 1:
+            for val in values[1:]:
+                geometric_mean_val = geometric_mean_val * val
+        
+        geometric_mean_val = geometric_mean_val ** (1/len(values))
+
+        return geometric_mean_val
 
     def _filter_data(self):
         """
@@ -344,8 +368,17 @@ class Generate_Graph:
             sub_value_list = temporary_full_edges_df[temporary_full_edges_df['source_id'] == node]['edge_value'].to_list()
             combined_value = self._combine_values(sub_value_list)
 
+            # Dynamically change combined score bound
+            if (combined_value > self.max_combined_value):
+                self.max_combined_value = combined_value
+
+            if combined_value < self.min_combined_value:
+                self.min_combined_value = combined_value
+
             if (combined_value <= self.combined_value_range[1]) and (combined_value >= self.combined_value_range[0]):
                 self.source_id_combined_scores_dict[node] = combined_value
+
+        self.combined_value_bound = [self.min_combined_value - self.combined_value_step_size, self.max_combined_value + self.combined_value_step_size]
 
         self.source_id_combined_scores_df = pd.DataFrame(self.source_id_combined_scores_dict.items(), columns=['source_id', 'combined_value']).sort_values(by=['combined_value'], ascending=False)
 
@@ -419,7 +452,7 @@ class Generate_Graph:
         """
 
         if node:
-            return (self.min_node_size + ((self.max_node_size - self.min_node_size) * ((value - self.min_combined_value) / (self.max_combined_value - self.min_combined_value)))) * self.node_size_modifier
+            return (self.min_node_size + ((self.max_node_size - self.min_node_size) * ((value - self.min_combined_value_start) / (self.max_combined_value_start - self.min_combined_value_start)))) * self.node_size_modifier
 
         else:
             return self.min_edge_size + ((self.max_edge_size - self.min_edge_size) * ((value - self.min_edge_value) / (self.max_edge_value - self.min_edge_value))) * self.edge_size_modifier * 0.3
@@ -815,6 +848,7 @@ class Generate_Graph:
         """
 
         self.combined_value_range = self.combined_value_range_initial
+        self.combined_value_bound = self.combined_value_bound_initial
         self.edge_value_range = self.edge_value_range_initial
         self.max_node_count = self.max_node_count_initial
 

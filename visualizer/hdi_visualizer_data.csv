@@ -1,0 +1,568 @@
+,source_id,source_name,source_type,target_id,target_name,target_type,edge_value
+0,Norway,Norway,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9600000000000001
+1,Norway,Norway,very_high_development,education_index,education_index,target,0.9299999999999999
+2,Norway,Norway,very_high_development,income_index,income_index,target,0.9818164555355313
+3,Ireland,Ireland,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9584615384615384
+4,Ireland,Ireland,very_high_development,education_index,education_index,target,0.9233333333333333
+5,Ireland,Ireland,very_high_development,income_index,income_index,target,0.9860213999856979
+6,Switzerland,Switzerland,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9815384615384615
+7,Switzerland,Switzerland,very_high_development,education_index,education_index,target,0.8994444444444445
+8,Switzerland,Switzerland,very_high_development,income_index,income_index,target,0.9882648268880463
+9,"Hong Kong, China (SAR)","Hong Kong, China (SAR)",very_high_development,life_expectancy_index,life_expectancy_index,target,0.9984615384615385
+10,"Hong Kong, China (SAR)","Hong Kong, China (SAR)",very_high_development,education_index,education_index,target,0.8794444444444445
+11,"Hong Kong, China (SAR)","Hong Kong, China (SAR)",very_high_development,income_index,income_index,target,0.973626951653674
+12,Iceland,Iceland,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9692307692307692
+13,Iceland,Iceland,very_high_development,education_index,education_index,target,0.9266666666666667
+14,Iceland,Iceland,very_high_development,income_index,income_index,target,0.9522734090624525
+15,Germany,Germany,very_high_development,life_expectancy_index,life_expectancy_index,target,0.943076923076923
+16,Germany,Germany,very_high_development,education_index,education_index,target,0.9455555555555555
+17,Germany,Germany,very_high_development,income_index,income_index,target,0.9540092589623537
+18,Sweden,Sweden,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9661538461538461
+19,Sweden,Sweden,very_high_development,education_index,education_index,target,0.9166666666666667
+20,Sweden,Sweden,very_high_development,income_index,income_index,target,0.9517919781711899
+21,Australia,Australia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9753846153846155
+22,Australia,Australia,very_high_development,education_index,education_index,target,0.9233333333333333
+23,Australia,Australia,very_high_development,income_index,income_index,target,0.9328530332665549
+24,Netherlands,Netherlands,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9584615384615384
+25,Netherlands,Netherlands,very_high_development,education_index,education_index,target,0.9133333333333333
+26,Netherlands,Netherlands,very_high_development,income_index,income_index,target,0.9604068381050049
+27,Denmark,Denmark,very_high_development,life_expectancy_index,life_expectancy_index,target,0.936923076923077
+28,Denmark,Denmark,very_high_development,education_index,education_index,target,0.9199999999999999
+29,Denmark,Denmark,very_high_development,income_index,income_index,target,0.9628862177018898
+30,Finland,Finland,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9523076923076924
+31,Finland,Finland,very_high_development,education_index,education_index,target,0.9266666666666667
+32,Finland,Finland,very_high_development,income_index,income_index,target,0.9341853898601098
+33,Singapore,Singapore,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9784615384615384
+34,Singapore,Singapore,very_high_development,education_index,education_index,target,0.8422222222222222
+35,Singapore,Singapore,very_high_development,income_index,income_index,target,1.0244118924601913
+36,United Kingdom,United Kingdom,very_high_development,life_expectancy_index,life_expectancy_index,target,0.943076923076923
+37,United Kingdom,United Kingdom,very_high_development,education_index,education_index,target,0.9261111111111111
+38,United Kingdom,United Kingdom,very_high_development,income_index,income_index,target,0.9263898731144024
+39,Belgium,Belgium,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9476923076923076
+40,Belgium,Belgium,very_high_development,education_index,education_index,target,0.9033333333333333
+41,Belgium,Belgium,very_high_development,income_index,income_index,target,0.9449234014904506
+42,New Zealand,New Zealand,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9584615384615384
+43,New Zealand,New Zealand,very_high_development,education_index,education_index,target,0.9266666666666667
+44,New Zealand,New Zealand,very_high_development,income_index,income_index,target,0.9080326571570377
+45,Canada,Canada,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9600000000000001
+46,Canada,Canada,very_high_development,education_index,education_index,target,0.8966666666666666
+47,Canada,Canada,very_high_development,income_index,income_index,target,0.9342352031646705
+48,United States,United States,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9061538461538462
+49,United States,United States,very_high_development,education_index,education_index,target,0.8994444444444445
+50,United States,United States,very_high_development,income_index,income_index,target,0.9756305591106444
+51,Austria,Austria,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9461538461538461
+52,Austria,Austria,very_high_development,education_index,education_index,target,0.8638888888888889
+53,Austria,Austria,very_high_development,income_index,income_index,target,0.9564015789795687
+54,Israel,Israel,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9692307692307692
+55,Israel,Israel,very_high_development,education_index,education_index,target,0.8833333333333333
+56,Israel,Israel,very_high_development,income_index,income_index,target,0.9057495991615307
+57,Japan,Japan,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9938461538461537
+58,Japan,Japan,very_high_development,education_index,education_index,target,0.8488888888888889
+59,Japan,Japan,very_high_development,income_index,income_index,target,0.9157304417167591
+60,Liechtenstein,Liechtenstein,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9338461538461539
+61,Liechtenstein,Liechtenstein,very_high_development,education_index,education_index,target,0.8305555555555556
+62,Liechtenstein,Liechtenstein,very_high_development,income_index,income_index,target,1.0842820671670788
+63,Slovenia,Slovenia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.943076923076923
+64,Slovenia,Slovenia,very_high_development,education_index,education_index,target,0.9122222222222223
+65,Slovenia,Slovenia,very_high_development,income_index,income_index,target,0.8976145908863163
+66,Korea (Republic of),Korea (Republic of),very_high_development,life_expectancy_index,life_expectancy_index,target,0.9692307692307692
+67,Korea (Republic of),Korea (Republic of),very_high_development,education_index,education_index,target,0.865
+68,Korea (Republic of),Korea (Republic of),very_high_development,income_index,income_index,target,0.9161239992557145
+69,Luxembourg,Luxembourg,very_high_development,life_expectancy_index,life_expectancy_index,target,0.956923076923077
+70,Luxembourg,Luxembourg,very_high_development,education_index,education_index,target,0.8072222222222223
+71,Luxembourg,Luxembourg,very_high_development,income_index,income_index,target,0.9953200395594903
+72,Spain,Spain,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9784615384615384
+73,Spain,Spain,very_high_development,education_index,education_index,target,0.8322222222222223
+74,Spain,Spain,very_high_development,income_index,income_index,target,0.9086828846076681
+75,France,France,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9646153846153847
+76,France,France,very_high_development,education_index,education_index,target,0.8166666666666667
+77,France,France,very_high_development,income_index,income_index,target,0.9299605300346929
+78,Czechia,Czechia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.913846153846154
+79,Czechia,Czechia,very_high_development,education_index,education_index,target,0.8899999999999999
+80,Czechia,Czechia,very_high_development,income_index,income_index,target,0.89772958429538
+81,Malta,Malta,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9615384615384616
+82,Malta,Malta,very_high_development,education_index,education_index,target,0.8238888888888889
+83,Malta,Malta,very_high_development,income_index,income_index,target,0.9033551465213671
+84,Estonia,Estonia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9046153846153846
+85,Estonia,Estonia,very_high_development,education_index,education_index,target,0.8811111111111111
+86,Estonia,Estonia,very_high_development,income_index,income_index,target,0.889209452275448
+87,Italy,Italy,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9769230769230769
+88,Italy,Italy,very_high_development,education_index,education_index,target,0.7938888888888889
+89,Italy,Italy,very_high_development,income_index,income_index,target,0.9151805579225349
+90,United Arab Emirates,United Arab Emirates,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8923076923076924
+91,United Arab Emirates,United Arab Emirates,very_high_development,education_index,education_index,target,0.8005555555555556
+92,United Arab Emirates,United Arab Emirates,very_high_development,income_index,income_index,target,0.9839996275208186
+93,Greece,Greece,very_high_development,life_expectancy_index,life_expectancy_index,target,0.956923076923077
+94,Greece,Greece,very_high_development,education_index,education_index,target,0.8505555555555555
+95,Greece,Greece,very_high_development,income_index,income_index,target,0.8623674786957687
+96,Cyprus,Cyprus,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9384615384615385
+97,Cyprus,Cyprus,very_high_development,education_index,education_index,target,0.8288888888888888
+98,Cyprus,Cyprus,very_high_development,income_index,income_index,target,0.8981175362271425
+99,Lithuania,Lithuania,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8600000000000001
+100,Lithuania,Lithuania,very_high_development,education_index,education_index,target,0.8977777777777778
+101,Lithuania,Lithuania,very_high_development,income_index,income_index,target,0.8882839916707966
+102,Poland,Poland,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9030769230769231
+103,Poland,Poland,very_high_development,education_index,education_index,target,0.8694444444444445
+104,Poland,Poland,very_high_development,income_index,income_index,target,0.8695477553415498
+105,Andorra,Andorra,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9523076923076924
+106,Andorra,Andorra,very_high_development,education_index,education_index,target,0.7194444444444444
+107,Andorra,Andorra,very_high_development,income_index,income_index,target,0.9558711189911038
+108,Latvia,Latvia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8507692307692307
+109,Latvia,Latvia,very_high_development,education_index,education_index,target,0.8833333333333333
+110,Latvia,Latvia,very_high_development,income_index,income_index,target,0.8630023251018605
+111,Portugal,Portugal,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9538461538461539
+112,Portugal,Portugal,very_high_development,education_index,education_index,target,0.7683333333333333
+113,Portugal,Portugal,very_high_development,income_index,income_index,target,0.8803489593287518
+114,Slovakia,Slovakia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8846153846153846
+115,Slovakia,Slovakia,very_high_development,education_index,education_index,target,0.826111111111111
+116,Slovakia,Slovakia,very_high_development,income_index,income_index,target,0.8718704228037856
+117,Hungary,Hungary,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8753846153846154
+118,Hungary,Hungary,very_high_development,education_index,education_index,target,0.8222222222222222
+119,Hungary,Hungary,very_high_development,income_index,income_index,target,0.8681368165974848
+120,Saudi Arabia,Saudi Arabia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8476923076923076
+121,Saudi Arabia,Saudi Arabia,very_high_development,education_index,education_index,target,0.7872222222222223
+122,Saudi Arabia,Saudi Arabia,very_high_development,income_index,income_index,target,0.9309881240069231
+123,Bahrain,Bahrain,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8815384615384615
+124,Bahrain,Bahrain,very_high_development,education_index,education_index,target,0.7694444444444444
+125,Bahrain,Bahrain,very_high_development,income_index,income_index,target,0.9142809291111224
+126,Chile,Chile,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9261538461538462
+127,Chile,Chile,very_high_development,education_index,education_index,target,0.8088888888888888
+128,Chile,Chile,very_high_development,income_index,income_index,target,0.8231575484763981
+129,Croatia,Croatia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9
+130,Croatia,Croatia,very_high_development,education_index,education_index,target,0.8022222222222222
+131,Croatia,Croatia,very_high_development,income_index,income_index,target,0.8515444327423674
+132,Qatar,Qatar,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9261538461538462
+133,Qatar,Qatar,very_high_development,education_index,education_index,target,0.6566666666666666
+134,Qatar,Qatar,very_high_development,income_index,income_index,target,1.0315455199389734
+135,Argentina,Argentina,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8723076923076923
+136,Argentina,Argentina,very_high_development,education_index,education_index,target,0.855
+137,Argentina,Argentina,very_high_development,income_index,income_index,target,0.8090717879057178
+138,Brunei Darussalam,Brunei Darussalam,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8600000000000001
+139,Brunei Darussalam,Brunei Darussalam,very_high_development,education_index,education_index,target,0.7005555555555556
+140,Brunei Darussalam,Brunei Darussalam,very_high_development,income_index,income_index,target,0.9759591699665321
+141,Montenegro,Montenegro,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8753846153846154
+142,Montenegro,Montenegro,very_high_development,education_index,education_index,target,0.8033333333333333
+143,Montenegro,Montenegro,very_high_development,income_index,income_index,target,0.8105543726714153
+144,Romania,Romania,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8615384615384616
+145,Romania,Romania,very_high_development,education_index,education_index,target,0.7672222222222222
+146,Romania,Romania,very_high_development,income_index,income_index,target,0.8590348594096338
+147,Palau,Palau,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8292307692307693
+148,Palau,Palau,very_high_development,education_index,education_index,target,0.8555555555555556
+149,Palau,Palau,very_high_development,income_index,income_index,target,0.7950925112166379
+150,Kazakhstan,Kazakhstan,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8246153846153845
+151,Kazakhstan,Kazakhstan,very_high_development,education_index,education_index,target,0.8300000000000001
+152,Kazakhstan,Kazakhstan,very_high_development,income_index,income_index,target,0.8205109429597847
+153,Russian Federation,Russian Federation,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8092307692307692
+154,Russian Federation,Russian Federation,very_high_development,education_index,education_index,target,0.8233333333333333
+155,Russian Federation,Russian Federation,very_high_development,income_index,income_index,target,0.8408822320297868
+156,Belarus,Belarus,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8430769230769231
+157,Belarus,Belarus,very_high_development,education_index,education_index,target,0.8377777777777778
+158,Belarus,Belarus,very_high_development,income_index,income_index,target,0.7889397990674819
+159,Turkey,Turkey,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8876923076923078
+160,Turkey,Turkey,very_high_development,education_index,education_index,target,0.731111111111111
+161,Turkey,Turkey,very_high_development,income_index,income_index,target,0.8495455308667749
+162,Uruguay,Uruguay,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8907692307692309
+163,Uruguay,Uruguay,very_high_development,education_index,education_index,target,0.7633333333333334
+164,Uruguay,Uruguay,very_high_development,income_index,income_index,target,0.8008238114670532
+165,Bulgaria,Bulgaria,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8461538461538461
+166,Bulgaria,Bulgaria,very_high_development,education_index,education_index,target,0.78
+167,Bulgaria,Bulgaria,very_high_development,income_index,income_index,target,0.8235725904585514
+168,Panama,Panama,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9
+169,Panama,Panama,very_high_development,education_index,education_index,target,0.6983333333333333
+170,Panama,Panama,very_high_development,income_index,income_index,target,0.8593469211450087
+171,Bahamas,Bahamas,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8292307692307693
+172,Bahamas,Bahamas,very_high_development,education_index,education_index,target,0.7383333333333333
+173,Bahamas,Bahamas,very_high_development,income_index,income_index,target,0.8793674081625353
+174,Barbados,Barbados,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9107692307692308
+175,Barbados,Barbados,very_high_development,education_index,education_index,target,0.7811111111111111
+176,Barbados,Barbados,very_high_development,income_index,income_index,target,0.7562392957067235
+177,Oman,Oman,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8907692307692309
+178,Oman,Oman,very_high_development,education_index,education_index,target,0.7177777777777777
+179,Oman,Oman,very_high_development,income_index,income_index,target,0.8396471290552903
+180,Georgia,Georgia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8276923076923076
+181,Georgia,Georgia,very_high_development,education_index,education_index,target,0.8616666666666667
+182,Georgia,Georgia,very_high_development,income_index,income_index,target,0.7510226863359637
+183,Costa Rica,Costa Rica,very_high_development,life_expectancy_index,life_expectancy_index,target,0.9276923076923076
+184,Costa Rica,Costa Rica,very_high_development,education_index,education_index,target,0.7261111111111112
+185,Costa Rica,Costa Rica,very_high_development,income_index,income_index,target,0.7884503114992399
+186,Malaysia,Malaysia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8646153846153847
+187,Malaysia,Malaysia,very_high_development,education_index,education_index,target,0.7272222222222222
+188,Malaysia,Malaysia,very_high_development,income_index,income_index,target,0.8486321106076181
+189,Kuwait,Kuwait,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8538461538461538
+190,Kuwait,Kuwait,very_high_development,education_index,education_index,target,0.6377777777777778
+191,Kuwait,Kuwait,very_high_development,income_index,income_index,target,0.9627007025034051
+192,Serbia,Serbia,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8615384615384616
+193,Serbia,Serbia,very_high_development,education_index,education_index,target,0.7816666666666666
+194,Serbia,Serbia,very_high_development,income_index,income_index,target,0.7774882681443734
+195,Mauritius,Mauritius,very_high_development,life_expectancy_index,life_expectancy_index,target,0.8461538461538461
+196,Mauritius,Mauritius,very_high_development,education_index,education_index,target,0.7361111111111112
+197,Mauritius,Mauritius,very_high_development,income_index,income_index,target,0.8356470599063496
+198,Seychelles,Seychelles,high_development,life_expectancy_index,life_expectancy_index,target,0.8215384615384617
+199,Seychelles,Seychelles,high_development,education_index,education_index,target,0.725
+200,Seychelles,Seychelles,high_development,income_index,income_index,target,0.8451300647292014
+201,Trinidad and Tobago,Trinidad and Tobago,high_development,life_expectancy_index,life_expectancy_index,target,0.823076923076923
+202,Trinidad and Tobago,Trinidad and Tobago,high_development,education_index,education_index,target,0.7277777777777777
+203,Trinidad and Tobago,Trinidad and Tobago,high_development,income_index,income_index,target,0.8413089760000295
+204,Albania,Albania,high_development,life_expectancy_index,life_expectancy_index,target,0.9015384615384614
+205,Albania,Albania,high_development,education_index,education_index,target,0.745
+206,Albania,Albania,high_development,income_index,income_index,target,0.7464418294327716
+207,Cuba,Cuba,high_development,life_expectancy_index,life_expectancy_index,target,0.9046153846153846
+208,Cuba,Cuba,high_development,education_index,education_index,target,0.7905555555555557
+209,Cuba,Cuba,high_development,income_index,income_index,target,0.6732230960566187
+210,Iran (Islamic Republic of),Iran (Islamic Republic of),high_development,life_expectancy_index,life_expectancy_index,target,0.8723076923076923
+211,Iran (Islamic Republic of),Iran (Islamic Republic of),high_development,education_index,education_index,target,0.7544444444444445
+212,Iran (Islamic Republic of),Iran (Islamic Republic of),high_development,income_index,income_index,target,0.7287026249580137
+213,Sri Lanka,Sri Lanka,high_development,life_expectancy_index,life_expectancy_index,target,0.8769230769230769
+214,Sri Lanka,Sri Lanka,high_development,education_index,education_index,target,0.745
+215,Sri Lanka,Sri Lanka,high_development,income_index,income_index,target,0.7318254594129506
+216,Bosnia and Herzegovina,Bosnia and Herzegovina,high_development,life_expectancy_index,life_expectancy_index,target,0.8830769230769232
+217,Bosnia and Herzegovina,Bosnia and Herzegovina,high_development,education_index,education_index,target,0.7100000000000001
+218,Bosnia and Herzegovina,Bosnia and Herzegovina,high_development,income_index,income_index,target,0.7555906388586326
+219,Grenada,Grenada,high_development,life_expectancy_index,life_expectancy_index,target,0.8061538461538462
+220,Grenada,Grenada,high_development,education_index,education_index,target,0.7694444444444444
+221,Grenada,Grenada,high_development,income_index,income_index,target,0.7632061771918387
+222,Mexico,Mexico,high_development,life_expectancy_index,life_expectancy_index,target,0.8461538461538461
+223,Mexico,Mexico,high_development,education_index,education_index,target,0.7044444444444444
+224,Mexico,Mexico,high_development,income_index,income_index,target,0.7938597809390646
+225,Saint Kitts and Nevis,Saint Kitts and Nevis,high_development,life_expectancy_index,life_expectancy_index,target,0.8430769230769231
+226,Saint Kitts and Nevis,Saint Kitts and Nevis,high_development,education_index,education_index,target,0.6733333333333333
+227,Saint Kitts and Nevis,Saint Kitts and Nevis,high_development,income_index,income_index,target,0.8342777476211874
+228,Ukraine,Ukraine,high_development,life_expectancy_index,life_expectancy_index,target,0.8015384615384614
+229,Ukraine,Ukraine,high_development,education_index,education_index,target,0.7994444444444444
+230,Ukraine,Ukraine,high_development,income_index,income_index,target,0.7377582025761957
+231,Antigua and Barbuda,Antigua and Barbuda,high_development,life_expectancy_index,life_expectancy_index,target,0.8769230769230769
+232,Antigua and Barbuda,Antigua and Barbuda,high_development,education_index,education_index,target,0.6655555555555556
+233,Antigua and Barbuda,Antigua and Barbuda,high_development,income_index,income_index,target,0.806954065647526
+234,Peru,Peru,high_development,life_expectancy_index,life_expectancy_index,target,0.8723076923076923
+235,Peru,Peru,high_development,education_index,education_index,target,0.74
+236,Peru,Peru,high_development,income_index,income_index,target,0.726317388336652
+237,Thailand,Thailand,high_development,life_expectancy_index,life_expectancy_index,target,0.88
+238,Thailand,Thailand,high_development,education_index,education_index,target,0.68
+239,Thailand,Thailand,high_development,income_index,income_index,target,0.7825767786612016
+240,Armenia,Armenia,high_development,life_expectancy_index,life_expectancy_index,target,0.8476923076923076
+241,Armenia,Armenia,high_development,education_index,education_index,target,0.7405555555555556
+242,Armenia,Armenia,high_development,income_index,income_index,target,0.745315350953757
+243,North Macedonia,North Macedonia,high_development,life_expectancy_index,life_expectancy_index,target,0.8584615384615384
+244,North Macedonia,North Macedonia,high_development,education_index,education_index,target,0.7044444444444444
+245,North Macedonia,North Macedonia,high_development,income_index,income_index,target,0.7653541524331136
+246,Colombia,Colombia,high_development,life_expectancy_index,life_expectancy_index,target,0.8815384615384615
+247,Colombia,Colombia,high_development,education_index,education_index,target,0.6833333333333333
+248,Colombia,Colombia,high_development,income_index,income_index,target,0.749211217524491
+249,Brazil,Brazil,high_development,life_expectancy_index,life_expectancy_index,target,0.8600000000000001
+250,Brazil,Brazil,high_development,education_index,education_index,target,0.6944444444444444
+251,Brazil,Brazil,high_development,income_index,income_index,target,0.7492747753366684
+252,China,China,high_development,life_expectancy_index,life_expectancy_index,target,0.8753846153846154
+253,China,China,high_development,education_index,education_index,target,0.6588888888888889
+254,China,China,high_development,income_index,income_index,target,0.7671712722982718
+255,Ecuador,Ecuador,high_development,life_expectancy_index,life_expectancy_index,target,0.8769230769230769
+256,Ecuador,Ecuador,high_development,education_index,education_index,target,0.7022222222222223
+257,Ecuador,Ecuador,high_development,income_index,income_index,target,0.7106375171835317
+258,Saint Lucia,Saint Lucia,high_development,life_expectancy_index,life_expectancy_index,target,0.8646153846153847
+259,Saint Lucia,Saint Lucia,high_development,education_index,education_index,target,0.6722222222222223
+260,Saint Lucia,Saint Lucia,high_development,income_index,income_index,target,0.7529677930377875
+261,Azerbaijan,Azerbaijan,high_development,life_expectancy_index,life_expectancy_index,target,0.8153846153846154
+262,Azerbaijan,Azerbaijan,high_development,education_index,education_index,target,0.7116666666666667
+263,Azerbaijan,Azerbaijan,high_development,income_index,income_index,target,0.7441146704178953
+264,Dominican Republic,Dominican Republic,high_development,life_expectancy_index,life_expectancy_index,target,0.8323076923076922
+265,Dominican Republic,Dominican Republic,high_development,education_index,education_index,target,0.6644444444444444
+266,Dominican Republic,Dominican Republic,high_development,income_index,income_index,target,0.7809539772930163
+267,Moldova (Republic of),Moldova (Republic of),high_development,life_expectancy_index,life_expectancy_index,target,0.7984615384615386
+268,Moldova (Republic of),Moldova (Republic of),high_development,education_index,education_index,target,0.7094444444444443
+269,Moldova (Republic of),Moldova (Republic of),high_development,income_index,income_index,target,0.7427938599212999
+270,Algeria,Algeria,high_development,life_expectancy_index,life_expectancy_index,target,0.8753846153846154
+271,Algeria,Algeria,high_development,education_index,education_index,target,0.6722222222222223
+272,Algeria,Algeria,high_development,income_index,income_index,target,0.7124052252743586
+273,Lebanon,Lebanon,high_development,life_expectancy_index,life_expectancy_index,target,0.9061538461538462
+274,Lebanon,Lebanon,high_development,education_index,education_index,target,0.6038888888888889
+275,Lebanon,Lebanon,high_development,income_index,income_index,target,0.7533703195664248
+276,Fiji,Fiji,high_development,life_expectancy_index,life_expectancy_index,target,0.7292307692307693
+277,Fiji,Fiji,high_development,education_index,education_index,target,0.7633333333333334
+278,Fiji,Fiji,high_development,income_index,income_index,target,0.7353735172915031
+279,Dominica,Dominica,high_development,life_expectancy_index,life_expectancy_index,target,0.8953846153846154
+280,Dominica,Dominica,high_development,education_index,education_index,target,0.6311111111111111
+281,Dominica,Dominica,high_development,income_index,income_index,target,0.7217107578027051
+282,Maldives,Maldives,high_development,life_expectancy_index,life_expectancy_index,target,0.9061538461538462
+283,Maldives,Maldives,high_development,education_index,education_index,target,0.5722222222222222
+284,Maldives,Maldives,high_development,income_index,income_index,target,0.779452382589001
+285,Tunisia,Tunisia,high_development,life_expectancy_index,life_expectancy_index,target,0.8723076923076923
+286,Tunisia,Tunisia,high_development,education_index,education_index,target,0.6594444444444445
+287,Tunisia,Tunisia,high_development,income_index,income_index,target,0.7017650715934647
+288,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,high_development,life_expectancy_index,life_expectancy_index,target,0.8076923076923077
+289,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,high_development,education_index,education_index,target,0.685
+290,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,high_development,income_index,income_index,target,0.7278629172194064
+291,Suriname,Suriname,high_development,life_expectancy_index,life_expectancy_index,target,0.7953846153846155
+292,Suriname,Suriname,high_development,education_index,education_index,target,0.6766666666666666
+293,Suriname,Suriname,high_development,income_index,income_index,target,0.7499194329502266
+294,Mongolia,Mongolia,high_development,life_expectancy_index,life_expectancy_index,target,0.7676923076923078
+295,Mongolia,Mongolia,high_development,education_index,education_index,target,0.7377777777777779
+296,Mongolia,Mongolia,high_development,income_index,income_index,target,0.7078072534311896
+297,Botswana,Botswana,high_development,life_expectancy_index,life_expectancy_index,target,0.763076923076923
+298,Botswana,Botswana,high_development,education_index,education_index,target,0.6755555555555556
+299,Botswana,Botswana,high_development,income_index,income_index,target,0.7707044658034082
+300,Jamaica,Jamaica,high_development,life_expectancy_index,life_expectancy_index,target,0.8384615384615385
+301,Jamaica,Jamaica,high_development,education_index,education_index,target,0.6872222222222222
+302,Jamaica,Jamaica,high_development,income_index,income_index,target,0.6849834251567457
+303,Jordan,Jordan,high_development,life_expectancy_index,life_expectancy_index,target,0.8384615384615385
+304,Jordan,Jordan,high_development,education_index,education_index,target,0.6666666666666666
+305,Jordan,Jordan,high_development,income_index,income_index,target,0.6934769840231645
+306,Paraguay,Paraguay,high_development,life_expectancy_index,life_expectancy_index,target,0.8338461538461539
+307,Paraguay,Paraguay,high_development,education_index,education_index,target,0.6361111111111111
+308,Paraguay,Paraguay,high_development,income_index,income_index,target,0.725971779387176
+309,Tonga,Tonga,high_development,life_expectancy_index,life_expectancy_index,target,0.7830769230769231
+310,Tonga,Tonga,high_development,education_index,education_index,target,0.7733333333333333
+311,Tonga,Tonga,high_development,income_index,income_index,target,0.627394772750595
+312,Libya,Libya,high_development,life_expectancy_index,life_expectancy_index,target,0.8138461538461539
+313,Libya,Libya,high_development,education_index,education_index,target,0.6116666666666666
+314,Libya,Libya,high_development,income_index,income_index,target,0.7636594074067222
+315,Uzbekistan,Uzbekistan,high_development,life_expectancy_index,life_expectancy_index,target,0.7953846153846155
+316,Uzbekistan,Uzbekistan,high_development,education_index,education_index,target,0.7294444444444445
+317,Uzbekistan,Uzbekistan,high_development,income_index,income_index,target,0.6447931630054445
+318,Bolivia (Plurinational State of),Bolivia (Plurinational State of),high_development,life_expectancy_index,life_expectancy_index,target,0.7923076923076923
+319,Bolivia (Plurinational State of),Bolivia (Plurinational State of),high_development,education_index,education_index,target,0.6944444444444444
+320,Bolivia (Plurinational State of),Bolivia (Plurinational State of),high_development,income_index,income_index,target,0.6720445475451953
+321,Indonesia,Indonesia,high_development,life_expectancy_index,life_expectancy_index,target,0.7953846153846155
+322,Indonesia,Indonesia,high_development,education_index,education_index,target,0.6511111111111111
+323,Indonesia,Indonesia,high_development,income_index,income_index,target,0.716209684171053
+324,Philippines,Philippines,high_development,life_expectancy_index,life_expectancy_index,target,0.7876923076923077
+325,Philippines,Philippines,high_development,education_index,education_index,target,0.6772222222222222
+326,Philippines,Philippines,high_development,income_index,income_index,target,0.6922461299415672
+327,Belize,Belize,high_development,life_expectancy_index,life_expectancy_index,target,0.8399999999999999
+328,Belize,Belize,high_development,education_index,education_index,target,0.6938888888888889
+329,Belize,Belize,high_development,income_index,income_index,target,0.6277976830755219
+330,Samoa,Samoa,high_development,life_expectancy_index,life_expectancy_index,target,0.82
+331,Samoa,Samoa,high_development,education_index,education_index,target,0.7127777777777777
+332,Samoa,Samoa,high_development,income_index,income_index,target,0.6260598862100686
+333,Turkmenistan,Turkmenistan,high_development,life_expectancy_index,life_expectancy_index,target,0.7415384615384616
+334,Turkmenistan,Turkmenistan,high_development,education_index,education_index,target,0.6544444444444445
+335,Turkmenistan,Turkmenistan,high_development,income_index,income_index,target,0.7559659832014518
+336,Venezuela (Bolivarian Republic of),Venezuela (Bolivarian Republic of),high_development,life_expectancy_index,life_expectancy_index,target,0.8015384615384614
+337,Venezuela (Bolivarian Republic of),Venezuela (Bolivarian Republic of),high_development,education_index,education_index,target,0.6988888888888889
+338,Venezuela (Bolivarian Republic of),Venezuela (Bolivarian Republic of),high_development,income_index,income_index,target,0.6427275206182689
+339,South Africa,South Africa,high_development,life_expectancy_index,life_expectancy_index,target,0.6784615384615383
+340,South Africa,South Africa,high_development,education_index,education_index,target,0.7233333333333334
+341,South Africa,South Africa,high_development,income_index,income_index,target,0.7247932496558545
+342,"Palestine, State of","Palestine, State of",high_development,life_expectancy_index,life_expectancy_index,target,0.8307692307692308
+343,"Palestine, State of","Palestine, State of",high_development,education_index,education_index,target,0.6788888888888889
+344,"Palestine, State of","Palestine, State of",high_development,income_index,income_index,target,0.6286238357088387
+345,Egypt,Egypt,high_development,life_expectancy_index,life_expectancy_index,target,0.8
+346,Egypt,Egypt,high_development,education_index,education_index,target,0.6161111111111112
+347,Egypt,Egypt,high_development,income_index,income_index,target,0.7163019319488085
+348,Marshall Islands,Marshall Islands,high_development,life_expectancy_index,life_expectancy_index,target,0.8323076923076922
+349,Marshall Islands,Marshall Islands,high_development,education_index,education_index,target,0.7077777777777778
+350,Marshall Islands,Marshall Islands,high_development,income_index,income_index,target,0.5921071596044943
+351,Viet Nam,Viet Nam,high_development,life_expectancy_index,life_expectancy_index,target,0.8523076923076924
+352,Viet Nam,Viet Nam,high_development,education_index,education_index,target,0.6294444444444445
+353,Viet Nam,Viet Nam,high_development,income_index,income_index,target,0.6508258299148533
+354,Gabon,Gabon,high_development,life_expectancy_index,life_expectancy_index,target,0.7153846153846154
+355,Gabon,Gabon,high_development,education_index,education_index,target,0.6511111111111111
+356,Gabon,Gabon,high_development,income_index,income_index,target,0.7457062371932733
+357,Kyrgyzstan,Kyrgyzstan,medium_development,life_expectancy_index,life_expectancy_index,target,0.7907692307692309
+358,Kyrgyzstan,Kyrgyzstan,medium_development,education_index,education_index,target,0.731111111111111
+359,Kyrgyzstan,Kyrgyzstan,medium_development,income_index,income_index,target,0.5867678674347754
+360,Morocco,Morocco,medium_development,life_expectancy_index,life_expectancy_index,target,0.8723076923076923
+361,Morocco,Morocco,medium_development,education_index,education_index,target,0.5672222222222222
+362,Morocco,Morocco,medium_development,income_index,income_index,target,0.649499070147078
+363,Guyana,Guyana,medium_development,life_expectancy_index,life_expectancy_index,target,0.7676923076923078
+364,Guyana,Guyana,medium_development,education_index,education_index,target,0.6
+365,Guyana,Guyana,medium_development,income_index,income_index,target,0.6871719772852343
+366,Iraq,Iraq,medium_development,life_expectancy_index,life_expectancy_index,target,0.7784615384615384
+367,Iraq,Iraq,medium_development,education_index,education_index,target,0.5572222222222222
+368,Iraq,Iraq,medium_development,income_index,income_index,target,0.7072767429235697
+369,El Salvador,El Salvador,medium_development,life_expectancy_index,life_expectancy_index,target,0.82
+370,El Salvador,El Salvador,medium_development,education_index,education_index,target,0.5549999999999999
+371,El Salvador,El Salvador,medium_development,income_index,income_index,target,0.6685611710977941
+372,Tajikistan,Tajikistan,medium_development,life_expectancy_index,life_expectancy_index,target,0.7861538461538461
+373,Tajikistan,Tajikistan,medium_development,education_index,education_index,target,0.6816666666666666
+374,Tajikistan,Tajikistan,medium_development,income_index,income_index,target,0.5554791771962572
+375,Cabo Verde,Cabo Verde,medium_development,life_expectancy_index,life_expectancy_index,target,0.8153846153846154
+376,Cabo Verde,Cabo Verde,medium_development,education_index,education_index,target,0.5627777777777777
+377,Cabo Verde,Cabo Verde,medium_development,income_index,income_index,target,0.6421690090298002
+378,Guatemala,Guatemala,medium_development,life_expectancy_index,life_expectancy_index,target,0.8353846153846154
+379,Guatemala,Guatemala,medium_development,education_index,education_index,target,0.52
+380,Guatemala,Guatemala,medium_development,income_index,income_index,target,0.6709812695882847
+381,Nicaragua,Nicaragua,medium_development,life_expectancy_index,life_expectancy_index,target,0.8384615384615385
+382,Nicaragua,Nicaragua,medium_development,education_index,education_index,target,0.5716666666666667
+383,Nicaragua,Nicaragua,medium_development,income_index,income_index,target,0.5992786417740247
+384,Bhutan,Bhutan,medium_development,life_expectancy_index,life_expectancy_index,target,0.7969230769230768
+385,Bhutan,Bhutan,medium_development,education_index,education_index,target,0.49777777777777776
+386,Bhutan,Bhutan,medium_development,income_index,income_index,target,0.706505583758038
+387,Namibia,Namibia,medium_development,life_expectancy_index,life_expectancy_index,target,0.6723076923076924
+388,Namibia,Namibia,medium_development,education_index,education_index,target,0.5833333333333333
+389,Namibia,Namibia,medium_development,income_index,income_index,target,0.6855981312730229
+390,India,India,medium_development,life_expectancy_index,life_expectancy_index,target,0.7646153846153847
+391,India,India,medium_development,education_index,education_index,target,0.5555555555555556
+392,India,India,medium_development,income_index,income_index,target,0.6347139433129649
+393,Honduras,Honduras,medium_development,life_expectancy_index,life_expectancy_index,target,0.8507692307692307
+394,Honduras,Honduras,medium_development,education_index,education_index,target,0.5005555555555555
+395,Honduras,Honduras,medium_development,income_index,income_index,target,0.599963185534872
+396,Bangladesh,Bangladesh,medium_development,life_expectancy_index,life_expectancy_index,target,0.8092307692307692
+397,Bangladesh,Bangladesh,medium_development,education_index,education_index,target,0.5288888888888889
+398,Bangladesh,Bangladesh,medium_development,income_index,income_index,target,0.590206682998107
+399,Kiribati,Kiribati,medium_development,life_expectancy_index,life_expectancy_index,target,0.7446153846153847
+400,Kiribati,Kiribati,medium_development,education_index,education_index,target,0.5944444444444444
+401,Kiribati,Kiribati,medium_development,income_index,income_index,target,0.5667390882587698
+402,Sao Tome and Principe,Sao Tome and Principe,medium_development,life_expectancy_index,life_expectancy_index,target,0.7753846153846154
+403,Sao Tome and Principe,Sao Tome and Principe,medium_development,education_index,education_index,target,0.5661111111111111
+404,Sao Tome and Principe,Sao Tome and Principe,medium_development,income_index,income_index,target,0.5554027513249686
+405,Micronesia (Federated States of),Micronesia (Federated States of),medium_development,life_expectancy_index,life_expectancy_index,target,0.736923076923077
+406,Micronesia (Federated States of),Micronesia (Federated States of),medium_development,education_index,education_index,target,0.5794444444444444
+407,Micronesia (Federated States of),Micronesia (Federated States of),medium_development,income_index,income_index,target,0.5565830289548561
+408,Lao People's Democratic Republic,Lao People's Democratic Republic,medium_development,life_expectancy_index,life_expectancy_index,target,0.736923076923077
+409,Lao People's Democratic Republic,Lao People's Democratic Republic,medium_development,education_index,education_index,target,0.4822222222222222
+410,Lao People's Democratic Republic,Lao People's Democratic Republic,medium_development,income_index,income_index,target,0.6504188359157662
+411,Eswatini (Kingdom of),Eswatini (Kingdom of),medium_development,life_expectancy_index,life_expectancy_index,target,0.6184615384615385
+412,Eswatini (Kingdom of),Eswatini (Kingdom of),medium_development,education_index,education_index,target,0.5577777777777778
+413,Eswatini (Kingdom of),Eswatini (Kingdom of),medium_development,income_index,income_index,target,0.6603930034957498
+414,Ghana,Ghana,medium_development,life_expectancy_index,life_expectancy_index,target,0.6784615384615383
+415,Ghana,Ghana,medium_development,education_index,education_index,target,0.5627777777777777
+416,Ghana,Ghana,medium_development,income_index,income_index,target,0.5988492212307405
+417,Vanuatu,Vanuatu,medium_development,life_expectancy_index,life_expectancy_index,target,0.7769230769230769
+418,Vanuatu,Vanuatu,medium_development,education_index,education_index,target,0.5616666666666666
+419,Vanuatu,Vanuatu,medium_development,income_index,income_index,target,0.5189668907271975
+420,Timor-Leste,Timor-Leste,medium_development,life_expectancy_index,life_expectancy_index,target,0.7615384615384615
+421,Timor-Leste,Timor-Leste,medium_development,education_index,education_index,target,0.51
+422,Timor-Leste,Timor-Leste,medium_development,income_index,income_index,target,0.5729905623545593
+423,Nepal,Nepal,medium_development,life_expectancy_index,life_expectancy_index,target,0.7815384615384615
+424,Nepal,Nepal,medium_development,education_index,education_index,target,0.5222222222222223
+425,Nepal,Nepal,medium_development,income_index,income_index,target,0.5351883798563681
+426,Kenya,Kenya,medium_development,life_expectancy_index,life_expectancy_index,target,0.7184615384615385
+427,Kenya,Kenya,medium_development,education_index,education_index,target,0.5338888888888889
+428,Kenya,Kenya,medium_development,income_index,income_index,target,0.566170674675997
+429,Cambodia,Cambodia,medium_development,life_expectancy_index,life_expectancy_index,target,0.7661538461538461
+430,Cambodia,Cambodia,medium_development,education_index,education_index,target,0.48611111111111105
+431,Cambodia,Cambodia,medium_development,income_index,income_index,target,0.5662418434553488
+432,Equatorial Guinea,Equatorial Guinea,medium_development,life_expectancy_index,life_expectancy_index,target,0.5953846153846154
+433,Equatorial Guinea,Equatorial Guinea,medium_development,education_index,education_index,target,0.46611111111111114
+434,Equatorial Guinea,Equatorial Guinea,medium_development,income_index,income_index,target,0.7458579757609097
+435,Zambia,Zambia,medium_development,life_expectancy_index,life_expectancy_index,target,0.6753846153846154
+436,Zambia,Zambia,medium_development,education_index,education_index,target,0.5594444444444444
+437,Zambia,Zambia,medium_development,income_index,income_index,target,0.5293529791042065
+438,Myanmar,Myanmar,medium_development,life_expectancy_index,life_expectancy_index,target,0.7246153846153846
+439,Myanmar,Myanmar,medium_development,education_index,education_index,target,0.4638888888888889
+440,Myanmar,Myanmar,medium_development,income_index,income_index,target,0.5897506424040259
+441,Angola,Angola,medium_development,life_expectancy_index,life_expectancy_index,target,0.6338461538461538
+442,Angola,Angola,medium_development,education_index,education_index,target,0.5011111111111111
+443,Angola,Angola,medium_development,income_index,income_index,target,0.621070078639069
+444,Congo,Congo,medium_development,life_expectancy_index,life_expectancy_index,target,0.6861538461538461
+445,Congo,Congo,medium_development,education_index,education_index,target,0.5416666666666666
+446,Congo,Congo,medium_development,income_index,income_index,target,0.507551502800542
+447,Zimbabwe,Zimbabwe,medium_development,life_expectancy_index,life_expectancy_index,target,0.6384615384615384
+448,Zimbabwe,Zimbabwe,medium_development,education_index,education_index,target,0.5888888888888889
+449,Zimbabwe,Zimbabwe,medium_development,income_index,income_index,target,0.49594078680457676
+450,Solomon Islands,Solomon Islands,medium_development,life_expectancy_index,life_expectancy_index,target,0.8153846153846154
+451,Solomon Islands,Solomon Islands,medium_development,education_index,education_index,target,0.47333333333333333
+452,Solomon Islands,Solomon Islands,medium_development,income_index,income_index,target,0.47051560568416656
+453,Syrian Arab Republic,Syrian Arab Republic,medium_development,life_expectancy_index,life_expectancy_index,target,0.8107692307692308
+454,Syrian Arab Republic,Syrian Arab Republic,medium_development,education_index,education_index,target,0.4172222222222222
+455,Syrian Arab Republic,Syrian Arab Republic,medium_development,income_index,income_index,target,0.5418555706636353
+456,Cameroon,Cameroon,medium_development,life_expectancy_index,life_expectancy_index,target,0.6046153846153846
+457,Cameroon,Cameroon,medium_development,education_index,education_index,target,0.5461111111111111
+458,Cameroon,Cameroon,medium_development,income_index,income_index,target,0.5405117243236235
+459,Pakistan,Pakistan,medium_development,life_expectancy_index,life_expectancy_index,target,0.7276923076923076
+460,Pakistan,Pakistan,medium_development,education_index,education_index,target,0.4038888888888889
+461,Pakistan,Pakistan,medium_development,income_index,income_index,target,0.5910844765132263
+462,Papua New Guinea,Papua New Guinea,medium_development,life_expectancy_index,life_expectancy_index,target,0.6846153846153846
+463,Papua New Guinea,Papua New Guinea,medium_development,education_index,education_index,target,0.44
+464,Papua New Guinea,Papua New Guinea,medium_development,income_index,income_index,target,0.5681859594974249
+465,Comoros,Comoros,medium_development,life_expectancy_index,life_expectancy_index,target,0.6815384615384615
+466,Comoros,Comoros,medium_development,education_index,education_index,target,0.4811111111111111
+467,Comoros,Comoros,medium_development,income_index,income_index,target,0.5186747132059698
+468,Mauritania,Mauritania,low_development,life_expectancy_index,life_expectancy_index,target,0.6907692307692308
+469,Mauritania,Mauritania,low_development,education_index,education_index,target,0.39555555555555555
+470,Mauritania,Mauritania,low_development,income_index,income_index,target,0.5949579126238785
+471,Benin,Benin,low_development,life_expectancy_index,life_expectancy_index,target,0.643076923076923
+472,Benin,Benin,low_development,education_index,education_index,target,0.4766666666666666
+473,Benin,Benin,low_development,income_index,income_index,target,0.5260470682341726
+474,Uganda,Uganda,low_development,life_expectancy_index,life_expectancy_index,target,0.6676923076923077
+475,Uganda,Uganda,low_development,education_index,education_index,target,0.5233333333333333
+476,Uganda,Uganda,low_development,income_index,income_index,target,0.4615379891420472
+477,Rwanda,Rwanda,low_development,life_expectancy_index,life_expectancy_index,target,0.7538461538461538
+478,Rwanda,Rwanda,low_development,education_index,education_index,target,0.4577777777777778
+479,Rwanda,Rwanda,low_development,income_index,income_index,target,0.46379786457965316
+480,Nigeria,Nigeria,low_development,life_expectancy_index,life_expectancy_index,target,0.5338461538461539
+481,Nigeria,Nigeria,low_development,education_index,education_index,target,0.5011111111111111
+482,Nigeria,Nigeria,low_development,income_index,income_index,target,0.5881897243914745
+483,Côte d'Ivoire,Côte d'Ivoire,low_development,life_expectancy_index,life_expectancy_index,target,0.5815384615384614
+484,Côte d'Ivoire,Côte d'Ivoire,low_development,education_index,education_index,target,0.45444444444444443
+485,Côte d'Ivoire,Côte d'Ivoire,low_development,income_index,income_index,target,0.5930038127994918
+486,Tanzania (United Republic of),Tanzania (United Republic of),low_development,life_expectancy_index,life_expectancy_index,target,0.7
+487,Tanzania (United Republic of),Tanzania (United Republic of),low_development,education_index,education_index,target,0.4283333333333333
+488,Tanzania (United Republic of),Tanzania (United Republic of),low_development,income_index,income_index,target,0.49215415545670105
+489,Madagascar,Madagascar,low_development,life_expectancy_index,life_expectancy_index,target,0.7230769230769231
+490,Madagascar,Madagascar,low_development,education_index,education_index,target,0.48666666666666664
+491,Madagascar,Madagascar,low_development,income_index,income_index,target,0.4184373050873695
+492,Lesotho,Lesotho,low_development,life_expectancy_index,life_expectancy_index,target,0.5276923076923077
+493,Lesotho,Lesotho,low_development,education_index,education_index,target,0.5305555555555556
+494,Lesotho,Lesotho,low_development,income_index,income_index,target,0.5211883385769265
+495,Djibouti,Djibouti,low_development,life_expectancy_index,life_expectancy_index,target,0.7246153846153846
+496,Djibouti,Djibouti,low_development,education_index,education_index,target,0.32555555555555554
+497,Djibouti,Djibouti,low_development,income_index,income_index,target,0.6104342735630481
+498,Togo,Togo,low_development,life_expectancy_index,life_expectancy_index,target,0.6307692307692307
+499,Togo,Togo,low_development,education_index,education_index,target,0.5161111111111111
+500,Togo,Togo,low_development,income_index,income_index,target,0.4190041190033921
+501,Senegal,Senegal,low_development,life_expectancy_index,life_expectancy_index,target,0.736923076923077
+502,Senegal,Senegal,low_development,education_index,education_index,target,0.34555555555555556
+503,Senegal,Senegal,low_development,income_index,income_index,target,0.5285789163904884
+504,Afghanistan,Afghanistan,low_development,life_expectancy_index,life_expectancy_index,target,0.6892307692307692
+505,Afghanistan,Afghanistan,low_development,education_index,education_index,target,0.41333333333333333
+506,Afghanistan,Afghanistan,low_development,income_index,income_index,target,0.4688978581589865
+507,Haiti,Haiti,low_development,life_expectancy_index,life_expectancy_index,target,0.676923076923077
+508,Haiti,Haiti,low_development,education_index,education_index,target,0.4561111111111111
+509,Haiti,Haiti,low_development,income_index,income_index,target,0.42877071122528887
+510,Sudan,Sudan,low_development,life_expectancy_index,life_expectancy_index,target,0.6969230769230769
+511,Sudan,Sudan,low_development,education_index,education_index,target,0.3461111111111111
+512,Sudan,Sudan,low_development,income_index,income_index,target,0.5506266549882581
+513,Gambia,Gambia,low_development,life_expectancy_index,life_expectancy_index,target,0.6461538461538462
+514,Gambia,Gambia,low_development,education_index,education_index,target,0.405
+515,Gambia,Gambia,low_development,income_index,income_index,target,0.46470636813151067
+516,Ethiopia,Ethiopia,low_development,life_expectancy_index,life_expectancy_index,target,0.7169230769230769
+517,Ethiopia,Ethiopia,low_development,education_index,education_index,target,0.34111111111111114
+518,Ethiopia,Ethiopia,low_development,income_index,income_index,target,0.46739954736699285
+519,Malawi,Malawi,low_development,life_expectancy_index,life_expectancy_index,target,0.6815384615384615
+520,Malawi,Malawi,low_development,education_index,education_index,target,0.4677777777777778
+521,Malawi,Malawi,low_development,income_index,income_index,target,0.35301520795964353
+522,Congo (Democratic Republic of the),Congo (Democratic Republic of the),low_development,life_expectancy_index,life_expectancy_index,target,0.6261538461538462
+523,Congo (Democratic Republic of the),Congo (Democratic Republic of the),low_development,education_index,education_index,target,0.49611111111111106
+524,Congo (Democratic Republic of the),Congo (Democratic Republic of the),low_development,income_index,income_index,target,0.35704744020386503
+525,Guinea-Bissau,Guinea-Bissau,low_development,life_expectancy_index,life_expectancy_index,target,0.5892307692307692
+526,Guinea-Bissau,Guinea-Bissau,low_development,education_index,education_index,target,0.41444444444444445
+527,Guinea-Bissau,Guinea-Bissau,low_development,income_index,income_index,target,0.4522201156220085
+528,Liberia,Liberia,low_development,life_expectancy_index,life_expectancy_index,target,0.6784615384615383
+529,Liberia,Liberia,low_development,education_index,education_index,target,0.42666666666666664
+530,Liberia,Liberia,low_development,income_index,income_index,target,0.38248946382866306
+531,Guinea,Guinea,low_development,life_expectancy_index,life_expectancy_index,target,0.64
+532,Guinea,Guinea,low_development,education_index,education_index,target,0.35444444444444445
+533,Guinea,Guinea,low_development,income_index,income_index,target,0.48037761779050014
+534,Yemen,Yemen,low_development,life_expectancy_index,life_expectancy_index,target,0.7092307692307691
+535,Yemen,Yemen,low_development,education_index,education_index,target,0.35111111111111115
+536,Yemen,Yemen,low_development,income_index,income_index,target,0.4182478934871538
+537,Eritrea,Eritrea,low_development,life_expectancy_index,life_expectancy_index,target,0.7123076923076923
+538,Eritrea,Eritrea,low_development,education_index,education_index,target,0.2688888888888889
+539,Eritrea,Eritrea,low_development,income_index,income_index,target,0.5029704772256158
+540,Mozambique,Mozambique,low_development,life_expectancy_index,life_expectancy_index,target,0.6276923076923077
+541,Mozambique,Mozambique,low_development,education_index,education_index,target,0.3944444444444445
+542,Mozambique,Mozambique,low_development,income_index,income_index,target,0.3815257876327947
+543,Burkina Faso,Burkina Faso,low_development,life_expectancy_index,life_expectancy_index,target,0.64
+544,Burkina Faso,Burkina Faso,low_development,education_index,education_index,target,0.3116666666666667
+545,Burkina Faso,Burkina Faso,low_development,income_index,income_index,target,0.46224783881009296
+546,Sierra Leone,Sierra Leone,low_development,life_expectancy_index,life_expectancy_index,target,0.5338461538461539
+547,Sierra Leone,Sierra Leone,low_development,education_index,education_index,target,0.4066666666666667
+548,Sierra Leone,Sierra Leone,low_development,income_index,income_index,target,0.42510260976487835
+549,Mali,Mali,low_development,life_expectancy_index,life_expectancy_index,target,0.6046153846153846
+550,Mali,Mali,low_development,education_index,education_index,target,0.28833333333333333
+551,Mali,Mali,low_development,income_index,income_index,target,0.4715845582662341
+552,Burundi,Burundi,low_development,life_expectancy_index,life_expectancy_index,target,0.64
+553,Burundi,Burundi,low_development,education_index,education_index,target,0.41833333333333333
+554,Burundi,Burundi,low_development,income_index,income_index,target,0.30516613925462654
+555,South Sudan,South Sudan,low_development,life_expectancy_index,life_expectancy_index,target,0.5815384615384614
+556,South Sudan,South Sudan,low_development,education_index,education_index,target,0.30722222222222223
+557,South Sudan,South Sudan,low_development,income_index,income_index,target,0.4527489434287698
+558,Chad,Chad,low_development,life_expectancy_index,life_expectancy_index,target,0.5261538461538462
+559,Chad,Chad,low_development,education_index,education_index,target,0.2861111111111111
+560,Chad,Chad,low_development,income_index,income_index,target,0.4145060867179491
+561,Central African Republic,Central African Republic,low_development,life_expectancy_index,life_expectancy_index,target,0.5123076923076922
+562,Central African Republic,Central African Republic,low_development,education_index,education_index,target,0.35444444444444445
+563,Central African Republic,Central African Republic,low_development,income_index,income_index,target,0.34675756693938536
+564,Niger,Niger,low_development,life_expectancy_index,life_expectancy_index,target,0.6523076923076923
+565,Niger,Niger,low_development,education_index,education_index,target,0.25055555555555553
+566,Niger,Niger,low_development,income_index,income_index,target,0.3754852187495208
