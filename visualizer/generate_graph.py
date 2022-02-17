@@ -1,8 +1,9 @@
+from matplotlib.pyplot import axis
 import pandas as pd
 import numpy as np
 import networkx as nx
 from colour import Color
-from scipy.stats import gmean
+from scipy import stats
 
 from itertools import combinations
 import time
@@ -37,7 +38,7 @@ class Generate_Graph:
         Assigns either dummy data or custom data to main dataframe.
 
         Args:
-            starting_edges_df (pandas dataframe): Formatted data input.
+            starting_edges_df (Pandas dataframe): Formatted data input.
 
         """
 
@@ -148,8 +149,11 @@ class Generate_Graph:
 
         self.source_id_combined_scores_dict = {}
         for node in list(self.edges_df_initial['source_id'].unique()):
-            sub_value_list = self.edges_df_initial[self.edges_df_initial['source_id'] == node]['edge_value'].to_list()
-            combined_value = self._combine_values(sub_value_list)
+            # sub_value_list = self.edges_df_initial[self.edges_df_initial['source_id'] == node]['edge_value'].to_list()
+            # combined_value = self._combine_values(sub_value_list)
+
+            sub_df = self.edges_df_initial[self.edges_df_initial['source_id'] == node]
+            combined_value = self._combine_values(sub_df)
 
             self.source_id_combined_scores_dict[node] = combined_value
 
@@ -309,35 +313,29 @@ class Generate_Graph:
         if self.timing:
             print('INITIALIZE GRAPH STATE: ' + str(time.time() - start_time))
 
-    def _combine_values(self, values=list):
+    def _combine_values(self, df=pd.DataFrame, method='arithmetic_mean'):
         """
         Helper method that allows for source-target values to be combined. When a source shares an edge with 
         multiple targets, each edge value for that source is fed into this method. Adjusting this method allows
         for different linear combinations (or otherwise) for data-specific graph customization.
 
         Args:
-            values (list): List of edge values shared by a single source.
+            df (Pandas dataframe): Sub-dataframe of edges to be manipulated (usually combining edge values).
+            method (str): Stock score combination methods; other combination methods can replace 'other.'
 
         """
         
-        '''
-        number_of_connections = len(values)
+        if method == 'arithmetic_mean':
 
-        linear_combination = 0
-        for value in values:
-            linear_combination = linear_combination + (value / number_of_connections)
+            return df['edge_value'].mean()
 
-        return linear_combination
-        '''
+        elif method == 'geometric_mean':
 
-        geometric_mean_val = values[0]
-        if len(values) > 1:
-            for val in values[1:]:
-                geometric_mean_val = geometric_mean_val * val
-        
-        geometric_mean_val = geometric_mean_val ** (1/len(values))
+            return stats.gmean(df['edge_value'])
 
-        return geometric_mean_val
+        elif method == 'other':
+
+            return df['edge_value'].sum()
 
     def _filter_data(self):
         """
@@ -365,8 +363,11 @@ class Generate_Graph:
 
         self.source_id_combined_scores_dict = {}
         for node in list(temporary_full_edges_df['source_id'].unique()):
-            sub_value_list = temporary_full_edges_df[temporary_full_edges_df['source_id'] == node]['edge_value'].to_list()
-            combined_value = self._combine_values(sub_value_list)
+            # sub_value_list = temporary_full_edges_df[temporary_full_edges_df['source_id'] == node]['edge_value'].to_list()
+            # combined_value = self._combine_values(sub_value_list)
+
+            sub_df = temporary_full_edges_df[temporary_full_edges_df['source_id'] == node]
+            combined_value = self._combine_values(sub_df)
 
             # Dynamically change combined score bound
             if (combined_value > self.max_combined_value):
