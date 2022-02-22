@@ -1,4 +1,3 @@
-from matplotlib.pyplot import axis
 import pandas as pd
 import numpy as np
 import networkx as nx
@@ -149,8 +148,6 @@ class Generate_Graph:
 
         self.source_id_combined_scores_dict = {}
         for node in list(self.edges_df_initial['source_id'].unique()):
-            # sub_value_list = self.edges_df_initial[self.edges_df_initial['source_id'] == node]['edge_value'].to_list()
-            # combined_value = self._combine_values(sub_value_list)
 
             sub_df = self.edges_df_initial[self.edges_df_initial['source_id'] == node]
             combined_value = self._combine_values(sub_df)
@@ -197,14 +194,6 @@ class Generate_Graph:
 
         self.unique_target_nodes = list(self.edges_df_initial['target_id'].unique())
         self.unique_target_nodes_initial = self.unique_target_nodes
-
-        '''
-        # Combined value range initialization
-        self.combined_value_range = [self.min_edge_value, self.max_edge_value]
-        self.combined_value_range_initial = self.combined_value_range
-        self.combined_value_step_size = np.round((self.max_combined_value_start - self.min_combined_value_start) / 100, 3)
-        self.combined_value_bound = [(self.min_edge_value - self.combined_value_step_size), (self.max_edge_value + self.combined_value_step_size)]
-        '''
 
         # Combined value range initialization
         self.combined_value_range = [self.min_combined_value_start, self.max_combined_value_start]
@@ -313,7 +302,7 @@ class Generate_Graph:
         if self.timing:
             print('INITIALIZE GRAPH STATE: ' + str(time.time() - start_time))
 
-    def _combine_values(self, df=pd.DataFrame, method='arithmetic_mean'):
+    def _combine_values(self, df=pd.DataFrame, method='geometric_mean'):
         """
         Helper method that allows for source-target values to be combined. When a source shares an edge with 
         multiple targets, each edge value for that source is fed into this method. Adjusting this method allows
@@ -366,26 +355,16 @@ class Generate_Graph:
 
         self.source_id_combined_scores_dict = {}
         for node in list(temporary_full_edges_df['source_id'].unique()):
-            # sub_value_list = temporary_full_edges_df[temporary_full_edges_df['source_id'] == node]['edge_value'].to_list()
-            # combined_value = self._combine_values(sub_value_list)
 
             sub_df = temporary_full_edges_df[temporary_full_edges_df['source_id'] == node]
             combined_value = self._combine_values(sub_df)
 
-            # Dynamically change combined score bound
+            # Dynamically change combined score bound.
             if combined_value > temp_max_combined_val:
                 temp_max_combined_val = combined_value
 
             if combined_value < temp_min_combined_val:
                 temp_min_combined_val = combined_value     
-
-            '''
-            if combined_value > self.max_combined_value:
-                self.max_combined_value = combined_value
-
-            if combined_value < self.min_combined_value:
-                self.min_combined_value = combined_value
-            '''
 
             if (combined_value <= self.combined_value_range[1]) and (combined_value >= self.combined_value_range[0]):
                 self.source_id_combined_scores_dict[node] = combined_value
@@ -541,7 +520,7 @@ class Generate_Graph:
 
         temp_df = self.edges_df[['source_id', 'target_id', 'edge_value']].copy()
 
-        temp_df['edge_weight'] = temp_df.apply(lambda x: self._map_edge_weights(x['edge_value'], 2, 100), axis=1)
+        temp_df['edge_weight'] = temp_df.apply(lambda x: self._map_edge_weights(x['edge_value'], 2, 5), axis=1)
         
         nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id', edge_attr=['edge_weight'])
 
@@ -702,6 +681,16 @@ class Generate_Graph:
         return (nx_graph, final_spring)
 
     def _map_edge_weights(self, edge_val_column, min_weight, max_weight):
+        """
+        Maps edge values to weight values between min_weight and max_weight. These 
+        weight values affect the edge "pull" experienced when simulating the graph.
+
+        Args:
+            edge_val_column (Pandas series): Pandas column (series) of values to be mapped.
+            min_weight (float): Minimum desired weight value.
+            max_weight (float): Maximum desired weight value.
+
+        """
 
         edge_range = self.max_edge_value - self.min_edge_value
 
