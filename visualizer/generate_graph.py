@@ -72,7 +72,7 @@ class Generate_Graph:
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-        relationship_list = [{'T1', 'T2'}, {'T2', 'T3'}, {'T2', 'T3', 'T4'}, {'T4', 'T5'}, {'T5', 'T6'}, {'T6', 'T7'}, {'T7', 'T8'}, {'T7', 'T4'}]
+        relationship_list = [{'T1', 'T2'}, {'T2', 'T3'}, {'T2', 'T3', 'T4'}, {'T4', 'T5'}, {'T5', 'T6'}, {'T6', 'T7'}, {'T7', 'T8'}, {'T7', 'T4'}, {'T3', 'T5'}, {'T6', 'T4'}]
         type_list = ['type_1', 'type_2', 'type_3', 'type_4', 'type_5', 'type_6', 'type_7', 'type_8']
 
         source_id_list = []
@@ -361,6 +361,9 @@ class Generate_Graph:
             temporary_full_edges_df = temporary_full_edges_df[temporary_full_edges_df['source_type'].isin(self.type_dropdown_selection)]
             temporary_full_edges_df = temporary_full_edges_df[temporary_full_edges_df['target_type'].isin(self.type_dropdown_selection)]
 
+        temp_max_combined_val = -np.inf
+        temp_min_combined_val = np.inf
+
         self.source_id_combined_scores_dict = {}
         for node in list(temporary_full_edges_df['source_id'].unique()):
             # sub_value_list = temporary_full_edges_df[temporary_full_edges_df['source_id'] == node]['edge_value'].to_list()
@@ -370,16 +373,24 @@ class Generate_Graph:
             combined_value = self._combine_values(sub_df)
 
             # Dynamically change combined score bound
-            if (combined_value > self.max_combined_value):
+            if combined_value > temp_max_combined_val:
+                temp_max_combined_val = combined_value
+
+            if combined_value < temp_min_combined_val:
+                temp_min_combined_val = combined_value     
+
+            '''
+            if combined_value > self.max_combined_value:
                 self.max_combined_value = combined_value
 
             if combined_value < self.min_combined_value:
                 self.min_combined_value = combined_value
+            '''
 
             if (combined_value <= self.combined_value_range[1]) and (combined_value >= self.combined_value_range[0]):
                 self.source_id_combined_scores_dict[node] = combined_value
 
-        self.combined_value_bound = [self.min_combined_value - self.combined_value_step_size, self.max_combined_value + self.combined_value_step_size]
+        self.combined_value_bound = [temp_min_combined_val - self.combined_value_step_size, temp_max_combined_val + self.combined_value_step_size]
 
         self.source_id_combined_scores_df = pd.DataFrame(self.source_id_combined_scores_dict.items(), columns=['source_id', 'combined_value']).sort_values(by=['combined_value'], ascending=False)
 
@@ -528,7 +539,11 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        nx_graph = nx.from_pandas_edgelist(self.edges_df, 'source_id', 'target_id')
+        temp_df = self.edges_df[['source_id', 'target_id', 'edge_value']].copy()
+
+        temp_df['edge_weight'] = temp_df.apply(lambda x: self._map_edge_weights(x['edge_value'], 2, 100), axis=1)
+        
+        nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id', edge_attr=['edge_weight'])
 
         combination_set = set(list(combinations(self.unique_target_nodes, 2)))
 
@@ -673,9 +688,9 @@ class Generate_Graph:
             fixed_list.append(entry)
         
         if (len(pos_dict) != 0) and (len(fixed_list) != 0):
-            final_spring = nx.spring_layout(nx_graph, dim=2, pos=pos_dict, fixed=fixed_list, k=self.source_spread, iterations=self.simulation_iterations)
+            final_spring = nx.spring_layout(nx_graph, dim=2, weight='edge_weight', pos=pos_dict, fixed=fixed_list, k=self.source_spread, iterations=self.simulation_iterations)
         else:
-            final_spring = nx.spring_layout(nx_graph, dim=2, k=0.05, iterations=10)
+            final_spring = nx.spring_layout(nx_graph, dim=2, weight='edge_weight', k=0.05, iterations=10)
 
         self.adjusted_nx_graph = nx_graph
         self.nx_graph = nx_graph
@@ -685,6 +700,12 @@ class Generate_Graph:
             print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
 
         return (nx_graph, final_spring)
+
+    def _map_edge_weights(self, edge_val_column, min_weight, max_weight):
+
+        edge_range = self.max_edge_value - self.min_edge_value
+
+        return min_weight + max_weight * ((edge_val_column - self.min_edge_value) / edge_range)
 
     def _generate_graph_elements(self):
         """
