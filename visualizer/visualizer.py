@@ -189,7 +189,7 @@ graph_manipulation = dbc.Card(
                     min=0.1,
                     max=3,
                     step=0.1,
-                    value=1,
+                    value=graph.target_spread,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),
@@ -203,7 +203,7 @@ graph_manipulation = dbc.Card(
                     min=0.01,
                     max=0.3,
                     step=0.01,
-                    value=0.1,
+                    value=graph.source_spread,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),
@@ -217,7 +217,7 @@ graph_manipulation = dbc.Card(
                     min=0,
                     max=1,
                     step=0.01,
-                    value=0.1,
+                    value=graph.node_size_modifier,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),
@@ -231,7 +231,7 @@ graph_manipulation = dbc.Card(
                     min=0,
                     max=1,
                     step=0.01,
-                    value=0.1,
+                    value=graph.edge_size_modifier,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),
@@ -245,7 +245,7 @@ graph_manipulation = dbc.Card(
                     min=0,
                     max=50,
                     step=1,
-                    value=10,
+                    value=graph.simulation_iterations,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),

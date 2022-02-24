@@ -71,7 +71,7 @@ class Generate_Graph:
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-        relationship_list = [{'T1', 'T2'}, {'T2', 'T3'}, {'T2', 'T3', 'T4'}, {'T4', 'T5'}, {'T5', 'T6'}, {'T6', 'T7'}, {'T7', 'T8'}, {'T7', 'T4'}, {'T3', 'T5'}, {'T6', 'T4'}]
+        relationship_list = [{'T1', 'T2'}, {'T2', 'T3'}, {'T2', 'T3', 'T4'}, {'T4', 'T5'}, {'T5', 'T6'}, {'T6', 'T7'}, {'T7', 'T8'}, {'T7', 'T4'}]
         type_list = ['type_1', 'type_2', 'type_3', 'type_4', 'type_5', 'type_6', 'type_7', 'type_8']
 
         source_id_list = []
@@ -267,6 +267,9 @@ class Generate_Graph:
 
         self.target_size = self.max_combined_value_start + 0.5 * (self.max_combined_value_start)
         self.target_size_initial = self.target_size
+
+        # Layout initialization
+        self.layout = 'spring'
 
         # Gradient start initialization
         self.gradient_start = '#272B30'
@@ -512,7 +515,9 @@ class Generate_Graph:
     def _generate_nx_graphs(self):
         """
         Creates a networkx graph based on the filtered main edges dataframe. If applicable, simulations are performed 
-        (using the Fruchterman-Reingold force-directed algorithm) to improve node layout and spacing.
+        (using the Fruchterman-Reingold force-directed algorithm) to improve node layout and spacing. Additional layout 
+        options are provided, however change self.layout at your own risk! All of the sliders don't necessarily work with 
+        each of the different layouts. Additionally, the adjusted_spring layout is tailor-made for this visualizer/data structure.
 
         """
 
@@ -520,165 +525,225 @@ class Generate_Graph:
 
         temp_df = self.edges_df[['source_id', 'target_id', 'edge_value']].copy()
 
-        temp_df['edge_weight'] = temp_df.apply(lambda x: self._map_edge_weights(x['edge_value'], 2, 5), axis=1)
+        if self.layout == 'random':
+            nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id')
+
+            final_spring = nx.random_layout(nx_graph, dim=2)
+
+            self.adjusted_nx_graph = nx_graph
+            self.nx_graph = nx_graph
+            self.final_spring = final_spring
+
+            if self.timing:
+                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
+
+            return (nx_graph, final_spring)
         
-        nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id', edge_attr=['edge_weight'])
+        elif self.layout == 'spring':
+            nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id')
 
-        combination_set = set(list(combinations(self.unique_target_nodes, 2)))
+            print('hello')
 
-        connected_targets = {}
-        sn_targets_connections = {}
+            final_spring = nx.spring_layout(nx_graph, dim=2, k=self.source_spread, iterations=self.simulation_iterations)
 
-        for i, combination in enumerate(combination_set):
-            paths = list(nx.all_simple_paths(nx_graph, combination[0], combination[1], cutoff=3))
+            self.adjusted_nx_graph = nx_graph
+            self.nx_graph = nx_graph
+            self.final_spring = final_spring
 
-            if len(paths) != 0:
-                edge_count = 0
+            if self.timing:
+                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
 
-                for path in paths:
-                    if len(path) == 3:
-                        edge_count = edge_count + 1
+            return (nx_graph, final_spring)
 
-                        if path[1] in sn_targets_connections:
-                            sn_targets_connections[path[1]] = set.union(sn_targets_connections[path[1]], {combination[0], combination[1]})
-                        else:
-                            sn_targets_connections[path[1]] = {combination[0], combination[1]}
+        elif self.layout == 'circular':
+            nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id')
 
-                connected_targets['combination_' + str(i)] = {'combination': combination, 'edge_count': edge_count}
+            final_spring = nx.circular_layout(nx_graph, dim=2)
 
-        one_degree_sources = {}
-        for target in self.unique_target_nodes:
-            for neighbor in nx_graph.neighbors(target):
-                if nx_graph.degree(neighbor) == 1:
-                    one_degree_sources[neighbor] = target
-        
-        max_edges = 0
-        min_edges = np.inf
+            self.adjusted_nx_graph = nx_graph
+            self.nx_graph = nx_graph
+            self.final_spring = final_spring
 
-        initial_graph = nx.Graph()
+            if self.timing:
+                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
 
-        for combination_number in connected_targets:
-            edge_count = connected_targets[combination_number]['edge_count']
+            return (nx_graph, final_spring)
 
-            if edge_count > max_edges:
-                max_edges = edge_count
+        elif self.layout == 'kk':
+            nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id')
 
-            if edge_count < min_edges:
-                min_edges = edge_count
+            final_spring = nx.kamada_kawai_layout(nx_graph, dim=2)
 
-        for combination_number in connected_targets:
-            edge_count = connected_targets[combination_number]['edge_count']
-            combination = connected_targets[combination_number]['combination']
+            self.adjusted_nx_graph = nx_graph
+            self.nx_graph = nx_graph
+            self.final_spring = final_spring
 
-            if max_edges != min_edges:
-                edge_weight = 7 - 3 * ((edge_count - min_edges) / (max_edges - min_edges))
-            else:
-                edge_weight = 7
+            if self.timing:
+                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
 
-            initial_graph.add_edge(combination[0], combination[1], weight=edge_weight)
+            return (nx_graph, final_spring)
 
-        for target in self.unique_target_nodes:
-            if target not in initial_graph:
-                initial_graph.add_node(target)
-
-        initial_spring = nx.spring_layout(initial_graph, dim=2, weight='weight', k=self.target_spread, iterations=50)
-
-        pos_dict = {}
-
-        max_x_global = -np.inf
-        max_y_global = -np.inf
-
-        sn_centroid_dict = {}
-        for node in sn_targets_connections:
-            connected_targets_list = [str(s) for s in sn_targets_connections[node]]
-            connected_targets_string = "-".join(connected_targets_list)
-
-            if connected_targets_string not in sn_centroid_dict:
-                middle_x = 0
-                middle_y = 0
-
-                min_x = np.inf
-                min_y = np.inf
-
-                max_x = -np.inf
-                max_y = -np.inf
-
-                for connected_target in sn_targets_connections[node]:
-                    middle_x = middle_x + initial_spring[connected_target][0]
-                    middle_y = middle_y + initial_spring[connected_target][1]
-
-                    if initial_spring[connected_target][0] > max_x:
-                        max_x = initial_spring[connected_target][0]
-                    
-                    if initial_spring[connected_target][0] < min_x:
-                        min_x = initial_spring[connected_target][0]
-
-                    if initial_spring[connected_target][1] > max_y:
-                        max_y = initial_spring[connected_target][1]
-                    
-                    if initial_spring[connected_target][1] < min_y:
-                        min_y = initial_spring[connected_target][1]
-
-                middle_x = middle_x / len(sn_targets_connections[node])
-                middle_y = middle_y / len(sn_targets_connections[node])
-
-                min_range = min([(max_x - min_x), (max_y - min_y)])
-
-                sn_centroid_dict[connected_targets_string] = (middle_x, middle_y, min_range)
-
-                x_pos = np.random.normal(middle_x, (np.abs(min_range) / 8), 1)[0]
-                y_pos = np.random.normal(middle_y, (np.abs(min_range) / 8), 1)[0]
-
-                if max_x_global < max_x:
-                    max_x_global = max_x
-
-                if max_y_global < max_y:
-                    max_y_global = max_y
-
-                pos_dict[node] = (x_pos, y_pos)
-
-            else:
-                middle_x, middle_y, min_range = sn_centroid_dict[connected_targets_string]
-
-                x_pos = np.random.normal(middle_x, (np.abs(min_range) / 8), 1)[0]
-                y_pos = np.random.normal(middle_y, (np.abs(min_range) / 8), 1)[0]
-
-                pos_dict[node] = (x_pos, y_pos)
-
-        for one_degree_source in one_degree_sources:
-            x_pos = initial_spring[one_degree_sources[one_degree_source]][0]
-            y_pos = initial_spring[one_degree_sources[one_degree_source]][1]
-
-            if (max_x_global == -np.inf) and (max_y_global == -np.inf):
-                gaussian_range = 1
-            
-            else:
-                gaussian_range = min([max_x_global, max_y_global]) / 4
-
-            x_pos_new = np.random.normal(x_pos, (np.abs(gaussian_range) / 8), 1)[0]
-            y_pos_new = np.random.normal(y_pos, (np.abs(gaussian_range) / 8), 1)[0]
-
-            pos_dict[one_degree_source] = (x_pos_new, y_pos_new)
-
-        fixed_list = []
-
-        for entry in initial_graph.nodes:
-            pos_dict[entry] = [initial_spring[entry][0], initial_spring[entry][1]]
-            fixed_list.append(entry)
-        
-        if (len(pos_dict) != 0) and (len(fixed_list) != 0):
-            final_spring = nx.spring_layout(nx_graph, dim=2, weight='edge_weight', pos=pos_dict, fixed=fixed_list, k=self.source_spread, iterations=self.simulation_iterations)
         else:
-            final_spring = nx.spring_layout(nx_graph, dim=2, weight='edge_weight', k=0.05, iterations=10)
 
-        self.adjusted_nx_graph = nx_graph
-        self.nx_graph = nx_graph
-        self.final_spring = final_spring
+            temp_df['edge_weight'] = temp_df.apply(lambda x: self._map_edge_weights(x['edge_value'], 2, 5), axis=1)
+            
+            nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id', edge_attr=['edge_weight'])
 
-        if self.timing:
-            print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
+            combination_set = set(list(combinations(self.unique_target_nodes, 2)))
 
-        return (nx_graph, final_spring)
+            connected_targets = {}
+            sn_targets_connections = {}
+
+            for i, combination in enumerate(combination_set):
+                paths = list(nx.all_simple_paths(nx_graph, combination[0], combination[1], cutoff=3))
+
+                if len(paths) != 0:
+                    edge_count = 0
+
+                    for path in paths:
+                        if len(path) == 3:
+                            edge_count = edge_count + 1
+
+                            if path[1] in sn_targets_connections:
+                                sn_targets_connections[path[1]] = set.union(sn_targets_connections[path[1]], {combination[0], combination[1]})
+                            else:
+                                sn_targets_connections[path[1]] = {combination[0], combination[1]}
+
+                    connected_targets['combination_' + str(i)] = {'combination': combination, 'edge_count': edge_count}
+
+            one_degree_sources = {}
+            for target in self.unique_target_nodes:
+                for neighbor in nx_graph.neighbors(target):
+                    if nx_graph.degree(neighbor) == 1:
+                        one_degree_sources[neighbor] = target
+            
+            max_edges = 0
+            min_edges = np.inf
+
+            initial_graph = nx.Graph()
+
+            for combination_number in connected_targets:
+                edge_count = connected_targets[combination_number]['edge_count']
+
+                if edge_count > max_edges:
+                    max_edges = edge_count
+
+                if edge_count < min_edges:
+                    min_edges = edge_count
+
+            for combination_number in connected_targets:
+                edge_count = connected_targets[combination_number]['edge_count']
+                combination = connected_targets[combination_number]['combination']
+
+                if max_edges != min_edges:
+                    edge_weight = 7 - 3 * ((edge_count - min_edges) / (max_edges - min_edges))
+                else:
+                    edge_weight = 7
+
+                initial_graph.add_edge(combination[0], combination[1], weight=edge_weight)
+
+            for target in self.unique_target_nodes:
+                if target not in initial_graph:
+                    initial_graph.add_node(target)
+
+            initial_spring = nx.spring_layout(initial_graph, dim=2, weight='weight', k=self.target_spread, iterations=50)
+
+            pos_dict = {}
+
+            max_x_global = -np.inf
+            max_y_global = -np.inf
+
+            sn_centroid_dict = {}
+            for node in sn_targets_connections:
+                connected_targets_list = [str(s) for s in sn_targets_connections[node]]
+                connected_targets_string = "-".join(connected_targets_list)
+
+                if connected_targets_string not in sn_centroid_dict:
+                    middle_x = 0
+                    middle_y = 0
+
+                    min_x = np.inf
+                    min_y = np.inf
+
+                    max_x = -np.inf
+                    max_y = -np.inf
+
+                    for connected_target in sn_targets_connections[node]:
+                        middle_x = middle_x + initial_spring[connected_target][0]
+                        middle_y = middle_y + initial_spring[connected_target][1]
+
+                        if initial_spring[connected_target][0] > max_x:
+                            max_x = initial_spring[connected_target][0]
+                        
+                        if initial_spring[connected_target][0] < min_x:
+                            min_x = initial_spring[connected_target][0]
+
+                        if initial_spring[connected_target][1] > max_y:
+                            max_y = initial_spring[connected_target][1]
+                        
+                        if initial_spring[connected_target][1] < min_y:
+                            min_y = initial_spring[connected_target][1]
+
+                    middle_x = middle_x / len(sn_targets_connections[node])
+                    middle_y = middle_y / len(sn_targets_connections[node])
+
+                    min_range = min([(max_x - min_x), (max_y - min_y)])
+
+                    sn_centroid_dict[connected_targets_string] = (middle_x, middle_y, min_range)
+
+                    x_pos = np.random.normal(middle_x, (np.abs(min_range) / 8), 1)[0]
+                    y_pos = np.random.normal(middle_y, (np.abs(min_range) / 8), 1)[0]
+
+                    if max_x_global < max_x:
+                        max_x_global = max_x
+
+                    if max_y_global < max_y:
+                        max_y_global = max_y
+
+                    pos_dict[node] = (x_pos, y_pos)
+
+                else:
+                    middle_x, middle_y, min_range = sn_centroid_dict[connected_targets_string]
+
+                    x_pos = np.random.normal(middle_x, (np.abs(min_range) / 8), 1)[0]
+                    y_pos = np.random.normal(middle_y, (np.abs(min_range) / 8), 1)[0]
+
+                    pos_dict[node] = (x_pos, y_pos)
+
+            for one_degree_source in one_degree_sources:
+                x_pos = initial_spring[one_degree_sources[one_degree_source]][0]
+                y_pos = initial_spring[one_degree_sources[one_degree_source]][1]
+
+                if (max_x_global == -np.inf) and (max_y_global == -np.inf):
+                    gaussian_range = 1
+                
+                else:
+                    gaussian_range = min([max_x_global, max_y_global]) / 4
+
+                x_pos_new = np.random.normal(x_pos, (np.abs(gaussian_range) / 8), 1)[0]
+                y_pos_new = np.random.normal(y_pos, (np.abs(gaussian_range) / 8), 1)[0]
+
+                pos_dict[one_degree_source] = (x_pos_new, y_pos_new)
+
+            fixed_list = []
+
+            for entry in initial_graph.nodes:
+                pos_dict[entry] = [initial_spring[entry][0], initial_spring[entry][1]]
+                fixed_list.append(entry)
+            
+            if (len(pos_dict) != 0) and (len(fixed_list) != 0):
+                final_spring = nx.spring_layout(nx_graph, dim=2, weight='edge_weight', pos=pos_dict, fixed=fixed_list, k=self.source_spread, iterations=self.simulation_iterations)
+            else:
+                final_spring = nx.spring_layout(nx_graph, dim=2, weight='edge_weight', k=0.05, iterations=10)
+
+            self.adjusted_nx_graph = nx_graph
+            self.nx_graph = nx_graph
+            self.final_spring = final_spring
+
+            if self.timing:
+                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
+
+            return (nx_graph, final_spring)
 
     def _map_edge_weights(self, edge_val_column, min_weight, max_weight):
         """
