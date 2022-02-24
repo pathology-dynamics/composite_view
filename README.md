@@ -120,6 +120,7 @@ Other interactive elements:
 
 * Shift-dragging allows multiple source/target nodes to be selected. If the algorithm mentioned above doesn't produce optimal spacing results, this is the next best bet... or just re-simulate the graph.
 
+Additional Images:
 ![](images/spring.png)
 Figure 2: The graph visualized using a spring layout.
 
