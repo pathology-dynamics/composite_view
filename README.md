@@ -25,7 +25,7 @@ This software is designed to visualize data, specifically combined scores data, 
 
 * **Node Type**: A discrete categorization that can be assigned to both source and target nodes. For example, the source node "Norway" in the HDI example might be assigned the type "very_high_development" to indicate what development category the country resides in. The target node "life expectancy" might be assigned the type "target_node" to indicate that it's a target node. 
 
-![Wireframe mode](images/explanatory_graph_labeled.png)
+![alt text](images/explanatory_graph_labeled.png)
 Figure 1: A labeled example graph.
 1. Source node
 2. Target node
@@ -120,10 +120,10 @@ Other interactive elements:
 
 * Shift-dragging allows multiple source/target nodes to be selected. If the algorithm mentioned above doesn't produce optimal spacing results, this is the next best bet... or just re-simulate the graph.
 
-![Wireframe mode](images/spring.png)
+![alt text](images/spring.png)
 Figure 2: The graph visualized using a spring layout.
 
-![Wireframe mode](images/adjusted_spring.png)
+![alt text](images/adjusted_spring.png)
 Figure 3: The graph visualized using the adjusted spring layout, as described above. The target nodes are much easier to identify, and the source node clusters can be easily parsed.
 
 ## Contact
