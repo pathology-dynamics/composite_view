@@ -6,8 +6,6 @@ from sklearn.cluster import KMeans
 
 from scipy.signal import argrelextrema
 
-import matplotlib.pyplot as plt
-
 # Misc function for finding highly connected nodes given visualizer data format
 def identify_highly_connected_nodes(edges_df_input): 
 

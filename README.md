@@ -126,5 +126,9 @@ Figure 2: The graph visualized using a spring layout.
 ![](images/adjusted_spring_layout.png)
 Figure 3: The graph visualized using the adjusted spring layout, as described above. The target nodes are much easier to identify, and the source node clusters can be easily parsed.
 
+## Additional Files
+
+* `node_connectivity.py` contains an experimental script for identifying highly connected nodes (utilizing kerned density estimation and k-means clustering). This is mostly obsolete, assuming the data input for the visualizer is correctly formatted. If not, however, this script will assist in identifying any highly connected nodes (i.e. target nodes); the data input structure is the same as the visualizer, but the source_id and target_id columns don't necessarily have to correspond to the name.
+
 ## Contact
 If you have any questions regard the Visualizer, email sallegri3@gatech.edu.
