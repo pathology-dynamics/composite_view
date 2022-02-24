@@ -269,7 +269,7 @@ class Generate_Graph:
         self.target_size_initial = self.target_size
 
         # Layout initialization
-        self.layout = 'spring'
+        self.layout = 'adjusted_spring'
 
         # Gradient start initialization
         self.gradient_start = '#272B30'
