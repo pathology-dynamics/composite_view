@@ -759,7 +759,11 @@ class Generate_Graph:
 
         edge_range = self.max_edge_value - self.min_edge_value
 
-        return min_weight + max_weight * ((edge_val_column - self.min_edge_value) / edge_range)
+        if edge_range <= 0:
+            return min_weight
+
+        else:
+            return min_weight + max_weight * ((edge_val_column - self.min_edge_value) / edge_range)
 
     def _generate_graph_elements(self):
         """
