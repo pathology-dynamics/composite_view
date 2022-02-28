@@ -146,6 +146,8 @@ class Generate_Graph:
         self.max_combined_value = 0
         self.min_combined_value = np.inf
 
+        self.round_precision = 3
+
         self.source_id_combined_scores_dict = {}
         for node in list(self.edges_df_initial['source_id'].unique()):
 
@@ -198,14 +200,14 @@ class Generate_Graph:
         # Combined value range initialization
         self.combined_value_range = [self.min_combined_value_start, self.max_combined_value_start]
         self.combined_value_range_initial = self.combined_value_range
-        self.combined_value_step_size = np.round((self.max_combined_value_start - self.min_combined_value_start) / 100, 3)
+        self.combined_value_step_size = np.round((self.max_combined_value_start - self.min_combined_value_start) / 100, self.round_precision)
         self.combined_value_bound = [(self.min_combined_value_start - self.combined_value_step_size), (self.max_combined_value_start + self.combined_value_step_size)]
         self.combined_value_bound_initial = self.combined_value_bound
 
         # Edge value range initialization
         self.edge_value_range = [self.min_edge_value, self.max_edge_value]
         self.edge_value_range_initial = self.edge_value_range
-        self.edge_value_step_size = np.round((self.max_edge_value - self.min_edge_value) / 100, 3)
+        self.edge_value_step_size = np.round((self.max_edge_value - self.min_edge_value) / 100, self.round_precision)
         self.edge_value_bound = [(self.min_edge_value - self.edge_value_step_size), (self.max_edge_value + self.edge_value_step_size)]
 
         # Max node initialization
@@ -802,7 +804,7 @@ class Generate_Graph:
             if self.unique_id_data_dict[node]['sn_or_tn'] == 'source_node':
                 if self.nx_graph.degree(node) != 0:
                     for target in self.nx_graph.neighbors(node):
-                        edge_val = np.round(self.source_target_edge_value_dict[node][target], 3)
+                        edge_val = np.round(self.source_target_edge_value_dict[node][target], self.round_precision)
                         elements.append({
                             'data': {
                                 'source': node, 
@@ -862,7 +864,7 @@ class Generate_Graph:
 
                 edges = {}
                 for _, connecting_node in enumerate(self.nx_graph[node['id']]):
-                    edges[str(self.unique_id_data_dict[connecting_node]['name']) + ' (ID:' + str(connecting_node) + ')'] = float(np.round(self.source_target_edge_value_dict[node['id']][connecting_node], 3))
+                    edges[str(self.unique_id_data_dict[connecting_node]['name']) + ' (ID:' + str(connecting_node) + ')'] = float(np.round(self.source_target_edge_value_dict[node['id']][connecting_node], self.round_precision))
 
                 edges_sorted = dict(sorted(edges.items(), key=lambda item: item[1], reverse=True))
 
@@ -870,7 +872,7 @@ class Generate_Graph:
                     'source_id': node['id'], 
                     'source_name': node['label'], 
                     'node_type': node['type'], 
-                    'combined_value': float(np.round(self.source_id_combined_scores_dict[node['id']], 3)), 
+                    'combined_value': float(np.round(self.source_id_combined_scores_dict[node['id']], self.round_precision)), 
                     'sn_or_tn': 'source_node', 
                     'edges': edges_sorted
                     }
@@ -881,7 +883,7 @@ class Generate_Graph:
 
                 edges = {}
                 for _, connecting_node in enumerate(self.nx_graph[node['id']]):
-                    edges[str(self.unique_id_data_dict[connecting_node]['name']) + ' (ID:' + str(connecting_node) + ')'] = float(np.round(self.source_target_edge_value_dict[connecting_node][node['id']], 3))
+                    edges[str(self.unique_id_data_dict[connecting_node]['name']) + ' (ID:' + str(connecting_node) + ')'] = float(np.round(self.source_target_edge_value_dict[connecting_node][node['id']], self.round_precision))
                 
                 edges_sorted = dict(sorted(edges.items(), key=lambda item: item[1], reverse=True))
 
