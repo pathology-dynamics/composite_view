@@ -24,7 +24,7 @@ class Generate_Graph:
 
         self._initialize_graph_state()
 
-        self._generate_color_mapping()
+        self.type_color_dict_initial = self._generate_color_mapping()
 
         self.nx_graph_initial, self.nx_spring_initial = self._generate_nx_graphs()
 
@@ -448,10 +448,18 @@ class Generate_Graph:
         """
 
         if node:
-            return (self.min_node_size + ((self.max_node_size - self.min_node_size) * ((value - self.min_combined_value_start) / (self.max_combined_value_start - self.min_combined_value_start)))) * self.node_size_modifier
+            if self.min_combined_value_start == self.max_combined_value_start: 
+                return self.min_node_size * self.node_size_modifier
+
+            else:
+                return (self.min_node_size + ((self.max_node_size - self.min_node_size) * ((value - self.min_combined_value_start) / (self.max_combined_value_start - self.min_combined_value_start)))) * self.node_size_modifier
 
         else:
-            return self.min_edge_size + ((self.max_edge_size - self.min_edge_size) * ((value - self.min_edge_value) / (self.max_edge_value - self.min_edge_value))) * self.edge_size_modifier * 0.3
+            if self.min_edge_value == self.max_edge_value:
+                return 10 * self.min_edge_size * self.edge_size_modifier
+            
+            else:
+                return (self.min_edge_size + ((self.max_edge_size - self.min_edge_size) * ((value - self.min_edge_value) / (self.max_edge_value - self.min_edge_value)))) * self.edge_size_modifier * 0.5
 
     def _generate_color_mapping(self):
         """
@@ -513,6 +521,8 @@ class Generate_Graph:
 
         if self.timing:
             print('GENERATE COLORS: ' + str(time.time() - start_time))
+
+        return self.type_color_dict
 
     def _generate_nx_graphs(self):
         """
@@ -960,6 +970,7 @@ class Generate_Graph:
         self.target_color = self.target_color_initial
 
         self.edges_df = self.edges_df_initial
+        self.type_color_dict = self.type_color_dict_initial
 
         self.source_id_combined_scores_dict = self.source_id_combined_scores_dict_initial
         self.unique_target_nodes = self.unique_target_nodes_initial
