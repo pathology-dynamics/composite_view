@@ -555,8 +555,6 @@ class Generate_Graph:
         elif self.layout == 'spring':
             nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id')
 
-            print('hello')
-
             final_spring = nx.spring_layout(nx_graph, dim=2, k=self.source_spread, iterations=self.simulation_iterations)
 
             self.adjusted_nx_graph = nx_graph
