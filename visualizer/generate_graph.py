@@ -146,6 +146,7 @@ class Generate_Graph:
         self.max_combined_value = 0
         self.min_combined_value = np.inf
 
+        # Changing this value may help when dealing with very small decimal values.
         self.round_precision = 3
 
         self.source_id_combined_scores_dict = {}
