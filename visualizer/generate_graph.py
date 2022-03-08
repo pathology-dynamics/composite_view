@@ -969,6 +969,7 @@ class Generate_Graph:
         self.target_color = self.target_color_initial
 
         self.edges_df = self.edges_df_initial
+
         self.type_color_dict = self.type_color_dict_initial
 
         self.source_id_combined_scores_dict = self.source_id_combined_scores_dict_initial
@@ -992,7 +993,7 @@ class Generate_Graph:
 
         self._filter_data()
 
-        self._generate_color_mapping()
+        self.type_color_dict_initial = self._generate_color_mapping()
 
         # Allows for simulation iterations to be set BEFORE data upload, potentially increasing load performance
         self.simulation_iterations_initial = self.simulation_iterations
