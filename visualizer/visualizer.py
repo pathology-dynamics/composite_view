@@ -22,7 +22,7 @@ if test_timing:
 
 graph = Generate_Graph(timing=test_timing)
 
-app = dash.Dash(external_stylesheets=[dbc.themes.SLATE])
+app = dash.Dash(external_stylesheets=[__name__, dbc.themes.SLATE])
 
 class UI_Tracker:
     '''
