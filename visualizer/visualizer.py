@@ -8,6 +8,7 @@ from dash import dash_table as dt
 
 import pandas as pd
 
+import json
 import base64
 import time
 import io
@@ -20,9 +21,11 @@ if test_timing:
     start_time_global = time.time()
     print('================')
 
-graph = Generate_Graph(timing=test_timing)
+graph_initial_state = Generate_Graph(timing=test_timing)
 
 app = dash.Dash(external_stylesheets=[__name__, dbc.themes.SLATE])
+
+server = app.server
 
 class UI_Tracker:
     '''
@@ -73,11 +76,11 @@ class UI_Tracker:
 
         self.download_graph_clicks = None
 
-        self.display_gradient_start_color = graph.gradient_start_initial
-        self.display_gradient_end_color = graph.gradient_end_initial
-        self.display_selected_type_color = graph.selected_type_color_initial
-        self.display_source_color = graph.source_color_initial
-        self.display_target_color = graph.target_color_initial
+        self.display_gradient_start_color = graph_initial_state.gradient_start_initial
+        self.display_gradient_end_color = graph_initial_state.gradient_end_initial
+        self.display_selected_type_color = graph_initial_state.selected_type_color_initial
+        self.display_source_color = graph_initial_state.source_color_initial
+        self.display_target_color = graph_initial_state.target_color_initial
 
 ui_tracker = UI_Tracker()
 
@@ -89,12 +92,12 @@ graph_sliders = dbc.Card(
             html.Div(
                 dcc.RangeSlider(
                     id='combined_value_range_slider',
-                    min=graph.combined_value_bound[0],
-                    max=graph.combined_value_bound[1],
-                    step=graph.combined_value_step_size,
+                    min=graph_initial_state.combined_value_bound[0],
+                    max=graph_initial_state.combined_value_bound[1],
+                    step=graph_initial_state.combined_value_step_size,
                     value=[
-                        graph.combined_value_range_initial[0], 
-                        graph.combined_value_range_initial[1]
+                        graph_initial_state.combined_value_range_initial[0], 
+                        graph_initial_state.combined_value_range_initial[1]
                         ],
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
@@ -107,12 +110,12 @@ graph_sliders = dbc.Card(
             html.Div(
                 dcc.RangeSlider(
                     id='edge_value_range_slider',
-                    min=graph.edge_value_bound[0],
-                    max=graph.edge_value_bound[1],
-                    step=graph.edge_value_step_size,
+                    min=graph_initial_state.edge_value_bound[0],
+                    max=graph_initial_state.edge_value_bound[1],
+                    step=graph_initial_state.edge_value_step_size,
                     value=[
-                        graph.edge_value_range_initial[0],
-                        graph.edge_value_range_initial[1]
+                        graph_initial_state.edge_value_range_initial[0],
+                        graph_initial_state.edge_value_range_initial[1]
                         ],
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
@@ -126,9 +129,9 @@ graph_sliders = dbc.Card(
                 dcc.Slider(
                     id='max_node_slider',
                     min=1,
-                    max=graph.max_node_count_initial,
+                    max=graph_initial_state.max_node_count_initial,
                     step=1,
-                    value=graph.max_node_count_initial,
+                    value=graph_initial_state.max_node_count_initial,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ), 
@@ -146,7 +149,7 @@ node_filtering = dbc.Card(
                 html.H6('Select Target Node Name(s):', className='card-text'),
                 dcc.Dropdown(
                     id='specific_target_dropdown', 
-                    options=graph.target_dropdown_options_initial,
+                    options=graph_initial_state.target_dropdown_options_initial,
                     value=[],
                     multi=True)
                 ], 
@@ -157,7 +160,7 @@ node_filtering = dbc.Card(
                 html.H6('Select Source Node Name(s):', className='card-text'),
                 dcc.Dropdown(
                     id='specific_source_dropdown', 
-                    options=graph.source_dropdown_options_initial,
+                    options=graph_initial_state.source_dropdown_options_initial,
                     value=[],
                     multi=True)
                 ], 
@@ -168,7 +171,7 @@ node_filtering = dbc.Card(
                 html.H6('Select Type(s):', className='card-text'),
                 dcc.Dropdown(
                     id='specific_type_dropdown', 
-                    options=graph.type_dropdown_options_initial,
+                    options=graph_initial_state.type_dropdown_options_initial,
                     value=[],
                     multi=True)
                 ], 
@@ -189,7 +192,7 @@ graph_manipulation = dbc.Card(
                     min=0.1,
                     max=3,
                     step=0.1,
-                    value=graph.target_spread,
+                    value=graph_initial_state.target_spread,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),
@@ -203,7 +206,7 @@ graph_manipulation = dbc.Card(
                     min=0.01,
                     max=0.3,
                     step=0.01,
-                    value=graph.source_spread,
+                    value=graph_initial_state.source_spread,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),
@@ -217,7 +220,7 @@ graph_manipulation = dbc.Card(
                     min=0,
                     max=1,
                     step=0.01,
-                    value=graph.node_size_modifier,
+                    value=graph_initial_state.node_size_modifier,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),
@@ -231,7 +234,7 @@ graph_manipulation = dbc.Card(
                     min=0,
                     max=1,
                     step=0.01,
-                    value=graph.edge_size_modifier,
+                    value=graph_initial_state.edge_size_modifier,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),
@@ -245,7 +248,7 @@ graph_manipulation = dbc.Card(
                     min=0,
                     max=50,
                     step=1,
-                    value=graph.simulation_iterations,
+                    value=graph_initial_state.simulation_iterations,
                     tooltip={'placement': 'bottom', 'always_visible': True},
                     vertical=False
                 ),
@@ -276,14 +279,14 @@ color_editing = dbc.Card(
                 dbc.Input(
                     type='color',
                     id='gradient_start',
-                    value=graph.gradient_start_initial,
+                    value=graph_initial_state.gradient_start_initial,
                     style={'width': 50, 'height': 25, 'display': 'inline-block', 'marginRight': '1%', 'border': 'none', 'padding': '0'}
                 ),
                 html.Div(',', style={'display': 'inline-block', 'marginRight': '1%', 'marginLeft': '1%'}),
                 dbc.Input(
                     type='color',
                     id='gradient_end',
-                    value=graph.gradient_end_initial,
+                    value=graph_initial_state.gradient_end_initial,
                     style={'width': 50, 'height': 25, 'display': 'inline-block', 'marginLeft': '1%', 'border': 'none', 'padding': '0'},
                 )               
                 ], 
@@ -295,7 +298,7 @@ color_editing = dbc.Card(
                 dbc.Input(
                     type='color',
                     id='selected_type_color',
-                    value=graph.selected_type_color_initial,
+                    value=graph_initial_state.selected_type_color_initial,
                     style={'width': 50, 'height': 25, 'display': 'inline-block', 'border': 'none', 'padding': '0'}
                 )           
                 ], 
@@ -307,7 +310,7 @@ color_editing = dbc.Card(
                 dbc.Input(
                     type='color',
                     id='source_color',
-                    value=graph.target_color_initial,
+                    value=graph_initial_state.target_color_initial,
                     style={'width': 50, 'height': 25, 'display': 'inline-block', 'border': 'none', 'padding': '0'}
                 )           
                 ], 
@@ -319,7 +322,7 @@ color_editing = dbc.Card(
                 dbc.Input(
                     type='color',
                     id='target_color',
-                    value=graph.target_color_initial,
+                    value=graph_initial_state.target_color_initial,
                     style={'width': 50, 'height': 25, 'display': 'inline-block', 'border': 'none', 'padding': '0'}
                 )           
                 ], 
@@ -362,8 +365,8 @@ table_data = dbc.Card(
             html.Div(
                 dt.DataTable(
                     id='data_table', 
-                    columns=graph.data_table_columns, 
-                    data=graph.table_data, 
+                    columns=graph_initial_state.data_table_columns, 
+                    data=graph_initial_state.table_data, 
                     style_as_list_view=True,
                     style_cell={
                         'backgroundColor': '#32383E', 
@@ -431,16 +434,6 @@ default_stylesheet = [
         }
     ]
 
-# Cytoscape graph object.
-cytoscape_graph = cyto.Cytoscape(
-    id='output_graph',
-    layout={'name': 'preset'},
-    style={'width': '100vw', 'height': '100vh'},
-    stylesheet=default_stylesheet,
-    elements=graph.elements,
-    boxSelectionEnabled=True
-    )
-
 def format_data_input(csv_input, filename):
     """
     Function that converts encoded data upload into graph-usable dataframe.
@@ -472,7 +465,21 @@ def server_layout():
     ui_tracker.set_initial_state()
 
     app_layout = html.Div([
-        html.Div(cytoscape_graph, style={'position': 'fixed', 'zIndex': '1', 'width': '99vw', 'height': '99vh'}),
+
+        dcc.Store(id='intermediate-value', data=json.dumps(graph_initial_state.__dict__)), 
+
+        html.Div(children=[
+            cyto.Cytoscape(
+                id='output_graph',
+                layout={'name': 'preset'},
+                style={'width': '100vw', 'height': '100vh'},
+                stylesheet=default_stylesheet,
+                elements=graph_initial_state.elements,
+                boxSelectionEnabled=True
+                )
+            ], 
+            style={'position': 'fixed', 'zIndex': '1', 'width': '99vw', 'height': '99vh'}
+        ),
         
         html.Div(children=[
             html.Div(children=[
@@ -728,6 +735,7 @@ def toggle_table_data(table_data_button_clicks):
 
 # Main callback that enables graph updates.
 @app.callback(
+    Output(component_id='intermediate-value', component_property='data'),
     Output(component_id='output_graph', component_property='elements'),
     Output(component_id='combined_value_range_slider', component_property='min'),
     Output(component_id='combined_value_range_slider', component_property='max'),
@@ -760,6 +768,7 @@ def toggle_table_data(table_data_button_clicks):
     Output(component_id='data_upload', component_property='contents'),
     Output(component_id='data_upload', component_property='filename'),
     Output(component_id='output_graph', component_property='generateImage'),
+    Input(component_id='intermediate-value', component_property='data'), 
     [Input(component_id='combined_value_range_slider', component_property='value')],
     [Input(component_id='edge_value_range_slider', component_property='value')],
     Input(component_id='max_node_slider', component_property='value'),
@@ -785,6 +794,7 @@ def toggle_table_data(table_data_button_clicks):
     prevent_initial_call=True
 )
 def toggle_graph_update(
+    graph_data_input,
     input_combined_value_range_slider, 
     input_edge_value_range_slider, 
     input_max_node_slider, 
@@ -807,6 +817,15 @@ def toggle_graph_update(
     data_upload_content, 
     data_upload_filenames, 
     download_graph_clicks_input):
+
+    print('===========')
+
+    graph = Generate_Graph(json_data=json.loads(graph_data_input))
+
+    # print(type(json.loads(graph_data_input)))
+    
+    print('===========')
+
 
     if test_timing:
         start_time = time.time()
@@ -948,11 +967,14 @@ def toggle_graph_update(
     else:
         elements = graph.update_graph_elements()
 
+    graph_data = json.dumps(graph.__dict__)
+
     if test_timing:
         print('TOTAL TIME UPDATE: ' + str(time.time() - start_time))
         print('================')
 
     return [
+        graph_data, 
         elements,
         graph.combined_value_bound[0],
         graph.combined_value_bound[1],
@@ -990,8 +1012,12 @@ def toggle_graph_update(
 # Individual node data callback, dissociated with main update callback due to lack of actual graph change.
 @app.callback(
     Output('node_data', 'children'),
-    Input('output_graph', 'selectedNodeData'))
-def displayTapNodeData(input_selected_nodes):
+    Input('output_graph', 'selectedNodeData'),
+    Input(component_id='intermediate-value', component_property='data')
+    )
+def displayTapNodeData(input_selected_nodes, graph_data_input):
+
+    graph = Generate_Graph(json_data=json.loads(graph_data_input))
 
     if (input_selected_nodes == []) or (input_selected_nodes == None):
         return 'Select Node(s)'

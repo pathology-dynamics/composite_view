@@ -14,23 +14,31 @@ class Generate_Graph:
 
     '''
 
-    def __init__(self, edges_df=None, timing=False):
+    def __init__(self, edges_df=None, timing=False, json_data=False):
 
         self.timing = timing
+
+        if not json_data:
+            self._initialize_data(edges_df)
+
+            self._initialize_simulation_iterations()
+
+            self._initialize_graph_state()
+
+            self.type_color_dict_initial = self._generate_color_mapping()
+
+            self.nx_graph_initial, self.nx_spring_initial = self._generate_nx_graphs()
+
+            self.starting_elements = self._generate_graph_elements()
+
+            self.table_data_initial = self._generate_table()
+
+        else:
+            self.load_attributes(json_data)
+
+    def load_attributes(self, json_data):
         
-        self._initialize_data(edges_df)
-
-        self._initialize_simulation_iterations()
-
-        self._initialize_graph_state()
-
-        self.type_color_dict_initial = self._generate_color_mapping()
-
-        self.nx_graph_initial, self.nx_spring_initial = self._generate_nx_graphs()
-
-        self.starting_elements = self._generate_graph_elements()
-
-        self.table_data_initial = self._generate_table()
+        self.__dict__ = dict(json_data)
 
     def _initialize_data(self, starting_edges_df=pd.DataFrame):
         """
@@ -47,8 +55,8 @@ class Generate_Graph:
         else:
             starting_edges_df = self._generate_dummy_data()
 
-        self.edges_df = starting_edges_df.sort_values(by='edge_value', ascending=False)
-        self.edges_df_initial = starting_edges_df
+        self.edges_json = starting_edges_df.sort_values(by='edge_value', ascending=False).to_json()
+        self.edges_json_initial = starting_edges_df.to_json()
 
     def _initialize_simulation_iterations(self):
         """
@@ -134,14 +142,16 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        self.target_types = list(self.edges_df_initial['target_type'].unique())
-        self.all_types = list(self.edges_df_initial['source_type'].unique()) + self.target_types
+        edges_df_initial = pd.read_json(self.edges_json_initial)
 
-        self.target_id_name_dict = dict(zip(self.edges_df_initial['target_id'], self.edges_df_initial['target_name']))
+        self.target_types = list(edges_df_initial['target_type'].unique())
+        self.all_types = list(edges_df_initial['source_type'].unique()) + self.target_types
+
+        self.target_id_name_dict = dict(zip(edges_df_initial['target_id'], edges_df_initial['target_name']))
         self.target_id_name_dict_initial = self.target_id_name_dict
 
-        self.max_edge_value = self.edges_df_initial['edge_value'].max()
-        self.min_edge_value = self.edges_df_initial['edge_value'].min()
+        self.max_edge_value = edges_df_initial['edge_value'].max()
+        self.min_edge_value = edges_df_initial['edge_value'].min()
 
         self.max_combined_value = 0
         self.min_combined_value = np.inf
@@ -150,9 +160,9 @@ class Generate_Graph:
         self.round_precision = 3
 
         self.source_id_combined_scores_dict = {}
-        for node in list(self.edges_df_initial['source_id'].unique()):
+        for node in list(edges_df_initial['source_id'].unique()):
 
-            sub_df = self.edges_df_initial[self.edges_df_initial['source_id'] == node]
+            sub_df = edges_df_initial[edges_df_initial['source_id'] == node]
             combined_value = self._combine_values(sub_df)
 
             self.source_id_combined_scores_dict[node] = combined_value
@@ -163,13 +173,16 @@ class Generate_Graph:
             if combined_value < self.min_combined_value:
                 self.min_combined_value = combined_value
 
+        self.max_combined_value = self.max_combined_value.item()
+        self.min_combined_value = self.min_combined_value.item()
+
         self.max_combined_value_start = self.max_combined_value
         self.min_combined_value_start = self.min_combined_value
 
         self.source_id_combined_scores_dict_initial = self.source_id_combined_scores_dict
 
         self.unique_id_data_dict = {}
-        source_sub_df = self.edges_df_initial[['source_id', 'source_name', 'source_type']].drop_duplicates()
+        source_sub_df = edges_df_initial[['source_id', 'source_name', 'source_type']].drop_duplicates()
         for _, row in source_sub_df.iterrows():
             self.unique_id_data_dict[row['source_id']] = {
                 'name': row['source_name'], 
@@ -177,7 +190,7 @@ class Generate_Graph:
                 'sn_or_tn': 'source_node'
             }
 
-        target_sub_df = self.edges_df_initial[['target_id', 'target_name', 'target_type']].drop_duplicates()
+        target_sub_df = edges_df_initial[['target_id', 'target_name', 'target_type']].drop_duplicates()
         for _, row in target_sub_df.iterrows():
             self.unique_id_data_dict[row['target_id']] = {
                 'name': row['target_name'], 
@@ -186,7 +199,7 @@ class Generate_Graph:
             }
 
         self.source_target_edge_value_dict = {}
-        for _, row in self.edges_df_initial.iterrows():
+        for _, row in edges_df_initial.iterrows():
             if row['source_id'] not in self.source_target_edge_value_dict:
                 self.source_target_edge_value_dict[row['source_id']] = {row['target_id']: row['edge_value']}
 
@@ -195,29 +208,29 @@ class Generate_Graph:
 
         self.source_target_edge_value_dict_initial = self.source_target_edge_value_dict
 
-        self.unique_target_nodes = list(self.edges_df_initial['target_id'].unique())
+        self.unique_target_nodes = list(edges_df_initial['target_id'].unique())
         self.unique_target_nodes_initial = self.unique_target_nodes
 
         # Combined value range initialization
         self.combined_value_range = [self.min_combined_value_start, self.max_combined_value_start]
         self.combined_value_range_initial = self.combined_value_range
-        self.combined_value_step_size = np.round((self.max_combined_value_start - self.min_combined_value_start) / 100, self.round_precision)
+        self.combined_value_step_size = np.round((self.max_combined_value_start - self.min_combined_value_start) / 100, self.round_precision).item()
         self.combined_value_bound = [(self.min_combined_value_start - self.combined_value_step_size), (self.max_combined_value_start + self.combined_value_step_size)]
         self.combined_value_bound_initial = self.combined_value_bound
 
         # Edge value range initialization
         self.edge_value_range = [self.min_edge_value, self.max_edge_value]
         self.edge_value_range_initial = self.edge_value_range
-        self.edge_value_step_size = np.round((self.max_edge_value - self.min_edge_value) / 100, self.round_precision)
+        self.edge_value_step_size = np.round((self.max_edge_value - self.min_edge_value) / 100, self.round_precision).item()
         self.edge_value_bound = [(self.min_edge_value - self.edge_value_step_size), (self.max_edge_value + self.edge_value_step_size)]
 
         # Max node initialization
-        self.max_node_count = len(self.edges_df_initial['source_id'].unique())
+        self.max_node_count = len(edges_df_initial['source_id'].unique())
         self.max_node_count_initial = self.max_node_count
 
         # Target filtering initialization
         self.target_dropdown_options = []
-        for name in list(self.edges_df_initial['target_name'].unique()):
+        for name in list(edges_df_initial['target_name'].unique()):
             self.target_dropdown_options.append({'label': name, 'value': name})
 
         self.target_dropdown_options_initial = self.target_dropdown_options
@@ -227,7 +240,7 @@ class Generate_Graph:
 
         # Source filtering initialization
         self.source_dropdown_options = []
-        for name in list(self.edges_df_initial['source_name'].unique()):
+        for name in list(edges_df_initial['source_name'].unique()):
             self.source_dropdown_options.append({'label': name, 'value': name})
 
         self.source_dropdown_options_initial = self.source_dropdown_options
@@ -284,7 +297,7 @@ class Generate_Graph:
         self.gradient_end_initial = self.gradient_end    
 
         # SN type color initialization
-        self.selected_types = set()
+        self.selected_types = []
         self.selected_type_color = '#272B30'
         self.type_color_primacy = False
         self.selected_type_color_initial = self.selected_type_color
@@ -341,7 +354,7 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        temporary_full_edges_df = self.edges_df_initial.copy()
+        temporary_full_edges_df = pd.read_json(self.edges_json_initial).copy()
 
         if self.edge_value_range != self.edge_value_range_initial:
             temporary_full_edges_df = temporary_full_edges_df[(temporary_full_edges_df['edge_value'] >= self.edge_value_range[0]) & (temporary_full_edges_df['edge_value'] <= self.edge_value_range[1])]
@@ -377,13 +390,13 @@ class Generate_Graph:
 
         self.combined_value_bound = [temp_min_combined_val - self.combined_value_step_size, temp_max_combined_val + self.combined_value_step_size]
 
-        self.source_id_combined_scores_df = pd.DataFrame(self.source_id_combined_scores_dict.items(), columns=['source_id', 'combined_value']).sort_values(by=['combined_value'], ascending=False)
+        source_id_combined_scores_df = pd.DataFrame(self.source_id_combined_scores_dict.items(), columns=['source_id', 'combined_value']).sort_values(by=['combined_value'], ascending=False)
 
-        temporary_full_edges_df = temporary_full_edges_df[temporary_full_edges_df['source_id'].isin(self.source_id_combined_scores_df.head(self.max_node_count)['source_id'].to_list())]
+        temporary_full_edges_df = temporary_full_edges_df[temporary_full_edges_df['source_id'].isin(source_id_combined_scores_df.head(self.max_node_count)['source_id'].to_list())]
 
         self.unique_target_nodes = list(temporary_full_edges_df['target_id'].unique())
 
-        self.edges_df = temporary_full_edges_df
+        self.edges_json = temporary_full_edges_df.to_json()
 
         if self.timing:
             print('FILTER DATA: ' + str(time.time() - start_time))
@@ -397,6 +410,9 @@ class Generate_Graph:
 
         start_time = time.time()
 
+        edges_df = pd.read_json(self.edges_json)
+        adjusted_nx_graph = nx.node_link_graph(self.adjusted_nx_graph)
+
         if self.target_spread != self.target_spread_previous:
             self._generate_nx_graphs()
             self.target_spread_previous = self.target_spread
@@ -405,13 +421,13 @@ class Generate_Graph:
             self._generate_nx_graphs()
             self.source_spread_previous = self.source_spread
         
-        elif self.edges_df.shape[0] > len(self.adjusted_nx_graph.edges):
+        elif edges_df.shape[0] > len(adjusted_nx_graph.edges):
             self._generate_nx_graphs()
             
         else:
             if not self.graph_update_shortcut:
-                remaining_edges_df = self.edges_df[['source_id', 'target_id']]
-                total_edges_df = self.edges_df_initial[['source_id', 'target_id']]
+                remaining_edges_df = edges_df[['source_id', 'target_id']]
+                total_edges_df = pd.read_json(self.edges_json_initial)[['source_id', 'target_id']]
 
                 remove_edges_df = total_edges_df[~total_edges_df.apply(tuple, 1).isin(remaining_edges_df.apply(tuple, 1))]
 
@@ -422,11 +438,11 @@ class Generate_Graph:
                 for edge in remove_edges_list:
                     remove_edges_list_formatted.append(tuple(edge))
 
-                temporary_graph = self.adjusted_nx_graph.copy()
+                temporary_graph = adjusted_nx_graph.copy()
                 temporary_graph.remove_edges_from(remove_edges_list_formatted)
                 temporary_graph.remove_nodes_from(list(nx.isolates(temporary_graph)))
-                
-                self.nx_graph = temporary_graph
+
+                self.nx_graph = nx.node_link_data(temporary_graph)
 
         if self.timing:
             print('TRIM GRAPH: ' + str(time.time() - start_time))
@@ -536,15 +552,15 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        temp_df = self.edges_df[['source_id', 'target_id', 'edge_value']].copy()
+        temp_df = pd.read_json(self.edges_json)[['source_id', 'target_id', 'edge_value']].copy()
 
         if self.layout == 'random':
             nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id')
 
             final_spring = nx.random_layout(nx_graph, dim=2)
 
-            self.adjusted_nx_graph = nx_graph
-            self.nx_graph = nx_graph
+            self.adjusted_nx_graph = nx.node_link_data(nx_graph)
+            self.nx_graph = nx.node_link_data(nx_graph)
             self.final_spring = final_spring
 
             if self.timing:
@@ -557,8 +573,8 @@ class Generate_Graph:
 
             final_spring = nx.spring_layout(nx_graph, dim=2, k=self.source_spread, iterations=self.simulation_iterations)
 
-            self.adjusted_nx_graph = nx_graph
-            self.nx_graph = nx_graph
+            self.adjusted_nx_graph = nx.node_link_data(nx_graph)
+            self.nx_graph = nx.node_link_data(nx_graph)
             self.final_spring = final_spring
 
             if self.timing:
@@ -571,8 +587,8 @@ class Generate_Graph:
 
             final_spring = nx.circular_layout(nx_graph, dim=2)
 
-            self.adjusted_nx_graph = nx_graph
-            self.nx_graph = nx_graph
+            self.adjusted_nx_graph = nx.node_link_data(nx_graph)
+            self.nx_graph = nx.node_link_data(nx_graph)
             self.final_spring = final_spring
 
             if self.timing:
@@ -585,8 +601,8 @@ class Generate_Graph:
 
             final_spring = nx.kamada_kawai_layout(nx_graph, dim=2)
 
-            self.adjusted_nx_graph = nx_graph
-            self.nx_graph = nx_graph
+            self.adjusted_nx_graph = nx.node_link_data(nx_graph)
+            self.nx_graph = nx.node_link_data(nx_graph)
             self.final_spring = final_spring
 
             if self.timing:
@@ -747,8 +763,11 @@ class Generate_Graph:
             else:
                 final_spring = nx.spring_layout(nx_graph, dim=2, weight='edge_weight', k=0.05, iterations=10)
 
-            self.adjusted_nx_graph = nx_graph
-            self.nx_graph = nx_graph
+            nx_graph = nx.node_link_data(nx_graph)
+            final_spring = {k:v.tolist() for k, v in final_spring.items()}
+
+            self.adjusted_nx_graph =  nx_graph
+            self.nx_graph =  nx_graph
             self.final_spring = final_spring
 
             if self.timing:
@@ -785,9 +804,10 @@ class Generate_Graph:
 
         start_time = time.time()
 
+        nx_graph = nx.node_link_graph(self.nx_graph)
         elements = []
         
-        for node in self.nx_graph.nodes:
+        for node in nx_graph.nodes:
             if node in self.unique_target_nodes:
                 node_value = 'None'
                 size_val = self._generate_size(self.target_size)
@@ -811,8 +831,8 @@ class Generate_Graph:
             })
 
             if self.unique_id_data_dict[node]['sn_or_tn'] == 'source_node':
-                if self.nx_graph.degree(node) != 0:
-                    for target in self.nx_graph.neighbors(node):
+                if nx_graph.degree(node) != 0:
+                    for target in nx_graph.neighbors(node):
                         edge_val = np.round(self.source_target_edge_value_dict[node][target], self.round_precision)
                         elements.append({
                             'data': {
@@ -839,7 +859,7 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        table_df = self.edges_df.copy()
+        table_df = pd.read_json(self.edges_json).copy()
 
         table_df['combined_source_value'] = table_df['source_id']
 
@@ -863,16 +883,18 @@ class Generate_Graph:
         """
 
         start_time = time.time()
+        
+        nx_graph = nx.node_link_graph(self.nx_graph)
 
         formatted_data_list = []
-        self.selected_types = set()
+        self.selected_types = []
 
         for node in selected_nodes_list:
             if node['sn_or_tn'] == 'source_node':
-                self.selected_types.add(node['type'])
+                self.selected_types.append(node['type'])
 
                 edges = {}
-                for _, connecting_node in enumerate(self.nx_graph[node['id']]):
+                for _, connecting_node in enumerate(nx_graph[node['id']]):
                     edges[str(self.unique_id_data_dict[connecting_node]['name']) + ' (ID:' + str(connecting_node) + ')'] = float(np.round(self.source_target_edge_value_dict[node['id']][connecting_node], self.round_precision))
 
                 edges_sorted = dict(sorted(edges.items(), key=lambda item: item[1], reverse=True))
@@ -891,7 +913,7 @@ class Generate_Graph:
             if node['sn_or_tn'] == 'target_node':
 
                 edges = {}
-                for _, connecting_node in enumerate(self.nx_graph[node['id']]):
+                for _, connecting_node in enumerate(nx_graph[node['id']]):
                     edges[str(self.unique_id_data_dict[connecting_node]['name']) + ' (ID:' + str(connecting_node) + ')'] = float(np.round(self.source_target_edge_value_dict[connecting_node][node['id']], self.round_precision))
                 
                 edges_sorted = dict(sorted(edges.items(), key=lambda item: item[1], reverse=True))
@@ -968,7 +990,7 @@ class Generate_Graph:
         self.source_color = self.source_color_initial
         self.target_color = self.target_color_initial
 
-        self.edges_df = self.edges_df_initial
+        self.edges_json = self.edges_json_initial
 
         self.type_color_dict = self.type_color_dict_initial
 
@@ -1017,3 +1039,7 @@ class Generate_Graph:
         self.adjusted_nx_graph = self.nx_graph
 
         self._generate_graph_elements()
+
+    def convert_to_json(self):
+        return json.dumps(self, default=lambda o: o.__dict__, 
+            sort_keys=True, indent=4)
