@@ -581,6 +581,8 @@ class Generate_Graph:
 
             self.adjusted_nx_graph = nx.node_link_data(nx_graph)
             self.nx_graph = nx.node_link_data(nx_graph)
+
+            final_spring = {k:v.tolist() for k, v in final_spring.items()}
             self.final_spring = final_spring
 
             if self.timing:
@@ -595,6 +597,8 @@ class Generate_Graph:
 
             self.adjusted_nx_graph = nx.node_link_data(nx_graph)
             self.nx_graph = nx.node_link_data(nx_graph)
+
+            final_spring = {k:v.tolist() for k, v in final_spring.items()}
             self.final_spring = final_spring
 
             if self.timing:
@@ -609,6 +613,8 @@ class Generate_Graph:
 
             self.adjusted_nx_graph = nx.node_link_data(nx_graph)
             self.nx_graph = nx.node_link_data(nx_graph)
+
+            final_spring = {k:v.tolist() for k, v in final_spring.items()}
             self.final_spring = final_spring
 
             if self.timing:
@@ -623,6 +629,8 @@ class Generate_Graph:
 
             self.adjusted_nx_graph = nx.node_link_data(nx_graph)
             self.nx_graph = nx.node_link_data(nx_graph)
+
+            final_spring = {k:v.tolist() for k, v in final_spring.items()}
             self.final_spring = final_spring
 
             if self.timing:
