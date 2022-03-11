@@ -173,8 +173,8 @@ class Generate_Graph:
             if combined_value < self.min_combined_value:
                 self.min_combined_value = combined_value
 
-        self.max_combined_value = self.max_combined_value.item()
-        self.min_combined_value = self.min_combined_value.item()
+        self.max_combined_value = float(self.max_combined_value)
+        self.min_combined_value = float(self.min_combined_value)
 
         self.max_combined_value_start = self.max_combined_value
         self.min_combined_value_start = self.min_combined_value
@@ -321,7 +321,7 @@ class Generate_Graph:
         if self.timing:
             print('INITIALIZE GRAPH STATE: ' + str(time.time() - start_time))
 
-    def _combine_values(self, df=pd.DataFrame, method='geometric_mean'):
+    def _combine_values(self, df=pd.DataFrame, method='arithmetic_mean'):
         """
         Helper method that allows for source-target values to be combined. When a source shares an edge with 
         multiple targets, each edge value for that source is fed into this method. Adjusting this method allows
@@ -887,11 +887,9 @@ class Generate_Graph:
         nx_graph = nx.node_link_graph(self.nx_graph)
 
         formatted_data_list = []
-        self.selected_types = []
 
         for node in selected_nodes_list:
             if node['sn_or_tn'] == 'source_node':
-                self.selected_types.append(node['type'])
 
                 edges = {}
                 for _, connecting_node in enumerate(nx_graph[node['id']]):
