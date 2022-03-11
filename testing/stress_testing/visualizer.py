@@ -64,7 +64,7 @@ for timing_test_iterations in range(500):
     start_time_global = time.time()
 
     # Generate initial graph state. Attributes will be passed to application via json.
-    graph_initial_state = Generate_Graph(timing=testing_edges)
+    graph_initial_state = Generate_Graph(edges_df=testing_edges)
 
     graph_initialization_timing_list.append(graph_initial_state.initialization_timing)
 
@@ -83,6 +83,14 @@ for timing_test_iterations in range(500):
     ui_tracker_initial_state.display_selected_type_color = graph_initial_state.selected_type_color_initial
     ui_tracker_initial_state.display_source_color = graph_initial_state.source_color_initial
     ui_tracker_initial_state.display_target_color = graph_initial_state.target_color_initial
+
+    '''
+    for key in graph_initial_state.__dict__:
+        print(key)
+        print(type(graph_initial_state.__dict__[key]))
+        if key == 'timing':
+            print(graph_initial_state.__dict__[key])
+    '''
 
     # DBC card that defines graph slider layout.
     graph_sliders = dbc.Card(
@@ -1072,7 +1080,7 @@ for timing_test_iterations in range(500):
 
     json_data_input = graph_initial_state.convert_to_json()
 
-    attribute_load_test_graph = Generate_Graph(json_data=json_data_input)
+    attribute_load_test_graph = Generate_Graph(json_data=json.loads(json_data_input))
 
     attribute_loading_time_list.append(time.time() - attribute_load_time_start)
 
@@ -1086,6 +1094,8 @@ for timing_test_iterations in range(500):
     graph_update_timing_list.append(graph_initial_state.update_graph_timing)
 
     #######################################
+
+    print('iteration: ' + str(timing_test_iterations))
 
 with open('graph_initialization_timing.pkl', 'wb') as f:
     pkl.dump(graph_initialization_timing_list, f)
