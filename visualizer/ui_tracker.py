@@ -66,5 +66,12 @@ class UI_Tracker:
         self.display_target_color = ''
 
     def load_attributes(self, json_data):
+        """
+        Allows a new UI insance to be created with previously generated attributes (in the form of a json dictionary).
+
+        Args:
+            json_data (dict): Attributes of the UI_Tracker() class that have been previously determined.
+
+        """
         
         self.__dict__ = dict(json_data)

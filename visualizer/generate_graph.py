@@ -34,11 +34,23 @@ class Generate_Graph:
             self.table_data_initial = self._generate_table()
 
         else:
-            self.load_attributes(json_data)
+            self._load_attributes(json_data)
 
-    def load_attributes(self, json_data):
+    def _load_attributes(self, json_data):
+        """
+        Allows a graph object to be created with previously generated attributes (in the form of a json dictionary).
+
+        Args:
+            json_data (dict): Attributes of the Generate_Graph() class that have been previously determined.
+
+        """
+
+        start_time = time.time()
         
         self.__dict__ = dict(json_data)
+
+        if self.timing:
+            print('LOADING ATTRIBUTES: ' + str(time.time() - start_time))
 
     def _initialize_data(self, starting_edges_df=pd.DataFrame):
         """
@@ -49,6 +61,8 @@ class Generate_Graph:
 
         """
 
+        start_time = time.time()
+
         if isinstance(starting_edges_df, pd.DataFrame):
             pass
         
@@ -58,11 +72,17 @@ class Generate_Graph:
         self.edges_json = starting_edges_df.sort_values(by='edge_value', ascending=False).to_json()
         self.edges_json_initial = starting_edges_df.to_json()
 
+        if self.timing:
+            print('INITIALIZE DATA: ' + str(time.time() - start_time))
+
     def _initialize_simulation_iterations(self):
         """
-        Sets value for number of networkx spring graph simulations.
+        Sets value for number of networkx spring graph simulations. This gets its own helper method 
+        for scope reasons.
 
         """        
+
+        # Value assignment... no timing necessary.
         self.simulation_iterations = 10
         self.simulation_iterations_initial = self.simulation_iterations
 
@@ -954,7 +974,8 @@ class Generate_Graph:
 
     def reset_graph(self):
         """
-        Resets graph (and all sliders) based on the state that the data was initially loaded in.
+        Resets graph (and all sliders) based on the state that the data was initially loaded in. By not 
+        re-simulating the graph, runtime is reduced substantially.
 
         """
 
@@ -1039,5 +1060,5 @@ class Generate_Graph:
         self._generate_graph_elements()
 
     def convert_to_json(self):
-        return json.dumps(self, default=lambda o: o.__dict__, 
-            sort_keys=True, indent=4)
+        
+        return json.dumps(self.__dict__)

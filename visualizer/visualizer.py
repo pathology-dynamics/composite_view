@@ -6,6 +6,7 @@ from dash.dependencies import Input, Output
 from dash import html, dcc, State
 from dash import dash_table as dt
 
+# When hosting with Heroku, whitenoise allows assets to be stored and accessed.
 # from whitenoise import WhiteNoise
 
 import pandas as pd
@@ -29,8 +30,10 @@ app = dash.Dash(external_stylesheets=[__name__, dbc.themes.SLATE])
 server = app.server
 # server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
 
+# Generate initial graph state. Attributes will be passed to application via json.
 graph_initial_state = Generate_Graph(timing=test_timing)
 
+# Generate initial UI state. Attributes will be passed to application via json.
 ui_tracker_initial_state = UI_Tracker()
 
 ui_tracker_initial_state.display_gradient_start_color = graph_initial_state.gradient_start_initial
@@ -564,7 +567,7 @@ def server_layout():
 
 app.layout = server_layout
 
-# Button callback
+# UI Callback
 @app.callback(
     Output('ui_data_high', 'data'), 
     Output('settings_collapse', 'is_open'),
@@ -697,163 +700,6 @@ def toggle_settings(
         ui_tracker.table_data_button_toggle, 
         ui_tracker.table_data_button_class
         ]
-
-'''
-# Button callback
-@app.callback(
-    Output('ui_data', 'data'), 
-    Output('graph_sliders_collapse', 'is_open'),
-    Output('graph_sliders_button', 'className'), 
-    Input('ui_data', 'data'), 
-    Input('graph_sliders_button', 'n_clicks')
-)
-def toggle_sliders(ui_data_input, graph_sliders_button_clicks):
-
-    ui_tracker = UI_Tracker(json_data=json.loads(ui_data_input))
-
-    if graph_sliders_button_clicks:
-        ui_tracker.graph_sliders_button_toggle = not ui_tracker.graph_sliders_button_toggle
-
-        if ui_tracker.graph_sliders_button_toggle:
-            ui_tracker.graph_sliders_button_class = 'button_enabled'
-
-        else:
-            ui_tracker.graph_sliders_button_class = 'button_disabled'
-
-    ui_tracker_data = json.dumps(ui_tracker.__dict__)
-    
-    return [ui_tracker_data, ui_tracker.graph_sliders_button_toggle, ui_tracker.graph_sliders_button_class]
-
-
-# Button callback
-@app.callback(
-    Output('ui_data', 'data'), 
-    Output('node_filtering_collapse', 'is_open'),
-    Output('node_filtering_button', 'className'),
-    Input('ui_data', 'data'), 
-    Input('node_filtering_button', 'n_clicks')
-)
-def toggle_filtering(ui_data_input, node_filtering_button_clicks):
-
-    ui_tracker = UI_Tracker(json_data=json.loads(ui_data_input))
-
-    if node_filtering_button_clicks:
-        ui_tracker.node_filtering_button_toggle = not ui_tracker.node_filtering_button_toggle
-
-        if ui_tracker.node_filtering_button_toggle:
-            ui_tracker.node_filtering_button_class = 'button_enabled'
-
-        else:
-            ui_tracker.node_filtering_button_class = 'button_disabled'
-
-    ui_tracker_data = json.dumps(ui_tracker.__dict__)
-
-    return [ui_tracker_data, ui_tracker.node_filtering_button_toggle, ui_tracker.node_filtering_button_class]
-
-
-# Button callback
-@app.callback(
-    Output('ui_data', 'data'), 
-    Output('graph_manipulation_collapse', 'is_open'),
-    Output('graph_manipulation_button', 'className'), 
-    Input('ui_data', 'data'), 
-    Input('graph_manipulation_button', 'n_clicks')
-)
-def toggle_manipulation(ui_data_input, graph_manipulation_button_clicks):
-
-    ui_tracker = UI_Tracker(json_data=json.loads(ui_data_input))
-
-    if graph_manipulation_button_clicks:
-        ui_tracker.graph_manipulation_button_toggle = not ui_tracker.graph_manipulation_button_toggle
-
-        if ui_tracker.graph_manipulation_button_toggle:
-            ui_tracker.graph_manipulation_button_class = 'button_enabled'
-
-        else:
-            ui_tracker.graph_manipulation_button_class = 'button_disabled'
-
-    ui_tracker_data = json.dumps(ui_tracker.__dict__)
-
-    return [ui_tracker_data, ui_tracker.graph_manipulation_button_toggle, ui_tracker.graph_manipulation_button_class]
-
-
-# Button callback
-@app.callback(
-    Output('ui_data', 'data'), 
-    Output('color_editing_collapse', 'is_open'),
-    Output('color_editing_button', 'className'), 
-    Input('ui_data', 'data'), 
-    Input('color_editing_button', 'n_clicks')
-)
-def toggle_coloring(ui_data_input, color_editing_button_clicks):
-
-    ui_tracker = UI_Tracker(json_data=json.loads(ui_data_input))
-
-    if color_editing_button_clicks:
-        ui_tracker.color_editing_button_toggle = not ui_tracker.color_editing_button_toggle
-
-        if ui_tracker.color_editing_button_toggle:
-            ui_tracker.color_editing_button_class = 'button_enabled'
-
-        else:
-            ui_tracker.color_editing_button_class = 'button_disabled'
-
-    ui_tracker_data = json.dumps(ui_tracker.__dict__)
-
-    return [ui_tracker_data, ui_tracker.color_editing_button_toggle, ui_tracker.color_editing_button_class]
-
-
-# Button callback
-@app.callback(
-    Output('ui_data', 'data'), 
-    Output('node_data_collapse', 'is_open'),
-    Output('node_data_button', 'className'), 
-    Input('ui_data', 'data'), 
-    Input('node_data_button', 'n_clicks')
-)
-def toggle_node_data(ui_data_input, node_data_button_clicks):
-
-    ui_tracker = UI_Tracker(json_data=json.loads(ui_data_input))
-
-    if node_data_button_clicks:
-        ui_tracker.node_data_button_toggle = not ui_tracker.node_data_button_toggle
-
-        if ui_tracker.node_data_button_toggle:
-            ui_tracker.node_data_button_class = 'button_enabled'
-
-        else:
-            ui_tracker.node_data_button_class = 'button_disabled'
-            
-    ui_tracker_data = json.dumps(ui_tracker.__dict__)
-
-    return [ui_tracker_data, ui_tracker.node_data_button_toggle, ui_tracker.node_data_button_class]
-
-
-# Button callback
-@app.callback(
-    Output('ui_data', 'data'), 
-    Output('table_data_collapse', 'is_open'),
-    Output('table_data_button', 'className'), 
-    Input('ui_data', 'data'), 
-    Input('table_data_button', 'n_clicks')
-)
-def toggle_table_data(ui_data_input, table_data_button_clicks):
-
-    ui_tracker = UI_Tracker(json_data=json.loads(ui_data_input))
-
-    if table_data_button_clicks:
-        ui_tracker.table_data_button_toggle = not ui_tracker.table_data_button_toggle
-
-        if ui_tracker.table_data_button_toggle:
-            ui_tracker.table_data_button_class = 'button_enabled'
-
-        else:
-            ui_tracker.table_data_button_class = 'button_disabled'
-
-    ui_tracker_data = json.dumps(ui_tracker.__dict__)
-
-    return [ui_tracker_data, ui_tracker.table_data_button_toggle, ui_tracker.table_data_button_class]
-'''
 
 # Main callback that enables graph updates.
 @app.callback(
@@ -1166,6 +1012,7 @@ def displayTapNodeData(input_selected_nodes, graph_data_input):
 
     return display_data
 
+# Callback that enables storage of selected node types.
 @app.callback(
     Output('selected_types', 'data'),
     Input('output_graph', 'selectedNodeData'),
