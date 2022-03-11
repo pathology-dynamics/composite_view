@@ -1,3 +1,4 @@
+from tracemalloc import start
 import pandas as pd
 import numpy as np
 import networkx as nx
@@ -18,6 +19,8 @@ class Generate_Graph:
 
         self.timing = timing
 
+        start_time = time.time()
+
         if not json_data:
             self._initialize_data(edges_df)
 
@@ -33,8 +36,12 @@ class Generate_Graph:
 
             self.table_data_initial = self._generate_table()
 
+            self.initialization_timing = time.time() - start_time
+
         else:
             self._load_attributes(json_data)
+
+            self.attribute_load_time = time.time() - start_time()
 
     def _load_attributes(self, json_data):
         """
@@ -48,9 +55,6 @@ class Generate_Graph:
         start_time = time.time()
         
         self.__dict__ = dict(json_data)
-
-        if self.timing:
-            print('LOADING ATTRIBUTES: ' + str(time.time() - start_time))
 
     def _initialize_data(self, starting_edges_df=pd.DataFrame):
         """
@@ -72,9 +76,6 @@ class Generate_Graph:
         self.edges_json = starting_edges_df.sort_values(by='edge_value', ascending=False).to_json()
         self.edges_json_initial = starting_edges_df.to_json()
 
-        if self.timing:
-            print('INITIALIZE DATA: ' + str(time.time() - start_time))
-
     def _initialize_simulation_iterations(self):
         """
         Sets value for number of networkx spring graph simulations. This gets its own helper method 
@@ -85,7 +86,6 @@ class Generate_Graph:
         # Value assignment... no timing necessary.
         self.simulation_iterations = 10
         self.simulation_iterations_initial = self.simulation_iterations
-
 
     def _generate_dummy_data(self):
         """
@@ -148,9 +148,6 @@ class Generate_Graph:
         }
 
         dummy_df = pd.DataFrame(data)
-
-        if self.timing:
-            print('GENERATE DUMMY DATA: ' + str(time.time() - start_time))
         
         return dummy_df
 
@@ -338,9 +335,6 @@ class Generate_Graph:
         # Shortcut attribute
         self.graph_update_shortcut = True
 
-        if self.timing:
-            print('INITIALIZE GRAPH STATE: ' + str(time.time() - start_time))
-
     def _combine_values(self, df=pd.DataFrame, method='arithmetic_mean'):
         """
         Helper method that allows for source-target values to be combined. When a source shares an edge with 
@@ -418,9 +412,6 @@ class Generate_Graph:
 
         self.edges_json = temporary_full_edges_df.to_json()
 
-        if self.timing:
-            print('FILTER DATA: ' + str(time.time() - start_time))
-
     def _trim_graph(self):
         """
         Runs _generate_nx_graphs() based on user input. If possible, the graph is NOT re-simulated to help 
@@ -463,9 +454,6 @@ class Generate_Graph:
                 temporary_graph.remove_nodes_from(list(nx.isolates(temporary_graph)))
 
                 self.nx_graph = nx.node_link_data(temporary_graph)
-
-        if self.timing:
-            print('TRIM GRAPH: ' + str(time.time() - start_time))
 
     def _generate_size(self, value=float, node=True):
         """
@@ -556,9 +544,6 @@ class Generate_Graph:
 
             self.target_color_primacy = False
 
-        if self.timing:
-            print('GENERATE COLORS: ' + str(time.time() - start_time))
-
         return self.type_color_dict
 
     def _generate_nx_graphs(self):
@@ -585,9 +570,6 @@ class Generate_Graph:
             final_spring = {k:v.tolist() for k, v in final_spring.items()}
             self.final_spring = final_spring
 
-            if self.timing:
-                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
-
             return (nx_graph, final_spring)
         
         elif self.layout == 'spring':
@@ -600,9 +582,6 @@ class Generate_Graph:
 
             final_spring = {k:v.tolist() for k, v in final_spring.items()}
             self.final_spring = final_spring
-
-            if self.timing:
-                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
 
             return (nx_graph, final_spring)
 
@@ -617,9 +596,6 @@ class Generate_Graph:
             final_spring = {k:v.tolist() for k, v in final_spring.items()}
             self.final_spring = final_spring
 
-            if self.timing:
-                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
-
             return (nx_graph, final_spring)
 
         elif self.layout == 'kk':
@@ -632,9 +608,6 @@ class Generate_Graph:
 
             final_spring = {k:v.tolist() for k, v in final_spring.items()}
             self.final_spring = final_spring
-
-            if self.timing:
-                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
 
             return (nx_graph, final_spring)
 
@@ -798,9 +771,6 @@ class Generate_Graph:
             self.nx_graph =  nx_graph
             self.final_spring = final_spring
 
-            if self.timing:
-                print('GENERATE NX GRAPH: ' + str(time.time() - start_time))
-
             return (nx_graph, final_spring)
 
     def _map_edge_weights(self, edge_val_column, min_weight, max_weight):
@@ -874,9 +844,6 @@ class Generate_Graph:
 
         self.elements = elements
 
-        if self.timing:
-            print('GENERATE ELEMENTS: ' + str(time.time() - start_time))
-
         return elements
 
     def _generate_table(self):
@@ -898,9 +865,6 @@ class Generate_Graph:
         self.table_data = table_df
         self.data_table_columns = [{"name": i, "id": i} for i in table_df.columns]
         self.table_data = table_df.to_dict('records')
-
-        if self.timing:
-            print('GENERATE TABLE: ' + str(time.time() - start_time))
 
         return self.table_data
 
@@ -952,9 +916,6 @@ class Generate_Graph:
                     }
 
                 formatted_data_list.append(json.dumps(data_dump, indent=2))
-
-        if self.timing:
-            print('NODE ELEMENTS: ' + str(time.time() - start_time))
             
         return formatted_data_list
 
@@ -963,6 +924,8 @@ class Generate_Graph:
         Updates the elements list based on graph filters/adjustments.
 
         """
+
+        start_time = time.time()
 
         if not self.graph_update_shortcut:
             self._filter_data()
@@ -977,6 +940,8 @@ class Generate_Graph:
         self._generate_graph_elements()
 
         self.graph_update_shortcut = True
+
+        self.update_graph_timing = time.time() - start_time
 
         return self.elements        
 

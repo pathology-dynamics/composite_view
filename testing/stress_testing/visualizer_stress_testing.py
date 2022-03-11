@@ -6,25 +6,18 @@ from dash.dependencies import Input, Output
 from dash import html, dcc, State
 from dash import dash_table as dt
 
+import pandas as pd
 import pickle as pkl
 
-# When hosting with Heroku, whitenoise allows assets to be stored and accessed.
-# from whitenoise import WhiteNoise
-
-import pandas as pd
-
-import json
 import base64
 import time
 import io
 
-from generate_graph import Generate_Graph
-from ui_tracker import UI_Tracker
+from generate_graph_stress_testing import Generate_Graph
 
-graph_initialization_timing_list = []
-attribute_loading_time_list = []
-graph_update_timing_list = []
-app_building_timing_list = []
+graph_startup_timing = []
+graph_update_timing = []
+app_startup_timing = []
 
 for timing_test_iterations in range(500):
 
@@ -63,26 +56,70 @@ for timing_test_iterations in range(500):
 
     start_time_global = time.time()
 
-    # Generate initial graph state. Attributes will be passed to application via json.
-    graph_initial_state = Generate_Graph(timing=testing_edges)
+    graph = Generate_Graph(edges_df=testing_edges, timing=False)
 
-    graph_initialization_timing_list.append(graph_initial_state.initialization_timing)
+    graph_startup_timing.append(graph.graph_initialization_time)
 
-    app_building_start = time.time()
+    start_time_app_startup = time.time()
 
-    app = dash.Dash(external_stylesheets=[__name__, dbc.themes.SLATE])
+    app = dash.Dash(external_stylesheets=[dbc.themes.SLATE])
 
-    server = app.server
-    # server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
+    class UI_Tracker:
+        '''
+        Class for tracking all UI elements that change throughout app run.
 
-    # Generate initial UI state. Attributes will be passed to application via json.
-    ui_tracker_initial_state = UI_Tracker()
+        '''
 
-    ui_tracker_initial_state.display_gradient_start_color = graph_initial_state.gradient_start_initial
-    ui_tracker_initial_state.display_gradient_end_color = graph_initial_state.gradient_end_initial
-    ui_tracker_initial_state.display_selected_type_color = graph_initial_state.selected_type_color_initial
-    ui_tracker_initial_state.display_source_color = graph_initial_state.source_color_initial
-    ui_tracker_initial_state.display_target_color = graph_initial_state.target_color_initial
+        def __init__(self):
+            self.set_initial_state()
+
+        def set_initial_state(self):
+            '''
+            Initializes all UI states that don't directly interact with the graph object.
+
+            '''
+
+            self.card_stack_tracking = []
+            self.dropdown_cards = []
+
+            self.settings_button_toggle = False
+            self.settings_button_class = 'button_disabled'
+            self.settings_button_text = 'Expand Settings'
+
+            self.graph_sliders_button_toggle = False
+            self.graph_sliders_button_class = 'button_disabled'
+
+            self.node_filtering_button_toggle = False
+            self.node_filtering_button_class = 'button_disabled'
+
+            self.graph_manipulation_button_toggle = False
+            self.graph_manipulation_button_class = 'button_disabled'
+
+            self.color_editing_button_toggle = False
+            self.color_editing_button_class = 'button_disabled'
+
+            self.node_data_button_toggle = False
+            self.node_data_button_class = 'button_disabled'
+
+            self.table_data_button_toggle = False
+            self.table_data_button_class = 'button_disabled'
+
+            self.reset_button_clicks = None
+            self.simulate_button_clicks = None
+            self.randomized_color_button_clicks = None
+
+            self.color_change_only = True
+            self.graph_manipulation_only = True
+
+            self.download_graph_clicks = None
+
+            self.display_gradient_start_color = graph.gradient_start_initial
+            self.display_gradient_end_color = graph.gradient_end_initial
+            self.display_selected_type_color = graph.selected_type_color_initial
+            self.display_source_color = graph.source_color_initial
+            self.display_target_color = graph.target_color_initial
+
+    ui_tracker = UI_Tracker()
 
     # DBC card that defines graph slider layout.
     graph_sliders = dbc.Card(
@@ -92,12 +129,12 @@ for timing_test_iterations in range(500):
                 html.Div(
                     dcc.RangeSlider(
                         id='combined_value_range_slider',
-                        min=graph_initial_state.combined_value_bound[0],
-                        max=graph_initial_state.combined_value_bound[1],
-                        step=graph_initial_state.combined_value_step_size,
+                        min=graph.combined_value_bound[0],
+                        max=graph.combined_value_bound[1],
+                        step=graph.combined_value_step_size,
                         value=[
-                            graph_initial_state.combined_value_range_initial[0], 
-                            graph_initial_state.combined_value_range_initial[1]
+                            graph.combined_value_range_initial[0], 
+                            graph.combined_value_range_initial[1]
                             ],
                         tooltip={'placement': 'bottom', 'always_visible': True},
                         vertical=False
@@ -110,12 +147,12 @@ for timing_test_iterations in range(500):
                 html.Div(
                     dcc.RangeSlider(
                         id='edge_value_range_slider',
-                        min=graph_initial_state.edge_value_bound[0],
-                        max=graph_initial_state.edge_value_bound[1],
-                        step=graph_initial_state.edge_value_step_size,
+                        min=graph.edge_value_bound[0],
+                        max=graph.edge_value_bound[1],
+                        step=graph.edge_value_step_size,
                         value=[
-                            graph_initial_state.edge_value_range_initial[0],
-                            graph_initial_state.edge_value_range_initial[1]
+                            graph.edge_value_range_initial[0],
+                            graph.edge_value_range_initial[1]
                             ],
                         tooltip={'placement': 'bottom', 'always_visible': True},
                         vertical=False
@@ -129,9 +166,9 @@ for timing_test_iterations in range(500):
                     dcc.Slider(
                         id='max_node_slider',
                         min=1,
-                        max=graph_initial_state.max_node_count_initial,
+                        max=graph.max_node_count_initial,
                         step=1,
-                        value=graph_initial_state.max_node_count_initial,
+                        value=graph.max_node_count_initial,
                         tooltip={'placement': 'bottom', 'always_visible': True},
                         vertical=False
                     ), 
@@ -149,7 +186,7 @@ for timing_test_iterations in range(500):
                     html.H6('Select Target Node Name(s):', className='card-text'),
                     dcc.Dropdown(
                         id='specific_target_dropdown', 
-                        options=graph_initial_state.target_dropdown_options_initial,
+                        options=graph.target_dropdown_options_initial,
                         value=[],
                         multi=True)
                     ], 
@@ -160,7 +197,7 @@ for timing_test_iterations in range(500):
                     html.H6('Select Source Node Name(s):', className='card-text'),
                     dcc.Dropdown(
                         id='specific_source_dropdown', 
-                        options=graph_initial_state.source_dropdown_options_initial,
+                        options=graph.source_dropdown_options_initial,
                         value=[],
                         multi=True)
                     ], 
@@ -171,7 +208,7 @@ for timing_test_iterations in range(500):
                     html.H6('Select Type(s):', className='card-text'),
                     dcc.Dropdown(
                         id='specific_type_dropdown', 
-                        options=graph_initial_state.type_dropdown_options_initial,
+                        options=graph.type_dropdown_options_initial,
                         value=[],
                         multi=True)
                     ], 
@@ -192,7 +229,7 @@ for timing_test_iterations in range(500):
                         min=0.1,
                         max=3,
                         step=0.1,
-                        value=graph_initial_state.target_spread,
+                        value=graph.target_spread,
                         tooltip={'placement': 'bottom', 'always_visible': True},
                         vertical=False
                     ),
@@ -206,7 +243,7 @@ for timing_test_iterations in range(500):
                         min=0.01,
                         max=0.3,
                         step=0.01,
-                        value=graph_initial_state.source_spread,
+                        value=graph.source_spread,
                         tooltip={'placement': 'bottom', 'always_visible': True},
                         vertical=False
                     ),
@@ -220,7 +257,7 @@ for timing_test_iterations in range(500):
                         min=0,
                         max=1,
                         step=0.01,
-                        value=graph_initial_state.node_size_modifier,
+                        value=graph.node_size_modifier,
                         tooltip={'placement': 'bottom', 'always_visible': True},
                         vertical=False
                     ),
@@ -234,7 +271,7 @@ for timing_test_iterations in range(500):
                         min=0,
                         max=1,
                         step=0.01,
-                        value=graph_initial_state.edge_size_modifier,
+                        value=graph.edge_size_modifier,
                         tooltip={'placement': 'bottom', 'always_visible': True},
                         vertical=False
                     ),
@@ -248,7 +285,7 @@ for timing_test_iterations in range(500):
                         min=0,
                         max=50,
                         step=1,
-                        value=graph_initial_state.simulation_iterations,
+                        value=graph.simulation_iterations,
                         tooltip={'placement': 'bottom', 'always_visible': True},
                         vertical=False
                     ),
@@ -279,14 +316,14 @@ for timing_test_iterations in range(500):
                     dbc.Input(
                         type='color',
                         id='gradient_start',
-                        value=graph_initial_state.gradient_start_initial,
+                        value=graph.gradient_start_initial,
                         style={'width': 50, 'height': 25, 'display': 'inline-block', 'marginRight': '1%', 'border': 'none', 'padding': '0'}
                     ),
                     html.Div(',', style={'display': 'inline-block', 'marginRight': '1%', 'marginLeft': '1%'}),
                     dbc.Input(
                         type='color',
                         id='gradient_end',
-                        value=graph_initial_state.gradient_end_initial,
+                        value=graph.gradient_end_initial,
                         style={'width': 50, 'height': 25, 'display': 'inline-block', 'marginLeft': '1%', 'border': 'none', 'padding': '0'},
                     )               
                     ], 
@@ -298,7 +335,7 @@ for timing_test_iterations in range(500):
                     dbc.Input(
                         type='color',
                         id='selected_type_color',
-                        value=graph_initial_state.selected_type_color_initial,
+                        value=graph.selected_type_color_initial,
                         style={'width': 50, 'height': 25, 'display': 'inline-block', 'border': 'none', 'padding': '0'}
                     )           
                     ], 
@@ -310,7 +347,7 @@ for timing_test_iterations in range(500):
                     dbc.Input(
                         type='color',
                         id='source_color',
-                        value=graph_initial_state.target_color_initial,
+                        value=graph.target_color_initial,
                         style={'width': 50, 'height': 25, 'display': 'inline-block', 'border': 'none', 'padding': '0'}
                     )           
                     ], 
@@ -322,7 +359,7 @@ for timing_test_iterations in range(500):
                     dbc.Input(
                         type='color',
                         id='target_color',
-                        value=graph_initial_state.target_color_initial,
+                        value=graph.target_color_initial,
                         style={'width': 50, 'height': 25, 'display': 'inline-block', 'border': 'none', 'padding': '0'}
                     )           
                     ], 
@@ -365,8 +402,8 @@ for timing_test_iterations in range(500):
                 html.Div(
                     dt.DataTable(
                         id='data_table', 
-                        columns=graph_initial_state.data_table_columns, 
-                        data=graph_initial_state.table_data, 
+                        columns=graph.data_table_columns, 
+                        data=graph.table_data, 
                         style_as_list_view=True,
                         style_cell={
                             'backgroundColor': '#32383E', 
@@ -434,6 +471,16 @@ for timing_test_iterations in range(500):
             }
         ]
 
+    # Cytoscape graph object.
+    cytoscape_graph = cyto.Cytoscape(
+        id='output_graph',
+        layout={'name': 'preset'},
+        style={'width': '100vw', 'height': '100vh'},
+        stylesheet=default_stylesheet,
+        elements=graph.elements,
+        boxSelectionEnabled=True
+        )
+
     def format_data_input(csv_input, filename):
         """
         Function that converts encoded data upload into graph-usable dataframe.
@@ -462,29 +509,10 @@ for timing_test_iterations in range(500):
         Function that houses the app layout. Calling the function allows the UI state and graph to be reset.
 
         """
+        ui_tracker.set_initial_state()
 
         app_layout = html.Div([
-
-            dcc.Store(id='graph_data', data=json.dumps(graph_initial_state.__dict__)), 
-
-            dcc.Store(id='ui_data_high', data=json.dumps(ui_tracker_initial_state.__dict__)), 
-
-            dcc.Store(id='ui_data_low', data=json.dumps(ui_tracker_initial_state.__dict__)), 
-
-            dcc.Store(id='selected_types'), 
-
-            html.Div(children=[
-                cyto.Cytoscape(
-                    id='output_graph',
-                    layout={'name': 'preset'},
-                    style={'width': '100vw', 'height': '100vh'},
-                    stylesheet=default_stylesheet,
-                    elements=graph_initial_state.elements,
-                    boxSelectionEnabled=True
-                    )
-                ], 
-                style={'position': 'fixed', 'zIndex': '1', 'width': '99vw', 'height': '99vh'}
-            ),
+            html.Div(cytoscape_graph, style={'position': 'fixed', 'zIndex': '1', 'width': '99vw', 'height': '99vh'}),
             
             html.Div(children=[
                 html.Div(children=[
@@ -492,7 +520,7 @@ for timing_test_iterations in range(500):
                         'Expand Settings'
                         ],
                         id='settings_button',
-                        className=ui_tracker_initial_state.settings_button_class,
+                        className=ui_tracker.settings_button_class,
                         style={'width': '50%'}
                     ), 
                     dbc.Button(children=[
@@ -509,7 +537,7 @@ for timing_test_iterations in range(500):
                     dbc.Button(
                         'Graph Sliders',
                         id='graph_sliders_button',
-                        className=ui_tracker_initial_state.graph_sliders_button_class,
+                        className=ui_tracker.graph_sliders_button_class,
                         style={'width': '20vw'}
                     ), 
                     dbc.Collapse(
@@ -520,7 +548,7 @@ for timing_test_iterations in range(500):
                     dbc.Button(
                         'Node Filtering',
                         id='node_filtering_button',
-                        className=ui_tracker_initial_state.node_filtering_button_class,
+                        className=ui_tracker.node_filtering_button_class,
                         style={'width': '20vw'}
                     ), 
                     dbc.Collapse(
@@ -531,7 +559,7 @@ for timing_test_iterations in range(500):
                     dbc.Button(
                         'Graph Manipulation',
                         id='graph_manipulation_button',
-                        className=ui_tracker_initial_state.graph_manipulation_button_class,
+                        className=ui_tracker.graph_manipulation_button_class,
                         style={'width': '20vw'}
                     ), 
                     dbc.Collapse(
@@ -542,7 +570,7 @@ for timing_test_iterations in range(500):
                     dbc.Button(
                         'Color Editing',
                         id='color_editing_button',
-                        className=ui_tracker_initial_state.color_editing_button_class,
+                        className=ui_tracker.color_editing_button_class,
                         style={'width': '20vw'}
                     ), 
                     dbc.Collapse(
@@ -553,7 +581,7 @@ for timing_test_iterations in range(500):
                     dbc.Button(
                         'Node Data',
                         id='node_data_button',
-                        className=ui_tracker_initial_state.node_data_button_class,
+                        className=ui_tracker.node_data_button_class,
                         style={'width': '20vw'}
                     ), 
                     dbc.Collapse(
@@ -564,7 +592,7 @@ for timing_test_iterations in range(500):
                     dbc.Button(
                         'Table Data',
                         id='table_data_button',
-                        className=ui_tracker_initial_state.table_data_button_class,
+                        className=ui_tracker.table_data_button_class,
                         style={'width': '20vw'}
                     ), 
                     dbc.Collapse(
@@ -609,49 +637,15 @@ for timing_test_iterations in range(500):
 
     app.layout = server_layout
 
-    # UI Callback
+    # Button callback
     @app.callback(
-        Output('ui_data_high', 'data'), 
         Output('settings_collapse', 'is_open'),
         Output('settings_button', 'className'),
-        Output('settings_button', 'children'), 
-        Output('graph_sliders_collapse', 'is_open'),
-        Output('graph_sliders_button', 'className'),
-        Output('node_filtering_collapse', 'is_open'),
-        Output('node_filtering_button', 'className'), 
-        Output('graph_manipulation_collapse', 'is_open'),
-        Output('graph_manipulation_button', 'className'), 
-        Output('color_editing_collapse', 'is_open'),
-        Output('color_editing_button', 'className'), 
-        Output('node_data_collapse', 'is_open'),
-        Output('node_data_button', 'className'), 
-        Output('table_data_collapse', 'is_open'),
-        Output('table_data_button', 'className'), 
-        Input('ui_data_high', 'data'), 
-        Input('settings_button', 'n_clicks'), 
-        Input('graph_sliders_button', 'n_clicks'), 
-        Input('node_filtering_button', 'n_clicks'), 
-        Input('graph_manipulation_button', 'n_clicks'), 
-        Input('color_editing_button', 'n_clicks'), 
-        Input('node_data_button', 'n_clicks'), 
-        Input('table_data_button', 'n_clicks'), 
-        prevent_initial_call=True
+        Output('settings_button', 'children'),
+        Input('settings_button', 'n_clicks')
     )
-    def toggle_settings(
-        ui_data_input, 
-        settings_button_clicks, 
-        graph_sliders_button_clicks, 
-        node_filtering_button_clicks, 
-        graph_manipulation_button_clicks, 
-        color_editing_button_clicks, 
-        node_data_button_clicks, 
-        table_data_button_clicks
-        ):
-
-        ui_tracker = UI_Tracker(json_data=json.loads(ui_data_input))
-
-        if settings_button_clicks != ui_tracker.settings_button_clicks:
-            ui_tracker.settings_button_clicks = settings_button_clicks
+    def toggle_settings(settings_button_clicks):
+        if settings_button_clicks:
             ui_tracker.settings_button_toggle = not ui_tracker.settings_button_toggle
 
             if ui_tracker.settings_button_toggle:
@@ -661,9 +655,17 @@ for timing_test_iterations in range(500):
             else:
                 ui_tracker.settings_button_class = 'button_disabled'
                 ui_tracker.settings_button_text = 'Expand Settings'
+        
+        return [ui_tracker.settings_button_toggle, ui_tracker.settings_button_class, ui_tracker.settings_button_text]
 
-        if graph_sliders_button_clicks != ui_tracker.graph_sliders_button_clicks:
-            ui_tracker.graph_sliders_button_clicks = graph_sliders_button_clicks
+    # Button callback
+    @app.callback(
+        Output('graph_sliders_collapse', 'is_open'),
+        Output('graph_sliders_button', 'className'),
+        Input('graph_sliders_button', 'n_clicks')
+    )
+    def toggle_sliders(graph_sliders_button_clicks):
+        if graph_sliders_button_clicks:
             ui_tracker.graph_sliders_button_toggle = not ui_tracker.graph_sliders_button_toggle
 
             if ui_tracker.graph_sliders_button_toggle:
@@ -671,9 +673,17 @@ for timing_test_iterations in range(500):
 
             else:
                 ui_tracker.graph_sliders_button_class = 'button_disabled'
+        
+        return [ui_tracker.graph_sliders_button_toggle, ui_tracker.graph_sliders_button_class]
 
-        if node_filtering_button_clicks != ui_tracker.node_filtering_button_clicks:
-            ui_tracker.node_filtering_button_clicks = node_filtering_button_clicks
+    # Button callback
+    @app.callback(
+        Output('node_filtering_collapse', 'is_open'),
+        Output('node_filtering_button', 'className'),
+        Input('node_filtering_button', 'n_clicks')
+    )
+    def toggle_filtering(node_filtering_button_clicks):
+        if node_filtering_button_clicks:
             ui_tracker.node_filtering_button_toggle = not ui_tracker.node_filtering_button_toggle
 
             if ui_tracker.node_filtering_button_toggle:
@@ -682,8 +692,16 @@ for timing_test_iterations in range(500):
             else:
                 ui_tracker.node_filtering_button_class = 'button_disabled'
 
-        if graph_manipulation_button_clicks != ui_tracker.graph_manipulation_button_clicks:
-            ui_tracker.graph_manipulation_button_clicks = graph_manipulation_button_clicks
+        return [ui_tracker.node_filtering_button_toggle, ui_tracker.node_filtering_button_class]
+
+    # Button callback
+    @app.callback(
+        Output('graph_manipulation_collapse', 'is_open'),
+        Output('graph_manipulation_button', 'className'),
+        Input('graph_manipulation_button', 'n_clicks')
+    )
+    def toggle_manipulation(graph_manipulation_button_clicks):
+        if graph_manipulation_button_clicks:
             ui_tracker.graph_manipulation_button_toggle = not ui_tracker.graph_manipulation_button_toggle
 
             if ui_tracker.graph_manipulation_button_toggle:
@@ -692,8 +710,16 @@ for timing_test_iterations in range(500):
             else:
                 ui_tracker.graph_manipulation_button_class = 'button_disabled'
 
-        if color_editing_button_clicks != ui_tracker.color_editing_button_clicks:
-            ui_tracker.color_editing_button_clicks = color_editing_button_clicks
+        return [ui_tracker.graph_manipulation_button_toggle, ui_tracker.graph_manipulation_button_class]
+
+    # Button callback
+    @app.callback(
+        Output('color_editing_collapse', 'is_open'),
+        Output('color_editing_button', 'className'),
+        Input('color_editing_button', 'n_clicks')
+    )
+    def toggle_coloring(color_editing_button_clicks):
+        if color_editing_button_clicks:
             ui_tracker.color_editing_button_toggle = not ui_tracker.color_editing_button_toggle
 
             if ui_tracker.color_editing_button_toggle:
@@ -702,8 +728,16 @@ for timing_test_iterations in range(500):
             else:
                 ui_tracker.color_editing_button_class = 'button_disabled'
 
-        if node_data_button_clicks != ui_tracker.node_data_button_clicks:
-            ui_tracker.node_data_button_clicks = node_data_button_clicks
+        return [ui_tracker.color_editing_button_toggle, ui_tracker.color_editing_button_class]
+
+    # Button callback
+    @app.callback(
+        Output('node_data_collapse', 'is_open'),
+        Output('node_data_button', 'className'),
+        Input('node_data_button', 'n_clicks')
+    )
+    def toggle_node_data(node_data_button_clicks):
+        if node_data_button_clicks:
             ui_tracker.node_data_button_toggle = not ui_tracker.node_data_button_toggle
 
             if ui_tracker.node_data_button_toggle:
@@ -712,8 +746,16 @@ for timing_test_iterations in range(500):
             else:
                 ui_tracker.node_data_button_class = 'button_disabled'
 
-        if table_data_button_clicks != ui_tracker.table_data_button_clicks:
-            ui_tracker.table_data_button_clicks = table_data_button_clicks
+        return [ui_tracker.node_data_button_toggle, ui_tracker.node_data_button_class]
+
+    # Button callback
+    @app.callback(
+        Output('table_data_collapse', 'is_open'),
+        Output('table_data_button', 'className'),
+        Input('table_data_button', 'n_clicks')
+    )
+    def toggle_table_data(table_data_button_clicks):
+        if table_data_button_clicks:
             ui_tracker.table_data_button_toggle = not ui_tracker.table_data_button_toggle
 
             if ui_tracker.table_data_button_toggle:
@@ -722,31 +764,10 @@ for timing_test_iterations in range(500):
             else:
                 ui_tracker.table_data_button_class = 'button_disabled'
 
-        ui_tracker_data = json.dumps(ui_tracker.__dict__)
-        
-        return [
-            ui_tracker_data, 
-            ui_tracker.settings_button_toggle, 
-            ui_tracker.settings_button_class, 
-            ui_tracker.settings_button_text, 
-            ui_tracker.graph_sliders_button_toggle, 
-            ui_tracker.graph_sliders_button_class, 
-            ui_tracker.node_filtering_button_toggle, 
-            ui_tracker.node_filtering_button_class, 
-            ui_tracker.graph_manipulation_button_toggle, 
-            ui_tracker.graph_manipulation_button_class, 
-            ui_tracker.color_editing_button_toggle, 
-            ui_tracker.color_editing_button_class, 
-            ui_tracker.node_data_button_toggle, 
-            ui_tracker.node_data_button_class, 
-            ui_tracker.table_data_button_toggle, 
-            ui_tracker.table_data_button_class
-            ]
+        return [ui_tracker.table_data_button_toggle, ui_tracker.table_data_button_class]
 
     # Main callback that enables graph updates.
     @app.callback(
-        Output(component_id='graph_data', component_property='data'), 
-        Output(component_id='ui_data_low', component_property='data'), 
         Output(component_id='output_graph', component_property='elements'),
         Output(component_id='combined_value_range_slider', component_property='min'),
         Output(component_id='combined_value_range_slider', component_property='max'),
@@ -779,9 +800,6 @@ for timing_test_iterations in range(500):
         Output(component_id='data_upload', component_property='contents'),
         Output(component_id='data_upload', component_property='filename'),
         Output(component_id='output_graph', component_property='generateImage'),
-        Input(component_id='graph_data', component_property='data'), 
-        Input(component_id='ui_data_low', component_property='data'), 
-        State(component_id='selected_types', component_property='data'), 
         [Input(component_id='combined_value_range_slider', component_property='value')],
         [Input(component_id='edge_value_range_slider', component_property='value')],
         Input(component_id='max_node_slider', component_property='value'),
@@ -807,9 +825,6 @@ for timing_test_iterations in range(500):
         prevent_initial_call=True
     )
     def toggle_graph_update(
-        graph_data_input, 
-        ui_data_input, 
-        selected_types_input, 
         input_combined_value_range_slider, 
         input_edge_value_range_slider, 
         input_max_node_slider, 
@@ -833,9 +848,9 @@ for timing_test_iterations in range(500):
         data_upload_filenames, 
         download_graph_clicks_input):
 
-        graph = Generate_Graph(json_data=json.loads(graph_data_input))
-
-        ui_tracker = UI_Tracker(json_data=json.loads(ui_data_input))
+        if test_timing:
+            start_time = time.time()
+            print('================')
 
         if input_combined_value_range_slider != graph.combined_value_range:
             graph.combined_value_range = input_combined_value_range_slider
@@ -894,7 +909,7 @@ for timing_test_iterations in range(500):
                 graph.gradient_color_primacy = True
 
                 ui_tracker.display_gradient_end_color = input_gradient_end
-        
+            
         if (input_gradient_end != graph.gradient_end) and (input_gradient_end != graph.gradient_end_initial):
             ui_tracker.display_gradient_end_color = input_gradient_end
 
@@ -907,8 +922,6 @@ for timing_test_iterations in range(500):
 
         if (input_selected_type_color != graph.selected_type_color) and (input_selected_type_color != graph.selected_type_color_initial):
             graph.selected_type_color = input_selected_type_color
-
-            graph.selected_types = json.loads(selected_types_input)
 
             ui_tracker.display_selected_type_color = input_selected_type_color
             graph.type_color_primacy = True
@@ -975,12 +988,11 @@ for timing_test_iterations in range(500):
         else:
             elements = graph.update_graph_elements()
 
-        graph_data = json.dumps(graph.__dict__)
-        ui_tracker_data = json.dumps(ui_tracker.__dict__)
+        if test_timing:
+            print('TOTAL TIME UPDATE: ' + str(time.time() - start_time))
+            print('================')
 
         return [
-            graph_data, 
-            ui_tracker_data, 
             elements,
             graph.combined_value_bound[0],
             graph.combined_value_bound[1],
@@ -1018,13 +1030,8 @@ for timing_test_iterations in range(500):
     # Individual node data callback, dissociated with main update callback due to lack of actual graph change.
     @app.callback(
         Output('node_data', 'children'),
-        Input('output_graph', 'selectedNodeData'),
-        Input('graph_data', 'data'), 
-        prevent_initial_call=True
-        )
-    def displayTapNodeData(input_selected_nodes, graph_data_input):
-
-        graph = Generate_Graph(json_data=json.loads(graph_data_input))
+        Input('output_graph', 'selectedNodeData'))
+    def displayTapNodeData(input_selected_nodes):
 
         if (input_selected_nodes == []) or (input_selected_nodes == None):
             return 'Select Node(s)'
@@ -1046,55 +1053,22 @@ for timing_test_iterations in range(500):
 
         return display_data
 
-    # Callback that enables storage of selected node types.
-    @app.callback(
-        Output('selected_types', 'data'),
-        Input('output_graph', 'selectedNodeData'),
-        prevent_initial_call=True
-        )
-    def tappedNodeType(input_selected_nodes):
+    app_startup_timing.append(time.time() - start_time_app_startup)
 
-        selected_types = []
+    graph.combined_value_range = [0.5, 1]
+    graph.graph_update_shortcut = False
+    elements = graph.update_graph_elements()
 
-        for node in input_selected_nodes:
-            if node['type'] not in selected_types:
-                selected_types.append(node['type'])
+    graph_update_timing.append(graph.update_graph_timing)
 
-        selected_types = json.dumps(selected_types)
-        
-        return selected_types
+    print('iteration_' + str(timing_test_iterations) + ': ' + str(time.time() - start_time_global))
 
-    app_building_timing_list.append(time.time() - app_building_start)
-
-    #######################################
-
-    attribute_load_time_start = time.time()
-
-    json_data_input = graph_initial_state.convert_to_json()
-
-    attribute_load_test_graph = Generate_Graph(json_data=json_data_input)
-
-    attribute_loading_time_list.append(time.time() - attribute_load_time_start)
-
-    #######################################
-
-    graph_initial_state.combined_value_range = [0.5, 1]
-    graph_initial_state.graph_update_shortcut = False
-
-    elements = graph_initial_state.update_graph_elements()
-
-    graph_update_timing_list.append(graph_initial_state.update_graph_timing)
-
-    #######################################
 
 with open('graph_initialization_timing.pkl', 'wb') as f:
-    pkl.dump(graph_initialization_timing_list, f)
-
-with open('attribute_load_timing.pkl', 'wb') as f:
-    pkl.dump(attribute_loading_time_list, f)
+    pkl.dump(graph_startup_timing, f)
 
 with open('graph_update_timing.pkl', 'wb') as f:
-    pkl.dump(graph_update_timing_list, f)
+    pkl.dump(graph_update_timing, f)
 
 with open('app_startup_timing.pkl', 'wb') as f:
-    pkl.dump(app_building_timing_list, f)
+    pkl.dump(app_startup_timing, f)
