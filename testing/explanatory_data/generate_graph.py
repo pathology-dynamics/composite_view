@@ -69,6 +69,8 @@ class Generate_Graph:
         else:
             starting_edges_df = self._generate_dummy_data()
 
+        starting_edges_df['edge_value'] = starting_edges_df['edge_value']
+
         self.edges_json = starting_edges_df.sort_values(by='edge_value', ascending=False).to_json()
         self.edges_json_initial = starting_edges_df.to_json()
 

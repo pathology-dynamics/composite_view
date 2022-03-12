@@ -791,8 +791,6 @@ def toggle_graph_update(
     data_upload_filenames, 
     download_graph_clicks_input):
 
-    print('hello')
-
     if test_timing:
         start_time = time.time()
         print('================')
@@ -938,10 +936,6 @@ def toggle_graph_update(
 
     else:
         elements = graph.update_graph_elements()
-
-    for key in graph.__dict__:
-        print(key)
-        print(type(graph.__dict__[key]))
 
     graph_data = json.dumps(graph.__dict__)
     ui_tracker_data = json.dumps(ui_tracker.__dict__)
