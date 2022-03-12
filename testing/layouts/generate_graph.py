@@ -833,27 +833,28 @@ class Generate_Graph:
         nx_graph = nx.node_link_graph(self.nx_graph)
         elements = []
         
+        # Items are type casted for easier communication between Dash callbacks w/ json.
         for node in nx_graph.nodes:
             if node in self.unique_target_nodes:
                 node_value = 'None'
                 size_val = self._generate_size(self.target_size)
 
             else:
-                node_value = self.source_id_combined_scores_dict[node]
+                node_value = float(self.source_id_combined_scores_dict[node])
                 size_val = self._generate_size(node_value)
                 
             elements.append({
                 'data': {
-                    'id': node, 
-                    'label': self.unique_id_data_dict[node]['name'], 
+                    'id': str(node), 
+                    'label': str(self.unique_id_data_dict[node]['name']), 
                     'value': node_value,
-                    'type': self.unique_id_data_dict[node]['type'], 
-                    'size': size_val, 
-                    'label_size': size_val * 0.3,
-                    'color': self.type_color_dict[self.unique_id_data_dict[node]['type']],
-                    'sn_or_tn': self.unique_id_data_dict[node]['sn_or_tn']
+                    'type': str(self.unique_id_data_dict[node]['type']), 
+                    'size': float(size_val), 
+                    'label_size': float(size_val * 0.3),
+                    'color': str(self.type_color_dict[self.unique_id_data_dict[node]['type']]),
+                    'sn_or_tn': str(self.unique_id_data_dict[node]['sn_or_tn'])
                 }, 
-                'position': {'x': 100 * self.final_spring[node][0], 'y': 100 * self.final_spring[node][1]}
+                'position': {'x': float(100 * self.final_spring[node][0]), 'y': float(100 * self.final_spring[node][1])}
             })
 
             if self.unique_id_data_dict[node]['sn_or_tn'] == 'source_node':
@@ -862,11 +863,11 @@ class Generate_Graph:
                         edge_val = np.round(self.source_target_edge_value_dict[node][target], self.round_precision)
                         elements.append({
                             'data': {
-                                'source': node, 
-                                'target': target, 
-                                'label': edge_val,
-                                'size': self._generate_size(edge_val, node=False), 
-                                'label_size': self._generate_size(edge_val, node=False) * 10
+                                'source': str(node), 
+                                'target': str(target), 
+                                'label': str(edge_val),
+                                'size': float(self._generate_size(edge_val, node=False)), 
+                                'label_size': float(self._generate_size(edge_val, node=False) * 10)
                             }
                         })
 
