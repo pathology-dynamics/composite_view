@@ -412,7 +412,7 @@ def format_data_input(csv_input, filename):
 
         except Exception as e:
             print(e)
-
+    
     return decoded_df
 
 def server_layout():
