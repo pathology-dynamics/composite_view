@@ -341,7 +341,7 @@ class Generate_Graph:
         if self.timing:
             print('INITIALIZE GRAPH STATE: ' + str(time.time() - start_time))
 
-    def _combine_values(self, df=pd.DataFrame, method='arithmetic_mean'):
+    def _combine_values(self, df=pd.DataFrame, method='geometric_mean'):
         """
         Helper method that allows for source-target values to be combined. When a source shares an edge with 
         multiple targets, each edge value for that source is fed into this method. Adjusting this method allows
