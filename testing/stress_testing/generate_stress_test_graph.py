@@ -30,7 +30,7 @@ plt.plot(x, app_timing, linestyle='-', label='Application Layout and Callback Cr
 
 plt.xlabel('Source Node Count')
 plt.ylabel('Runtime [s]')
-plt.title('Visualizer Runtime Analysis: Source Node Count vs. Runtime')
+plt.title('CompositeView Runtime Analysis: Source Node Count vs. Runtime')
 
 plt.legend()
 plt.show()
