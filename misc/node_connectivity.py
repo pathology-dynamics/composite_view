@@ -3,10 +3,11 @@ import numpy as np
 
 from sklearn.neighbors import KernelDensity
 from sklearn.cluster import KMeans
+# import matplotlib.pyplot as plt
 
 from scipy.signal import argrelextrema
 
-# Misc function for finding highly connected nodes given visualizer data format
+# Misc function for finding highly connected nodes given CompositeView data format
 def identify_highly_connected_nodes(edges_df_input): 
 
     source_edge_series = edges_df_input['source_id']

@@ -1,17 +1,17 @@
 import pandas as pd
 import os
 
-def visualizer_data_from_semnet(path=str, generate_csv=True):
+def compositeview_data_from_semnet(path=str, generate_csv=True):
     """
-    SemNet specific function to combine multiple outputs into a single, formatted dataframe/.csv.
+    SemNet specific function to combine multiple SemNet outputs into a single, formatted DataFrame/CSV.
 
     Args:
         path (str): Path to top level directory, where each SemNet output (including multiple targets)
                     is placed into a sub-directory within the path directory.
-        generate_csv (bool): Bool to generate .csv file for visualizer use.
+        generate_csv (bool): Bool to generate CSV file for CompositeView use.
 
     Returns:
-        pandas dataframe: Formatted dataframe for use within visualizer.
+        pandas DataFrame: Formatted DataFrame for use within CompositeView.
 
     """
 
@@ -44,6 +44,6 @@ def visualizer_data_from_semnet(path=str, generate_csv=True):
     edges_df = pd.DataFrame(data)
 
     if generate_csv:
-        edges_df.to_csv('formatted_visualizer_data.csv')
+        edges_df.to_csv('formatted_cv_data.csv')
 
     return edges_df

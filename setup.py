@@ -1,12 +1,12 @@
 from setuptools import setup
 
 setup(
-        name='visualizer', 
+        name='CompositeView', 
         version='1.1.0', 
-        description='A package for visualizing SemNet results',
+        description='A package for visualizing composite score data',
 	author='Stephen Allegri',
 	author_email='sallegri3@gatech.edu',
-	packages=['visualizer'],
+	packages=['composite_view'],
 	install_requires=[
                 'dash==2.0.0', 
                 'dash_cytoscape==0.2.0', 

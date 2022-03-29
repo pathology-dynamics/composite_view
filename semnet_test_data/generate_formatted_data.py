@@ -1,0 +1,4 @@
+import os
+from format_semnet_data import visualizer_data_from_semnet
+
+visualizer_data_from_semnet(os.getcwd)

@@ -1,4 +1,0 @@
-,source_id,source_name,source_type,target_id,target_name,target_type,edge_value
-0,A,hello,G1,B,B,G2,1
-1,b,hello1,G1,B,B,G2,2
-2,b,hello1,G1,C,C,G2,4
