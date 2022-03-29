@@ -10,7 +10,7 @@ import json
 
 class Generate_Graph:
     '''
-    Class for creating an interactive graph object for use in visualizer.py.
+    Class for creating an interactive graph object for use in app.py.
 
     '''
 
@@ -156,7 +156,7 @@ class Generate_Graph:
 
     def _initialize_graph_state(self):
         """
-        Initializes attributes/dictionaries that will be used throughout visualizer.
+        Initializes attributes/dictionaries that will be used throughout CompositeView.
 
         """
 

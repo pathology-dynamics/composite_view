@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-def compositeview_data_from_semnet(path=str, generate_csv=True):
+def composite_view_data_from_semnet(path=str, generate_csv=True):
     """
     SemNet specific function to combine multiple SemNet outputs into a single, formatted DataFrame/CSV.
 

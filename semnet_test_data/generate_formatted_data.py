@@ -1,4 +1,5 @@
 import os
-from format_semnet_data import visualizer_data_from_semnet
+from format_semnet_data import composite_view_data_from_semnet
 
-visualizer_data_from_semnet(os.getcwd)
+# Won't work if formatted_cv_data.csv (or any other CSV) already exists in current directory
+composite_view_data_from_semnet(os.getcwd() + '\semnet_results')
