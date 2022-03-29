@@ -140,6 +140,9 @@ Figure 2: The graph visualized using a spring layout.
 ![](images/adjusted_spring_layout.png)
 Figure 3: The graph visualized using the adjusted spring layout, as described above. The target nodes are much easier to identify, and the source node clusters can be easily parsed.
 
+## Known Problems
+* Browser/OS compatability: CompositeView is optimally run using Windows 10 and Chrome, though Linux and Microsoft Edge have been tested successfully. Known problems with Dash components using macOS and Safari have been noted. 
+
 ## Additional Folders/Files
 
 * `misc/node_connectivity.py` contains an experimental script for identifying highly connected nodes (utilizing kerned density estimation and k-means clustering). This is mostly obsolete, assuming the data input for CompositeView is correctly formatted. If not, however, this script will assist in identifying any highly connected nodes (i.e. target nodes); the data input structure is the same as CompositeView, but the source_id and target_id columns don't necessarily have to correspond to the name.

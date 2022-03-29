@@ -1,0 +1,334 @@
+,source_node,source_name,source_type,target_node,target_name,target_type,hetesim_score
+0,C0011847,Diabetes,DSYN,C0011849,Diabetes Mellitus,target_node,0.3292763127934644
+1,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",DSYN,C0011849,Diabetes Mellitus,target_node,0.31812709385842175
+2,C0948265,NAME_NOT_FOUND,DSYN,C0011849,Diabetes Mellitus,target_node,0.3122781530339311
+3,C0007222,Cardiovascular Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.3108388550499825
+4,C0242339,Dyslipidemias,DSYN,C0011849,Diabetes Mellitus,target_node,0.30951579989687034
+5,C0746556,metabolic disturbance,DSYN,C0011849,Diabetes Mellitus,target_node,0.3032568073487237
+6,C0028754,Obesity,DSYN,C0011849,Diabetes Mellitus,target_node,0.297215172446935
+7,C1301700,Cardiovascular morbidity,DSYN,C0011849,Diabetes Mellitus,target_node,0.2942258234734488
+8,C0020456,Hyperglycemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.29376997805806215
+9,C0850624,cardiovascular risk factor,DSYN,C0011849,Diabetes Mellitus,target_node,0.29359488357592756
+10,C0017732,NAME_NOT_FOUND,DSYN,C0011849,Diabetes Mellitus,target_node,0.29311577754346957
+11,C0003972,NAME_NOT_FOUND,DSYN,C0011849,Diabetes Mellitus,target_node,0.29036010023518877
+12,C0004153,Atherosclerosis,DSYN,C0011849,Diabetes Mellitus,target_node,0.29006093940573585
+13,C0020473,Hyperlipidemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.2900164808979792
+14,C0067385,"N,N-dimethylarginine",AAPP,C0011849,Diabetes Mellitus,target_node,0.2879855279097037
+15,C0856169,Endothelial dysfunction,DSYN,C0011849,Diabetes Mellitus,target_node,0.2874511956814853
+16,C0025517,Metabolic Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.28536371793647325
+17,C0020443,Hypercholesterolemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.28520106331759437
+18,C0010068,Coronary heart disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.2844136311502917
+19,C0400966,Non-alcoholic Fatty Liver Disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.2826847962187221
+20,C0042373,Vascular Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.2823541348363735
+21,C0010054,Coronary Arteriosclerosis,DSYN,C0011849,Diabetes Mellitus,target_node,0.2803969131404356
+22,C0003011,"Receptor, Angiotensin II",AAPP,C0011849,Diabetes Mellitus,target_node,0.2788124086613574
+23,C0017040,Gamma-glutamyl transferase,AAPP,C0011849,Diabetes Mellitus,target_node,0.2776646863873213
+24,C0389071,Adiponectin,AAPP,C0011849,Diabetes Mellitus,target_node,0.27680346877814144
+25,C0034787,Angiotensin Receptor,AAPP,C0011849,Diabetes Mellitus,target_node,0.276614402708712
+26,C0911014,ghrelin,AAPP,C0011849,Diabetes Mellitus,target_node,0.27654037852497027
+27,C0011854,"Diabetes Mellitus, Insulin-Dependent",DSYN,C0011849,Diabetes Mellitus,target_node,0.27639924932704163
+28,C0024708,Manganese Superoxide Dismutase,AAPP,C0011849,Diabetes Mellitus,target_node,0.2761528177943176
+29,C0598608,Hyperhomocysteinemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.2761013158803005
+30,C0963992|56729,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.27579342584493544
+31,C0022661,"Kidney Failure, Chronic",DSYN,C0011849,Diabetes Mellitus,target_node,0.2740350059667883
+32,C0299583|3952,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.27389555815820066
+33,C0006560,C-reactive protein,AAPP,C0011849,Diabetes Mellitus,target_node,0.2731114301027989
+34,C0577631,Carotid Atherosclerosis,DSYN,C0011849,Diabetes Mellitus,target_node,0.2730762618824315
+35,C0022658,Kidney Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.2723953322100051
+36,C0052451,Arylesterase,AAPP,C0011849,Diabetes Mellitus,target_node,0.2705905306316814
+37,C0020538,Hypertensive disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.2700355430500723
+38,C0669365|4846,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.2693680242046108
+39,C0021641|3630,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.2681255159958569
+40,C0034818|3643,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.26803940129138354
+41,C0034818,Insulin Receptor,AAPP,C0011849,Diabetes Mellitus,target_node,0.2677705734525838
+42,C0018799,Heart Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.26751321062495553
+43,C0034917,Reduced Glutathione,AAPP,C0011849,Diabetes Mellitus,target_node,0.26624494149229727
+44,C0006560|1401,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.26613831844916164
+45,C0021641,Insulin,AAPP,C0011849,Diabetes Mellitus,target_node,0.2659385865468961
+46,C0008679,Chronic disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.2643763877969079
+47,C0025598,metformin,ORCH,C0011849,Diabetes Mellitus,target_node,0.2633328973101408
+48,C0154251,Lipid Metabolism Disorders,DSYN,C0011849,Diabetes Mellitus,target_node,0.26263089627864394
+49,C0015695,Fatty Liver,DSYN,C0011849,Diabetes Mellitus,target_node,0.2623024360077031
+50,C0027051,Myocardial Infarction,DSYN,C0011849,Diabetes Mellitus,target_node,0.2612605680212388
+51,C0348035,oxidized low density lipoprotein,AAPP,C0011849,Diabetes Mellitus,target_node,0.2609056497918311
+52,C0299583,leptin,AAPP,C0011849,Diabetes Mellitus,target_node,0.26033174980410195
+53,C0972232|26291,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.26010447251271557
+54,C0022709,Peptidyl-Dipeptidase A,AAPP,C0011849,Diabetes Mellitus,target_node,0.25965982919661484
+55,C0020615,Hypoglycemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.25934349266990636
+56,C0002564,PORPHOBILINOGEN SYNTHASE,AAPP,C0011849,Diabetes Mellitus,target_node,0.25909131533212026
+57,C0079281|1906,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.25887061857056354
+58,C0596577,Flavonoids,ORCH,C0011849,Diabetes Mellitus,target_node,0.2588414707517208
+59,C0003591,Apolipoproteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.25814549477527954
+60,C0019878,homocysteine,AAPP,C0011849,Diabetes Mellitus,target_node,0.2577045780999639
+61,C0003595|348,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.2569293283702934
+62,C0003850,Arteriosclerosis,DSYN,C0011849,Diabetes Mellitus,target_node,0.25691884484515287
+63,C0085096,Peripheral Vascular Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.2565354301226555
+64,C0741949,Cardiovascular Pathology,DSYN,C0011849,Diabetes Mellitus,target_node,0.2564352535365704
+65,C0017822,GLUTATHIONE PEROXIDASE,AAPP,C0011849,Diabetes Mellitus,target_node,0.25643473149803636
+66,C0520679,"Sleep Apnea, Obstructive",DSYN,C0011849,Diabetes Mellitus,target_node,0.25621865543763966
+67,C0235950,Zinc deficiency,DSYN,C0011849,Diabetes Mellitus,target_node,0.25603789989851816
+68,C0038454,Cerebrovascular accident,DSYN,C0011849,Diabetes Mellitus,target_node,0.25515466187355995
+69,C0023821,High Density Lipoproteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.25466585069533565
+70,C0018801,Heart failure,DSYN,C0011849,Diabetes Mellitus,target_node,0.25462195293391143
+71,C0036883,Sex Hormone-Binding Globulin,AAPP,C0011849,Diabetes Mellitus,target_node,0.2539889043919583
+72,C1510464,Protein Structure,AAPP,C0011849,Diabetes Mellitus,target_node,0.2537713574252409
+73,C0023820,Lipoproteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.25285145459807806
+74,C0151744,Myocardial Ischemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.2522313487557174
+75,C0017628,glyburide,ORCH,C0011849,Diabetes Mellitus,target_node,0.2510422846519639
+76,C0086543,Cataract,DSYN,C0011849,Diabetes Mellitus,target_node,0.2507366937711082
+77,C1136177,Sirtuins,AAPP,C0011849,Diabetes Mellitus,target_node,0.25072573129938425
+78,C0132555,Nitric Oxide Synthase,AAPP,C0011849,Diabetes Mellitus,target_node,0.2505706300234152
+79,C0031099,Periodontitis,DSYN,C0011849,Diabetes Mellitus,target_node,0.25023996687397765
+80,C0042870,Vitamin D Deficiency,DSYN,C0011849,Diabetes Mellitus,target_node,0.24978695966471468
+81,C0549609,adrenal dysfunction,DSYN,C0011849,Diabetes Mellitus,target_node,0.24941168649027345
+82,C0026454,Monoamine Oxidase,AAPP,C0011849,Diabetes Mellitus,target_node,0.24856078445791102
+83,C0162429,Malnutrition,DSYN,C0011849,Diabetes Mellitus,target_node,0.24795795434544843
+84,C0003593|338,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.24726111490944788
+85,C0242383,Age related macular degeneration,DSYN,C0011849,Diabetes Mellitus,target_node,0.2472209540365227
+86,C0023823,Low-Density Lipoproteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.2471674606296406
+87,C0064194,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.24709760608150963
+88,C0033860,Psoriasis,DSYN,C0011849,Diabetes Mellitus,target_node,0.24700258658020047
+89,C0003873,Rheumatoid Arthritis,DSYN,C0011849,Diabetes Mellitus,target_node,0.24594320528597968
+90,C0079281,Endothelin-1,AAPP,C0011849,Diabetes Mellitus,target_node,0.24568701351302824
+91,C0053396,beta carotene,ORCH,C0011849,Diabetes Mellitus,target_node,0.24469855537356908
+92,C0669372|4843,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.24460208630688046
+93,C1290886,Chronic inflammatory disorder,DSYN,C0011849,Diabetes Mellitus,target_node,0.24432550300614184
+94,C0003765,arginine,AAPP,C0011849,Diabetes Mellitus,target_node,0.24417207089338183
+95,C0079284,Endothelin,AAPP,C0011849,Diabetes Mellitus,target_node,0.24402273818130316
+96,C0948008,Ischemic stroke,DSYN,C0011849,Diabetes Mellitus,target_node,0.24196809754737367
+97,C0037315,Sleep Apnea Syndromes,DSYN,C0011849,Diabetes Mellitus,target_node,0.24056366328937395
+98,C0001479,Na(+)-K(+)-Exchanging ATPase,AAPP,C0011849,Diabetes Mellitus,target_node,0.24049447780871616
+99,C0038838,superoxide dismutase,AAPP,C0011849,Diabetes Mellitus,target_node,0.24035593356537635
+100,C0037663,Growth Hormone,AAPP,C0011849,Diabetes Mellitus,target_node,0.23989866706377422
+101,C1290884,Inflammatory disorder,DSYN,C0011849,Diabetes Mellitus,target_node,0.23860585458825484
+102,C0023816|4023,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.23821246151692702
+103,C0032914,Pre-Eclampsia,DSYN,C0011849,Diabetes Mellitus,target_node,0.23808324533138303
+104,C0007367,catalase,AAPP,C0011849,Diabetes Mellitus,target_node,0.2375408417919586
+105,C1561643,Chronic Kidney Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.23693706413486482
+106,C0011884,Diabetic Retinopathy,DSYN,C0011849,Diabetes Mellitus,target_node,0.23686720565239808
+107,C0022638,Ketosis,DSYN,C0011849,Diabetes Mellitus,target_node,0.23677758231936094
+108,C0085201,Apolipoprotein A-I,AAPP,C0011849,Diabetes Mellitus,target_node,0.2366584986724589
+109,C0003009,angiotensin II,AAPP,C0011849,Diabetes Mellitus,target_node,0.2365685747940663
+110,C0021665,Insulin-Like Growth Factor I,AAPP,C0011849,Diabetes Mellitus,target_node,0.23630645437201372
+111,C0034392,quercetin,ORCH,C0011849,Diabetes Mellitus,target_node,0.23593932301253207
+112,C0033640,Protein Kinases,AAPP,C0011849,Diabetes Mellitus,target_node,0.23577244607442555
+113,C0004238,Atrial Fibrillation,DSYN,C0011849,Diabetes Mellitus,target_node,0.23517918427173296
+114,C0055538,Cholesterol Ester Transfer Proteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.2350800648820409
+115,C0018099,Gout,DSYN,C0011849,Diabetes Mellitus,target_node,0.23478969382454873
+116,C0029408,Degenerative polyarthritis,DSYN,C0011849,Diabetes Mellitus,target_node,0.23466416727736428
+117,C0017742,Glucose Transporter,AAPP,C0011849,Diabetes Mellitus,target_node,0.2344796122003861
+118,C1456380|1432,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.2344171961646401
+119,C0004096,Asthma,DSYN,C0011849,Diabetes Mellitus,target_node,0.23438184715004126
+120,C0027893|4852,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.23413969902157936
+121,C0024117,Chronic Obstructive Airway Disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.23362973637452988
+122,C0015879,Ferritin,AAPP,C0011849,Diabetes Mellitus,target_node,0.2333101682394977
+123,C0023816,LIPOPROTEIN LIPASE,AAPP,C0011849,Diabetes Mellitus,target_node,0.23328318164687423
+124,C0206588,"Receptors, Nuclear",AAPP,C0011849,Diabetes Mellitus,target_node,0.23292594774201777
+125,C0032285,Pneumonia,DSYN,C0011849,Diabetes Mellitus,target_node,0.23240075277563263
+126,C0339573,"Glaucoma, Primary Open Angle",DSYN,C0011849,Diabetes Mellitus,target_node,0.23221748009779777
+127,C0035078,Kidney Failure,DSYN,C0011849,Diabetes Mellitus,target_node,0.2320945766022277
+128,C0858246,NAME_NOT_FOUND,DSYN,C0011849,Diabetes Mellitus,target_node,0.2320582267787275
+129,C0341697,NAME_NOT_FOUND,DSYN,C0011849,Diabetes Mellitus,target_node,0.23171192661869464
+130,C0018802,Congestive heart failure,DSYN,C0011849,Diabetes Mellitus,target_node,0.23026249615101074
+131,C0034783,Adrenergic Receptor,AAPP,C0011849,Diabetes Mellitus,target_node,0.23024302560266688
+132,C0015397,Disorder of eye,DSYN,C0011849,Diabetes Mellitus,target_node,0.2298143700287979
+133,C0030305,Pancreatitis,DSYN,C0011849,Diabetes Mellitus,target_node,0.22954743160483532
+134,C0029456,Osteoporosis,DSYN,C0011849,Diabetes Mellitus,target_node,0.2292605425148849
+135,C0032120,Plasma Proteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.2291673194747935
+136,C0021053,Immune System Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.22879754531435512
+137,C0027765,nervous system disorder,DSYN,C0011849,Diabetes Mellitus,target_node,0.22876974917156132
+138,C0007258,carnitine,AAPP,C0011849,Diabetes Mellitus,target_node,0.2286081595852465
+139,C0341439,Chronic liver disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.2280879233468926
+140,C0042839,vitamin A,ORCH,C0011849,Diabetes Mellitus,target_node,0.22780973487239836
+141,C0010749,Cytochromes c,AAPP,C0011849,Diabetes Mellitus,target_node,0.22760512179135609
+142,C0597357,receptor,AAPP,C0011849,Diabetes Mellitus,target_node,0.22751015249276818
+143,C0005304,betaine,ORCH,C0011849,Diabetes Mellitus,target_node,0.22741051385066913
+144,C0030567,Parkinson Disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.22729501926212875
+145,C0442874,Neuropathy,DSYN,C0011849,Diabetes Mellitus,target_node,0.2271715545935944
+146,C0001924,Albumins,AAPP,C0011849,Diabetes Mellitus,target_node,0.22690396905900928
+147,C0078056,Vascular Cell Adhesion Molecule-1,AAPP,C0011849,Diabetes Mellitus,target_node,0.22686816579003502
+148,C1448177|7124,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.22684873200900693
+149,C0754710,Amino-terminal pro-brain natriuretic peptide,AAPP,C0011849,Diabetes Mellitus,target_node,0.2266617084023538
+150,C0002594,Transaminases,AAPP,C0011849,Diabetes Mellitus,target_node,0.22659603280357898
+151,C0036690,Septicemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.2264845624463044
+152,C0155626,Acute myocardial infarction,DSYN,C0011849,Diabetes Mellitus,target_node,0.22624590066708394
+153,C0010287,Creatine Kinase,AAPP,C0011849,Diabetes Mellitus,target_node,0.22589166208044537
+154,C0034785,beta-adrenergic receptor,AAPP,C0011849,Diabetes Mellitus,target_node,0.22560456366336917
+155,C0040648,TRANSCRIPTION FACTOR,AAPP,C0011849,Diabetes Mellitus,target_node,0.22557364195960664
+156,C0016006,fibrinogen,AAPP,C0011849,Diabetes Mellitus,target_node,0.22556743484433872
+157,C0024141,"Lupus Erythematosus, Systemic",DSYN,C0011849,Diabetes Mellitus,target_node,0.2254958341831741
+158,C0019046,Hemoglobin,AAPP,C0011849,Diabetes Mellitus,target_node,0.22528493220309737
+159,C0030016,Oxidoreductase,AAPP,C0011849,Diabetes Mellitus,target_node,0.2251247551390434
+160,C0005832,Blood Proteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.22504421119905746
+161,C0001044,acetylcholinesterase,AAPP,C0011849,Diabetes Mellitus,target_node,0.2243638378835137
+162,C0010654,cysteine,AAPP,C0011849,Diabetes Mellitus,target_node,0.22404714688115718
+163,C0040135,Thyroid Hormones,AAPP,C0011849,Diabetes Mellitus,target_node,0.22397581754346257
+164,C0037659,somatostatin,AAPP,C0011849,Diabetes Mellitus,target_node,0.2235218188843086
+165,C0001175,Acquired Immunodeficiency Syndrome,DSYN,C0011849,Diabetes Mellitus,target_node,0.22320791509275456
+166,C0751973,Proteome,AAPP,C0011849,Diabetes Mellitus,target_node,0.2230733432974486
+167,C0023882,Little's Disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.22296692371735033
+168,C0014130,Endocrine System Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.22233461805627885
+169,C0851578,Sleep Disorders,DSYN,C0011849,Diabetes Mellitus,target_node,0.22219735991687814
+170,C0014822|2056,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.22218666614623095
+171,C0245382,Galectin 3,AAPP,C0011849,Diabetes Mellitus,target_node,0.22211555201945687
+172,C0021311,NAME_NOT_FOUND,DSYN,C0011849,Diabetes Mellitus,target_node,0.22156919367189845
+173,C0079189,cytokine,AAPP,C0011849,Diabetes Mellitus,target_node,0.22126668724622706
+174,C0001962,ethanol,ORCH,C0011849,Diabetes Mellitus,target_node,0.22125689682000266
+175,C0025741,methyldopa,AAPP,C0011849,Diabetes Mellitus,target_node,0.22125665675901338
+176,C1565489,Renal Insufficiency,DSYN,C0011849,Diabetes Mellitus,target_node,0.22123840024566144
+177,C0005210,beta-Endorphin,AAPP,C0011849,Diabetes Mellitus,target_node,0.22079291780908905
+178,C0031117,Peripheral Neuropathy,DSYN,C0011849,Diabetes Mellitus,target_node,0.2206600966981348
+179,C0442893,Systemic disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.22064111534710507
+180,C0036421,Systemic Scleroderma,DSYN,C0011849,Diabetes Mellitus,target_node,0.22043502972091822
+181,C0017817,glutathione,AAPP,C0011849,Diabetes Mellitus,target_node,0.21996644732309192
+182,C0004364,Autoimmune Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.21987907228528902
+183,C0017601,Glaucoma,DSYN,C0011849,Diabetes Mellitus,target_node,0.21923755253102623
+184,C0010340,Critical Illness,DSYN,C0011849,Diabetes Mellitus,target_node,0.21922967964925735
+185,C0002716,Amyloid,AAPP,C0011849,Diabetes Mellitus,target_node,0.21922909386357622
+186,C0017612,"Glaucoma, Open-Angle",DSYN,C0011849,Diabetes Mellitus,target_node,0.21907621875375843
+187,C0003779|551,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.21880051693104666
+188,C0242210,Binding Proteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.21872156456322345
+189,C0123707,Insulin-Like Growth Factor Binding Protein 3,AAPP,C0011849,Diabetes Mellitus,target_node,0.21857309976997605
+190,C0259749,Autonomic neuropathy,DSYN,C0011849,Diabetes Mellitus,target_node,0.2185719840837597
+191,C0026848,Myopathy,DSYN,C0011849,Diabetes Mellitus,target_node,0.21831660588946475
+192,C0007292,Carrier Proteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.21761258797652916
+193,C0107103,brain-derived neurotrophic factor,AAPP,C0011849,Diabetes Mellitus,target_node,0.21719171271314064
+194,C0033497,propranolol,ORCH,C0011849,Diabetes Mellitus,target_node,0.21712814784443696
+195,C0733758,follicle stimulating hormone,AAPP,C0011849,Diabetes Mellitus,target_node,0.21693817508381238
+196,C0037657,Somatomedins,AAPP,C0011849,Diabetes Mellitus,target_node,0.21693677832918815
+197,C0019693,HIV Infections,DSYN,C0011849,Diabetes Mellitus,target_node,0.21690287480535264
+198,C0282193,Iron Overload,DSYN,C0011849,Diabetes Mellitus,target_node,0.21676576592758617
+199,C0028589,Nuclear Proteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.21655659231184393
+200,C0003864,Arthritis,DSYN,C0011849,Diabetes Mellitus,target_node,0.2159949637552667
+201,C0260662,Hearing problem,DSYN,C0011849,Diabetes Mellitus,target_node,0.21596827452910447
+202,C0002871,Anemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.21565304688237497
+203,C1456820|7124,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.2156523854966576
+204,C0021760,interleukin-6,AAPP,C0011849,Diabetes Mellitus,target_node,0.21538628993609388
+205,C0023607,luteinizing hormone,AAPP,C0011849,Diabetes Mellitus,target_node,0.2149365276382558
+206,C0020479,Hyperlipoproteinemia Type III,DSYN,C0011849,Diabetes Mellitus,target_node,0.21484345442735164
+207,C0033634,Protein Kinase C,AAPP,C0011849,Diabetes Mellitus,target_node,0.21446301352477745
+208,C0917798,Cerebral Ischemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.21419192464548112
+209,C0521170,Osteoporotic Fractures,DSYN,C0011849,Diabetes Mellitus,target_node,0.21400198254380476
+210,C1366832|51761,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.21349193348604734
+211,C0063695,Intercellular adhesion molecule 1,AAPP,C0011849,Diabetes Mellitus,target_node,0.21291502414358987
+212,C0022917,Lactate Dehydrogenase,AAPP,C0011849,Diabetes Mellitus,target_node,0.21278561096377363
+213,C0001622,Adrenal Gland Hyperfunction,DSYN,C0011849,Diabetes Mellitus,target_node,0.2126582936572389
+214,C0021753,"interleukin-1, beta",AAPP,C0011849,Diabetes Mellitus,target_node,0.21254564757791455
+215,C0149516,Chronic sinusitis,DSYN,C0011849,Diabetes Mellitus,target_node,0.2121520019311001
+216,C0001476|760,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.2115900511798104
+217,C0026896,Myasthenia Gravis,DSYN,C0011849,Diabetes Mellitus,target_node,0.21119669312751543
+218,C0006685,Calcium Channel,AAPP,C0011849,Diabetes Mellitus,target_node,0.21118957456249648
+219,C0037274,Dermatologic disorders,DSYN,C0011849,Diabetes Mellitus,target_node,0.21098159693285218
+220,C0007028,CARBONATE DEHYDRATASE,AAPP,C0011849,Diabetes Mellitus,target_node,0.21095583350662545
+221,C0178638,folate,ORCH,C0011849,Diabetes Mellitus,target_node,0.21087316226845645
+222,C0020550,Hyperthyroidism,DSYN,C0011849,Diabetes Mellitus,target_node,0.21087276401402427
+223,C0036825,Serum Proteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.21033318002644635
+224,C0027754|4803,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.21030033749761742
+225,C0035258,Restless Legs Syndrome,DSYN,C0011849,Diabetes Mellitus,target_node,0.21019345777918655
+226,C0042395,vasoactive intestinal peptide,AAPP,C0011849,Diabetes Mellitus,target_node,0.21001792734342487
+227,C0398623,Thrombophilia,DSYN,C0011849,Diabetes Mellitus,target_node,0.20994967649357535
+228,C0002059,Alkaline Phosphatase,AAPP,C0011849,Diabetes Mellitus,target_node,0.20943070553585652
+229,C0040128,Thyroid Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.20928232717450973
+230,C0023343,Leprosy,DSYN,C0011849,Diabetes Mellitus,target_node,0.2090509287413821
+231,C2744535|969,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.20886027470423021
+232,C0220839,glutamate,AAPP,C0011849,Diabetes Mellitus,target_node,0.2087717137531968
+233,C0021831,Intestinal Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.20876732070908757
+234,C0001473|1769,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.2086749980384465
+235,C0040160,thyrotropin,AAPP,C0011849,Diabetes Mellitus,target_node,0.20845380653922926
+236,C0073393,risperidone,ORCH,C0011849,Diabetes Mellitus,target_node,0.20841582756213026
+237,C0140283,Retinoid X Receptors,AAPP,C0011849,Diabetes Mellitus,target_node,0.20833135478531953
+238,C0001655,corticotropin,AAPP,C0011849,Diabetes Mellitus,target_node,0.2081834337353449
+239,C0031727,Phosphotransferases,AAPP,C0011849,Diabetes Mellitus,target_node,0.2081628506741815
+240,C0751956,Acute Cerebrovascular Accidents,DSYN,C0011849,Diabetes Mellitus,target_node,0.20784203733389436
+241,C0000970,acetaminophen,ORCH,C0011849,Diabetes Mellitus,target_node,0.20757269599556646
+242,C0151449,Primary Sjögren's syndrome,DSYN,C0011849,Diabetes Mellitus,target_node,0.2075067584736986
+243,C0001655|5443,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.2072098730368461
+244,C1281300,Vascular degeneration,DSYN,C0011849,Diabetes Mellitus,target_node,0.20707750098667047
+245,C0040005,threonine,AAPP,C0011849,Diabetes Mellitus,target_node,0.20687273474277143
+246,C0004358,Autoantibodies,AAPP,C0011849,Diabetes Mellitus,target_node,0.20655886274147592
+247,C0549622,Sexual Dysfunction,DSYN,C0011849,Diabetes Mellitus,target_node,0.20628307294641457
+248,C0009325,collagen,AAPP,C0011849,Diabetes Mellitus,target_node,0.20626033833955287
+249,C0033371,prolactin,AAPP,C0011849,Diabetes Mellitus,target_node,0.20582717266399633
+250,C0010481,Cushing Syndrome,DSYN,C0011849,Diabetes Mellitus,target_node,0.20580808718907986
+251,C0022116,Ischemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.20552722586061783
+252,C0031640,phosphoric diester hydrolase,AAPP,C0011849,Diabetes Mellitus,target_node,0.2052321587031478
+253,C0029453,Osteopenia,DSYN,C0011849,Diabetes Mellitus,target_node,0.20522732723416381
+254,C1171892|7422,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.20514329544827473
+255,C0002103,Atopic rhinitis,DSYN,C0011849,Diabetes Mellitus,target_node,0.2051161787782783
+256,C0235946,Cerebral atrophy,DSYN,C0011849,Diabetes Mellitus,target_node,0.2048045243615236
+257,C0008731,Chylomicrons,AAPP,C0011849,Diabetes Mellitus,target_node,0.20450580226358722
+258,C0151747,Renal tubular disorder,DSYN,C0011849,Diabetes Mellitus,target_node,0.2044330787002014
+259,C0054450,Calcineurin,AAPP,C0011849,Diabetes Mellitus,target_node,0.20410948974023738
+260,C0019247,Hereditary Diseases,DSYN,C0011849,Diabetes Mellitus,target_node,0.20389782993232047
+261,C0167627|959,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.20372310207127298
+262,C0010531,Cyclic AMP-Dependent Protein Kinases,AAPP,C0011849,Diabetes Mellitus,target_node,0.20367797476212124
+263,C0003779,argipressin,AAPP,C0011849,Diabetes Mellitus,target_node,0.2034494546424992
+264,C0123091,quetiapine,ORCH,C0011849,Diabetes Mellitus,target_node,0.20317129236547904
+265,C0011168,Deglutition Disorders,DSYN,C0011849,Diabetes Mellitus,target_node,0.20243669064088218
+266,C0009506|718,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.20199089985308727
+267,C0085584,Encephalopathies,DSYN,C0011849,Diabetes Mellitus,target_node,0.20143818325443144
+268,C0017968,Glycoproteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.2013251566683846
+269,C0001492,Adenylate Cyclase,AAPP,C0011849,Diabetes Mellitus,target_node,0.20131774807510847
+270,C0021359,Infertility,DSYN,C0011849,Diabetes Mellitus,target_node,0.20127846002855693
+271,C0080222|7040,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.2010090797644972
+272,C0022245,isoproterenol,ORCH,C0011849,Diabetes Mellitus,target_node,0.20092195000646718
+273,C0333519,Caries (morphologic abnormality),DSYN,C0011849,Diabetes Mellitus,target_node,0.20081770470207214
+274,C1533070,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.20066278686997135
+275,C0016904,gamma-aminobutyric acid,AAPP,C0011849,Diabetes Mellitus,target_node,0.20055447377252586
+276,C0020063|5741,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.20011458392075626
+277,C0085278,Antiphospholipid Syndrome,DSYN,C0011849,Diabetes Mellitus,target_node,0.19994178880657856
+278,C0001473,Adenosine Triphosphatases,AAPP,C0011849,Diabetes Mellitus,target_node,0.1996673521923244
+279,C0014544,Epilepsy,DSYN,C0011849,Diabetes Mellitus,target_node,0.1994586258419778
+280,C0079633,interleukin-8,AAPP,C0011849,Diabetes Mellitus,target_node,0.1993778789111004
+281,C0242966,Systemic Inflammatory Response Syndrome,DSYN,C0011849,Diabetes Mellitus,target_node,0.19920466165679138
+282,C0085295,interleukin-10,AAPP,C0011849,Diabetes Mellitus,target_node,0.19908307169535736
+283,C0003242,"Antibodies, Anti-Idiotypic",AAPP,C0011849,Diabetes Mellitus,target_node,0.1980278802227297
+284,C0162836,Hidradenitis Suppurativa,DSYN,C0011849,Diabetes Mellitus,target_node,0.1975671414216106
+285,C1175175,Severe Acute Respiratory Syndrome,DSYN,C0011849,Diabetes Mellitus,target_node,0.19746162899115896
+286,C0025252,Membrane Proteins,AAPP,C0011849,Diabetes Mellitus,target_node,0.19745788509465606
+287,C0001857,AIDS related complex,DSYN,C0011849,Diabetes Mellitus,target_node,0.1972362430160779
+288,C0538161,Tumor necrosis factor receptor 11b,AAPP,C0011849,Diabetes Mellitus,target_node,0.1971835561441434
+289,C0021027,Immunoglobulins,AAPP,C0011849,Diabetes Mellitus,target_node,0.1966259722105034
+290,C0238806,NAME_NOT_FOUND,DSYN,C0011849,Diabetes Mellitus,target_node,0.19621064924819193
+291,C0033706,prothrombin,AAPP,C0011849,Diabetes Mellitus,target_node,0.19608868531489854
+292,C0148199,Vascular Endothelial Growth Factor Receptor,AAPP,C0011849,Diabetes Mellitus,target_node,0.1959904560823418
+293,C0018784,Sensorineural Hearing Loss (disorder),DSYN,C0011849,Diabetes Mellitus,target_node,0.19578725558593063
+294,C0023570,levodopa,AAPP,C0011849,Diabetes Mellitus,target_node,0.19528000165069823
+295,C0149676,Enzyme Deficiency,DSYN,C0011849,Diabetes Mellitus,target_node,0.19442345217884813
+296,C0076088,Tenascin,AAPP,C0011849,Diabetes Mellitus,target_node,0.19434194869150095
+297,C0040162,thyrotropin-releasing hormone,AAPP,C0011849,Diabetes Mellitus,target_node,0.19404374451017173
+298,C0006668,calcitonin,AAPP,C0011849,Diabetes Mellitus,target_node,0.19397419163753113
+299,C0016055,Fibronectins,AAPP,C0011849,Diabetes Mellitus,target_node,0.1937150440185289
+300,C0149931,Migraine Disorders,DSYN,C0011849,Diabetes Mellitus,target_node,0.1934901051682656
+301,C0021758,interleukin-4,AAPP,C0011849,Diabetes Mellitus,target_node,0.19267374947617558
+302,C5203670,COVID-19,DSYN,C0011849,Diabetes Mellitus,target_node,0.1926708778013757
+303,C0031634,Phosphocreatine,AAPP,C0011849,Diabetes Mellitus,target_node,0.19246606545013895
+304,C0240066,Iron deficiency,DSYN,C0011849,Diabetes Mellitus,target_node,0.19172820415448402
+305,C5139167,Severe infection,DSYN,C0011849,Diabetes Mellitus,target_node,0.19160341261619776
+306,C1305923,Polypeptides,AAPP,C0011849,Diabetes Mellitus,target_node,0.19158317118353665
+307,C0595921,Intraocular pressure disorder,DSYN,C0011849,Diabetes Mellitus,target_node,0.1915460814063889
+308,C0017953,Glycopeptides,AAPP,C0011849,Diabetes Mellitus,target_node,0.1914205337164011
+309,C0016026,Fibroblast Growth Factor,AAPP,C0011849,Diabetes Mellitus,target_node,0.19083430729410536
+310,C0038585,Substance P,AAPP,C0011849,Diabetes Mellitus,target_node,0.19048763379256833
+311,C0002726,Amyloidosis,DSYN,C0011849,Diabetes Mellitus,target_node,0.19017072963569642
+312,C0007570,Celiac Disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.19002374692882906
+313,C0242275|1950,NAME_NOT_FOUND,AAPP,C0011849,Diabetes Mellitus,target_node,0.18989100022002456
+314,C0040048,Thromboplastin,AAPP,C0011849,Diabetes Mellitus,target_node,0.1898702069132108
+315,C0018061,Gonadotropins,AAPP,C0011849,Diabetes Mellitus,target_node,0.18967028190120822
+316,C0026650,Movement Disorders,DSYN,C0011849,Diabetes Mellitus,target_node,0.18816807796165105
+317,C0018213,Graves Disease,DSYN,C0011849,Diabetes Mellitus,target_node,0.1866610087104262
+318,C0003241,Antibodies,AAPP,C0011849,Diabetes Mellitus,target_node,0.1857550178107653
+319,C0005149,beta-2 Microglobulin,AAPP,C0011849,Diabetes Mellitus,target_node,0.18498944986749183
+320,C1527336,Sjogren's Syndrome,DSYN,C0011849,Diabetes Mellitus,target_node,0.1843183582140972
+321,C0022575,Keratoconjunctivitis Sicca,DSYN,C0011849,Diabetes Mellitus,target_node,0.18413281348155097
+322,C0042842,Vitamin A Deficiency,DSYN,C0011849,Diabetes Mellitus,target_node,0.18299501071821683
+323,C0015230,Exanthema,DSYN,C0011849,Diabetes Mellitus,target_node,0.18147549585579037
+324,C0021747,Interferons,AAPP,C0011849,Diabetes Mellitus,target_node,0.17931501736456423
+325,C0022118,Transient ischemia,DSYN,C0011849,Diabetes Mellitus,target_node,0.17804523128454927
+326,C0009421,Comatose,DSYN,C0011849,Diabetes Mellitus,target_node,0.17220830126944237
+327,C0021756,Interleukin-2,AAPP,C0011849,Diabetes Mellitus,target_node,0.17112059255081996
+328,C0599220,Protein Subunits,AAPP,C0011849,Diabetes Mellitus,target_node,0.16902137599467681
+329,C0232197,Fibrillation,DSYN,C0011849,Diabetes Mellitus,target_node,0.16713866303713307
+330,C0019630,Histocompatibility Antigens Class II,AAPP,C0011849,Diabetes Mellitus,target_node,0.16593790706622796
+331,C0019721,HLA Antigens,AAPP,C0011849,Diabetes Mellitus,target_node,0.16068311417556805
+332,C0271623,Hypogonadotropic hypogonadism,DSYN,C0011849,Diabetes Mellitus,target_node,0.15852638361933363

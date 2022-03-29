@@ -1,0 +1,334 @@
+,source_node,source_name,source_type,target_node,target_name,target_type,hetesim_score
+0,C0963992|56729,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.31371503608992996
+1,C0972232|26291,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.313137887905928
+2,C0017732,NAME_NOT_FOUND,DSYN,C0598783,Lipid Metabolism,target_node,0.2966899504307281
+3,C0299583|3952,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.29409303820704025
+4,C0746556,metabolic disturbance,DSYN,C0598783,Lipid Metabolism,target_node,0.2897664639800356
+5,C0025517,Metabolic Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.286834861328521
+6,C0948265,NAME_NOT_FOUND,DSYN,C0598783,Lipid Metabolism,target_node,0.2827188983462209
+7,C0015695,Fatty Liver,DSYN,C0598783,Lipid Metabolism,target_node,0.2770353616313061
+8,C0299583,leptin,AAPP,C0598783,Lipid Metabolism,target_node,0.27667955849183196
+9,C0389071,Adiponectin,AAPP,C0598783,Lipid Metabolism,target_node,0.27310527591753303
+10,C0206588,"Receptors, Nuclear",AAPP,C0598783,Lipid Metabolism,target_node,0.2719460802641464
+11,C0911014,ghrelin,GNGM,C0598783,Lipid Metabolism,target_node,0.2690813852066682
+12,C0242339,Dyslipidemias,DSYN,C0598783,Lipid Metabolism,target_node,0.26907216615851526
+13,C0007222,Cardiovascular Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.2667723303493203
+14,C0017742,Glucose Transporter,AAPP,C0598783,Lipid Metabolism,target_node,0.2663516749313826
+15,C0034818|3643,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.2659846374013525
+16,C0034818,Insulin Receptor,GNGM,C0598783,Lipid Metabolism,target_node,0.265542591530236
+17,C0154251,Lipid Metabolism Disorders,DSYN,C0598783,Lipid Metabolism,target_node,0.263711142146295
+18,C0400966,Non-alcoholic Fatty Liver Disease,DSYN,C0598783,Lipid Metabolism,target_node,0.2631166690178401
+19,C0028754,Obesity,DSYN,C0598783,Lipid Metabolism,target_node,0.26047942917455974
+20,C0036883,Sex Hormone-Binding Globulin,GNGM,C0598783,Lipid Metabolism,target_node,0.25825189878459126
+21,C0020473,Hyperlipidemia,DSYN,C0598783,Lipid Metabolism,target_node,0.2578551644429082
+22,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",DSYN,C0598783,Lipid Metabolism,target_node,0.2560055525921975
+23,C0023816|4023,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.2530211133291212
+24,C0023816,LIPOPROTEIN LIPASE,AAPP,C0598783,Lipid Metabolism,target_node,0.25140787493142924
+25,C0042870,Vitamin D Deficiency,DSYN,C0598783,Lipid Metabolism,target_node,0.24965157397167728
+26,C0011847,Diabetes,DSYN,C0598783,Lipid Metabolism,target_node,0.2487053297106219
+27,C0014130,Endocrine System Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.24798424838212535
+28,C0020456,Hyperglycemia,DSYN,C0598783,Lipid Metabolism,target_node,0.24763516325169083
+29,C0850624,cardiovascular risk factor,DSYN,C0598783,Lipid Metabolism,target_node,0.24450345420229286
+30,C0003972,NAME_NOT_FOUND,DSYN,C0598783,Lipid Metabolism,target_node,0.24239443234440244
+31,C0021641|3630,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.24216818678841748
+32,C1136177,Sirtuins,GNGM,C0598783,Lipid Metabolism,target_node,0.24195775127396205
+33,C0020479,Hyperlipoproteinemia Type III,DSYN,C0598783,Lipid Metabolism,target_node,0.24140002289760945
+34,C0018799,Heart Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.2399063620691764
+35,C0055538,Cholesterol Ester Transfer Proteins,AAPP,C0598783,Lipid Metabolism,target_node,0.23961729697503795
+36,C0520679,"Sleep Apnea, Obstructive",DSYN,C0598783,Lipid Metabolism,target_node,0.23939512071648186
+37,C0010068,Coronary heart disease,DSYN,C0598783,Lipid Metabolism,target_node,0.2391607086277084
+38,C0003593|338,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.237063499963256
+39,C0004153,Atherosclerosis,DSYN,C0598783,Lipid Metabolism,target_node,0.23657136644539084
+40,C0042373,Vascular Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.23639588115386695
+41,C0037315,Sleep Apnea Syndromes,DSYN,C0598783,Lipid Metabolism,target_node,0.23590847984586866
+42,C0741949,Cardiovascular Pathology,DSYN,C0598783,Lipid Metabolism,target_node,0.23526378603403017
+43,C0008679,Chronic disease,DSYN,C0598783,Lipid Metabolism,target_node,0.23466332476241897
+44,C0021641,Insulin,AAPP,C0598783,Lipid Metabolism,target_node,0.23407181553156445
+45,C0003595|348,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.23386907145998906
+46,C0027893|4852,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.23193642218120564
+47,C0238806,NAME_NOT_FOUND,DSYN,C0598783,Lipid Metabolism,target_node,0.2313554010903998
+48,C1301700,Cardiovascular morbidity,DSYN,C0598783,Lipid Metabolism,target_node,0.2292884338135917
+49,C0235950,Zinc deficiency,DSYN,C0598783,Lipid Metabolism,target_node,0.22872675979151952
+50,C0040135,Thyroid Hormones,GNGM,C0598783,Lipid Metabolism,target_node,0.22808180691953234
+51,C0123707,Insulin-Like Growth Factor Binding Protein 3,AAPP,C0598783,Lipid Metabolism,target_node,0.22804498567418877
+52,C0037663,Growth Hormone,GNGM,C0598783,Lipid Metabolism,target_node,0.22804388545980836
+53,C0025598,metformin,ORCH,C0598783,Lipid Metabolism,target_node,0.22758065666632854
+54,C0162429,Malnutrition,DSYN,C0598783,Lipid Metabolism,target_node,0.22732164748880104
+55,C0008731,Chylomicrons,GNGM,C0598783,Lipid Metabolism,target_node,0.22722915302394198
+56,C0003591,Apolipoproteins,GNGM,C0598783,Lipid Metabolism,target_node,0.22720685632243282
+57,C0034785,beta-adrenergic receptor,AAPP,C0598783,Lipid Metabolism,target_node,0.22668553768882943
+58,C0858246,NAME_NOT_FOUND,DSYN,C0598783,Lipid Metabolism,target_node,0.22620994810085365
+59,C0026454,Monoamine Oxidase,AAPP,C0598783,Lipid Metabolism,target_node,0.22618676595154696
+60,C0023821,High Density Lipoproteins,AAPP,C0598783,Lipid Metabolism,target_node,0.22553729151970242
+61,C0259749,Autonomic neuropathy,DSYN,C0598783,Lipid Metabolism,target_node,0.22460273021178645
+62,C0017040,Gamma-glutamyl transferase,AAPP,C0598783,Lipid Metabolism,target_node,0.22296648115616688
+63,C0007258,carnitine,GNGM,C0598783,Lipid Metabolism,target_node,0.22293104656765791
+64,C0037657,Somatomedins,GNGM,C0598783,Lipid Metabolism,target_node,0.22230352974730644
+65,C0010054,Coronary Arteriosclerosis,DSYN,C0598783,Lipid Metabolism,target_node,0.21950256121750913
+66,C0005304,betaine,ORCH,C0598783,Lipid Metabolism,target_node,0.21801497481553042
+67,C0020443,Hypercholesterolemia,DSYN,C0598783,Lipid Metabolism,target_node,0.21729285642373028
+68,C0020615,Hypoglycemia,DSYN,C0598783,Lipid Metabolism,target_node,0.21692365952762702
+69,C0006560|1401,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.21657482470502445
+70,C0011854,"Diabetes Mellitus, Insulin-Dependent",DSYN,C0598783,Lipid Metabolism,target_node,0.21653396721876364
+71,C0023820,Lipoproteins,AAPP,C0598783,Lipid Metabolism,target_node,0.21645336481840077
+72,C0596577,Flavonoids,ORCH,C0598783,Lipid Metabolism,target_node,0.2164183758655029
+73,C0085201,Apolipoprotein A-I,AAPP,C0598783,Lipid Metabolism,target_node,0.215869658754746
+74,C0020538,Hypertensive disease,DSYN,C0598783,Lipid Metabolism,target_node,0.21393294812537533
+75,C0052451,Arylesterase,AAPP,C0598783,Lipid Metabolism,target_node,0.21386114848883778
+76,C0021053,Immune System Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.21363415967106558
+77,C0085096,Peripheral Vascular Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.21290410923285258
+78,C0549622,Sexual Dysfunction,DSYN,C0598783,Lipid Metabolism,target_node,0.21267087828601403
+79,C0022638,Ketosis,DSYN,C0598783,Lipid Metabolism,target_node,0.2119287913720675
+80,C0004364,Autoimmune Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.21183565660591955
+81,C0017628,glyburide,ORCH,C0598783,Lipid Metabolism,target_node,0.21179732049902225
+82,C0033640,Protein Kinases,GNGM,C0598783,Lipid Metabolism,target_node,0.211715173434059
+83,C0023823,Low-Density Lipoproteins,GNGM,C0598783,Lipid Metabolism,target_node,0.2112197867132594
+84,C0029456,Osteoporosis,DSYN,C0598783,Lipid Metabolism,target_node,0.21104573298723409
+85,C0348035,oxidized low density lipoprotein,GNGM,C0598783,Lipid Metabolism,target_node,0.21086821379362128
+86,C0022658,Kidney Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.21085988802625594
+87,C0006560,C-reactive protein,AAPP,C0598783,Lipid Metabolism,target_node,0.21042237849138856
+88,C0025741,methyldopa,AAPP,C0598783,Lipid Metabolism,target_node,0.21039652425622624
+89,C0003850,Arteriosclerosis,DSYN,C0598783,Lipid Metabolism,target_node,0.20874110628536538
+90,C0003873,Rheumatoid Arthritis,DSYN,C0598783,Lipid Metabolism,target_node,0.2086175106048435
+91,C1290886,Chronic inflammatory disorder,DSYN,C0598783,Lipid Metabolism,target_node,0.20853103322917016
+92,C0053396,beta carotene,ORCH,C0598783,Lipid Metabolism,target_node,0.20840318324389998
+93,C0003011,"Receptor, Angiotensin II",AAPP,C0598783,Lipid Metabolism,target_node,0.2081808724397499
+94,C0007292,Carrier Proteins,AAPP,C0598783,Lipid Metabolism,target_node,0.20818004039087612
+95,C0009506|718,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.20710624294525903
+96,C0151744,Myocardial Ischemia,DSYN,C0598783,Lipid Metabolism,target_node,0.20692920433574497
+97,C0140283,Retinoid X Receptors,GNGM,C0598783,Lipid Metabolism,target_node,0.2063097885474065
+98,C0034783,Adrenergic Receptor,GNGM,C0598783,Lipid Metabolism,target_node,0.20614683360533612
+99,C0577631,Carotid Atherosclerosis,DSYN,C0598783,Lipid Metabolism,target_node,0.20613666790795607
+100,C0024708,Manganese Superoxide Dismutase,AAPP,C0598783,Lipid Metabolism,target_node,0.20582293333925905
+101,C0018061,Gonadotropins,GNGM,C0598783,Lipid Metabolism,target_node,0.2058168244419449
+102,C0034787,Angiotensin Receptor,AAPP,C0598783,Lipid Metabolism,target_node,0.20530097324579347
+103,C0598608,Hyperhomocysteinemia,DSYN,C0598783,Lipid Metabolism,target_node,0.20490458066109982
+104,C0001622,Adrenal Gland Hyperfunction,DSYN,C0598783,Lipid Metabolism,target_node,0.20485209477056737
+105,C0038454,Cerebrovascular accident,DSYN,C0598783,Lipid Metabolism,target_node,0.20484497904749738
+106,C0064194,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.20399337793956027
+107,C0021665,Insulin-Like Growth Factor I,GNGM,C0598783,Lipid Metabolism,target_node,0.20390140095581763
+108,C0042842,Vitamin A Deficiency,DSYN,C0598783,Lipid Metabolism,target_node,0.2033195577085545
+109,C0032120,Plasma Proteins,AAPP,C0598783,Lipid Metabolism,target_node,0.20302015930114614
+110,C0002594,Transaminases,GNGM,C0598783,Lipid Metabolism,target_node,0.20294972790341945
+111,C0005210,beta-Endorphin,AAPP,C0598783,Lipid Metabolism,target_node,0.20277760768790806
+112,C0086543,Cataract,DSYN,C0598783,Lipid Metabolism,target_node,0.20254907524484306
+113,C0107103,brain-derived neurotrophic factor,GNGM,C0598783,Lipid Metabolism,target_node,0.20251614550106414
+114,C0040160,thyrotropin,GNGM,C0598783,Lipid Metabolism,target_node,0.20162994537386228
+115,C0151449,Primary Sjögren's syndrome,DSYN,C0598783,Lipid Metabolism,target_node,0.20160697677513353
+116,C0026896,Myasthenia Gravis,DSYN,C0598783,Lipid Metabolism,target_node,0.2012984914700289
+117,C0669365|4846,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.20096194159339623
+118,C0027051,Myocardial Infarction,DSYN,C0598783,Lipid Metabolism,target_node,0.20072838400727966
+119,C0033860,Psoriasis,DSYN,C0598783,Lipid Metabolism,target_node,0.20065035133243744
+120,C0733758,follicle stimulating hormone,AAPP,C0598783,Lipid Metabolism,target_node,0.20001910916924065
+121,C0033371,prolactin,GNGM,C0598783,Lipid Metabolism,target_node,0.19993569559210267
+122,C0042839,vitamin A,ORCH,C0598783,Lipid Metabolism,target_node,0.19935242680422025
+123,C0017822,GLUTATHIONE PEROXIDASE,AAPP,C0598783,Lipid Metabolism,target_node,0.1992737289650128
+124,C0023607,luteinizing hormone,AAPP,C0598783,Lipid Metabolism,target_node,0.19889484844066518
+125,C0005832,Blood Proteins,AAPP,C0598783,Lipid Metabolism,target_node,0.19876697347082176
+126,C1290884,Inflammatory disorder,DSYN,C0598783,Lipid Metabolism,target_node,0.19864026588073994
+127,C0079281|1906,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.19853141515810235
+128,C0123091,quetiapine,ORCH,C0598783,Lipid Metabolism,target_node,0.1984806277290393
+129,C0034917,Reduced Glutathione,AAPP,C0598783,Lipid Metabolism,target_node,0.1984726767812378
+130,C0549609,adrenal dysfunction,DSYN,C0598783,Lipid Metabolism,target_node,0.1984478253886204
+131,C0010481,Cushing Syndrome,DSYN,C0598783,Lipid Metabolism,target_node,0.19839920221635915
+132,C0037659,somatostatin,AAPP,C0598783,Lipid Metabolism,target_node,0.19815180262300316
+133,C0856169,Endothelial dysfunction,DSYN,C0598783,Lipid Metabolism,target_node,0.19806740029955697
+134,C0018801,Heart failure,DSYN,C0598783,Lipid Metabolism,target_node,0.1979639422260824
+135,C0001492,Adenylate Cyclase,AAPP,C0598783,Lipid Metabolism,target_node,0.19786153345758895
+136,C0010340,Critical Illness,DSYN,C0598783,Lipid Metabolism,target_node,0.1970287519028946
+137,C0948008,Ischemic stroke,DSYN,C0598783,Lipid Metabolism,target_node,0.19683175993960075
+138,C0030016,Oxidoreductase,AAPP,C0598783,Lipid Metabolism,target_node,0.19662072552181645
+139,C0073393,risperidone,ORCH,C0598783,Lipid Metabolism,target_node,0.19647790670596396
+140,C0022661,"Kidney Failure, Chronic",DSYN,C0598783,Lipid Metabolism,target_node,0.1961035801124186
+141,C0001655|5443,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.19558554414136917
+142,C0040162,thyrotropin-releasing hormone,AAPP,C0598783,Lipid Metabolism,target_node,0.19547941298560825
+143,C0000970,acetaminophen,ORCH,C0598783,Lipid Metabolism,target_node,0.19539102155150156
+144,C0018099,Gout,DSYN,C0598783,Lipid Metabolism,target_node,0.19533750388132165
+145,C0019878,homocysteine,GNGM,C0598783,Lipid Metabolism,target_node,0.19521288638990622
+146,C0851578,Sleep Disorders,DSYN,C0598783,Lipid Metabolism,target_node,0.1950372183447154
+147,C0597357,receptor,GNGM,C0598783,Lipid Metabolism,target_node,0.19496552252421828
+148,C0027754|4803,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.1945596234304651
+149,C0040648,TRANSCRIPTION FACTOR,GNGM,C0598783,Lipid Metabolism,target_node,0.19428355964421415
+150,C0019247,Hereditary Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.19395377656185142
+151,C0036825,Serum Proteins,GNGM,C0598783,Lipid Metabolism,target_node,0.1936756098136875
+152,C0245382,Galectin 3,AAPP,C0598783,Lipid Metabolism,target_node,0.19356421336972734
+153,C0398623,Thrombophilia,DSYN,C0598783,Lipid Metabolism,target_node,0.1935006606490911
+154,C0751973,Proteome,GNGM,C0598783,Lipid Metabolism,target_node,0.19312692963824277
+155,C0442874,Neuropathy,DSYN,C0598783,Lipid Metabolism,target_node,0.19292820841764724
+156,C0341439,Chronic liver disease,DSYN,C0598783,Lipid Metabolism,target_node,0.19269745511699463
+157,C0029408,Degenerative polyarthritis,DSYN,C0598783,Lipid Metabolism,target_node,0.19249407339400906
+158,C0079281,Endothelin-1,GNGM,C0598783,Lipid Metabolism,target_node,0.19233601057931884
+159,C0022709,Peptidyl-Dipeptidase A,AAPP,C0598783,Lipid Metabolism,target_node,0.19194370949575068
+160,C0079284,Endothelin,AAPP,C0598783,Lipid Metabolism,target_node,0.19128178008912888
+161,C0001655,corticotropin,AAPP,C0598783,Lipid Metabolism,target_node,0.1911224711574433
+162,C0024141,"Lupus Erythematosus, Systemic",DSYN,C0598783,Lipid Metabolism,target_node,0.1898648499336719
+163,C0023882,Little's Disease,DSYN,C0598783,Lipid Metabolism,target_node,0.18970901646459293
+164,C0020550,Hyperthyroidism,DSYN,C0598783,Lipid Metabolism,target_node,0.18948154331979486
+165,C0027765,nervous system disorder,DSYN,C0598783,Lipid Metabolism,target_node,0.18932166326804664
+166,C0149676,Enzyme Deficiency,DSYN,C0598783,Lipid Metabolism,target_node,0.1892869203878564
+167,C0004358,Autoantibodies,AAPP,C0598783,Lipid Metabolism,target_node,0.1891324656195936
+168,C0162836,Hidradenitis Suppurativa,DSYN,C0598783,Lipid Metabolism,target_node,0.1890707308024454
+169,C0001857,AIDS related complex,DSYN,C0598783,Lipid Metabolism,target_node,0.1890131311639045
+170,C0538161,Tumor necrosis factor receptor 11b,AAPP,C0598783,Lipid Metabolism,target_node,0.18899112017233963
+171,C0004096,Asthma,DSYN,C0598783,Lipid Metabolism,target_node,0.18890478505612515
+172,C0034392,quercetin,ORCH,C0598783,Lipid Metabolism,target_node,0.18888109660106012
+173,C0178638,folate,ORCH,C0598783,Lipid Metabolism,target_node,0.18871050141588083
+174,C0014822|2056,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.18869046806768827
+175,C0016026,Fibroblast Growth Factor,AAPP,C0598783,Lipid Metabolism,target_node,0.18850655191408025
+176,C0022917,Lactate Dehydrogenase,AAPP,C0598783,Lipid Metabolism,target_node,0.18811257544899343
+177,C0031117,Peripheral Neuropathy,DSYN,C0598783,Lipid Metabolism,target_node,0.18804993574058493
+178,C1456380|1432,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.18758764962438607
+179,C0001479,Na(+)-K(+)-Exchanging ATPase,AAPP,C0598783,Lipid Metabolism,target_node,0.1872995167165921
+180,C0007367,catalase,AAPP,C0598783,Lipid Metabolism,target_node,0.1871826004556416
+181,C0001962,ethanol,ORCH,C0598783,Lipid Metabolism,target_node,0.18669812627650997
+182,C0006668,calcitonin,AAPP,C0598783,Lipid Metabolism,target_node,0.18666889070065618
+183,C1510464,Protein Structure,AAPP,C0598783,Lipid Metabolism,target_node,0.18661746894147266
+184,C0021831,Intestinal Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.18644251363015799
+185,C0132555,Nitric Oxide Synthase,AAPP,C0598783,Lipid Metabolism,target_node,0.18609532090374248
+186,C0003864,Arthritis,DSYN,C0598783,Lipid Metabolism,target_node,0.1860794634371026
+187,C0003765,arginine,AAPP,C0598783,Lipid Metabolism,target_node,0.1859156648540672
+188,C0076088,Tenascin,AAPP,C0598783,Lipid Metabolism,target_node,0.18565023065807068
+189,C0033497,propranolol,ORCH,C0598783,Lipid Metabolism,target_node,0.18559100205252563
+190,C0026848,Myopathy,DSYN,C0598783,Lipid Metabolism,target_node,0.1852941410125323
+191,C0029453,Osteopenia,DSYN,C0598783,Lipid Metabolism,target_node,0.1845174132308359
+192,C0271623,Hypogonadotropic hypogonadism,DSYN,C0598783,Lipid Metabolism,target_node,0.1845062821379906
+193,C0031640,phosphoric diester hydrolase,AAPP,C0598783,Lipid Metabolism,target_node,0.1843696672693213
+194,C0067385,"N,N-dimethylarginine",AAPP,C0598783,Lipid Metabolism,target_node,0.1843022436174778
+195,C0078056,Vascular Cell Adhesion Molecule-1,AAPP,C0598783,Lipid Metabolism,target_node,0.18372187150981406
+196,C0021760,interleukin-6,AAPP,C0598783,Lipid Metabolism,target_node,0.18353445092344317
+197,C0031099,Periodontitis,DSYN,C0598783,Lipid Metabolism,target_node,0.1833620225398957
+198,C0011884,Diabetic Retinopathy,DSYN,C0598783,Lipid Metabolism,target_node,0.1833232249016875
+199,C0242966,Systemic Inflammatory Response Syndrome,DSYN,C0598783,Lipid Metabolism,target_node,0.1830858476269431
+200,C0017612,"Glaucoma, Open-Angle",DSYN,C0598783,Lipid Metabolism,target_node,0.18270346938966517
+201,C0085295,interleukin-10,AAPP,C0598783,Lipid Metabolism,target_node,0.18208622653890122
+202,C1448177|7124,NAME_NOT_FOUND,GNGM,C0598783,Lipid Metabolism,target_node,0.1816027935424383
+203,C0149931,Migraine Disorders,DSYN,C0598783,Lipid Metabolism,target_node,0.1814425237925265
+204,C0007028,CARBONATE DEHYDRATASE,AAPP,C0598783,Lipid Metabolism,target_node,0.1812020702711745
+205,C0035258,Restless Legs Syndrome,DSYN,C0598783,Lipid Metabolism,target_node,0.1811468391687998
+206,C0032914,Pre-Eclampsia,DSYN,C0598783,Lipid Metabolism,target_node,0.18104925572750805
+207,C0002564,PORPHOBILINOGEN SYNTHASE,AAPP,C0598783,Lipid Metabolism,target_node,0.18086149313363156
+208,C0442893,Systemic disease,DSYN,C0598783,Lipid Metabolism,target_node,0.1808146362428194
+209,C0260662,Hearing problem,DSYN,C0598783,Lipid Metabolism,target_node,0.18075012637083707
+210,C0010287,Creatine Kinase,AAPP,C0598783,Lipid Metabolism,target_node,0.18055212927304085
+211,C0020063|5741,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.18052725177257578
+212,C0003779,argipressin,AAPP,C0598783,Lipid Metabolism,target_node,0.18049188639796138
+213,C0240066,Iron deficiency,DSYN,C0598783,Lipid Metabolism,target_node,0.18038509487985815
+214,C0019630,Histocompatibility Antigens Class II,AAPP,C0598783,Lipid Metabolism,target_node,0.18037294311178478
+215,C0021753,"interleukin-1, beta",AAPP,C0598783,Lipid Metabolism,target_node,0.18036166447160965
+216,C0010531,Cyclic AMP-Dependent Protein Kinases,AAPP,C0598783,Lipid Metabolism,target_node,0.18030753785402973
+217,C0002059,Alkaline Phosphatase,AAPP,C0598783,Lipid Metabolism,target_node,0.1800673884591162
+218,C2744535|969,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.17941971839930457
+219,C0042395,vasoactive intestinal peptide,AAPP,C0598783,Lipid Metabolism,target_node,0.1782134837549651
+220,C0235946,Cerebral atrophy,DSYN,C0598783,Lipid Metabolism,target_node,0.1780294208509699
+221,C0339573,"Glaucoma, Primary Open Angle",DSYN,C0598783,Lipid Metabolism,target_node,0.17800766271340313
+222,C0016006,fibrinogen,AAPP,C0598783,Lipid Metabolism,target_node,0.1779411743668138
+223,C0079189,cytokine,AAPP,C0598783,Lipid Metabolism,target_node,0.1778716900451169
+224,C0021311,NAME_NOT_FOUND,DSYN,C0598783,Lipid Metabolism,target_node,0.17775900098680603
+225,C0015879,Ferritin,AAPP,C0598783,Lipid Metabolism,target_node,0.17775045800816514
+226,C0521170,Osteoporotic Fractures,DSYN,C0598783,Lipid Metabolism,target_node,0.17703791653371273
+227,C0030305,Pancreatitis,DSYN,C0598783,Lipid Metabolism,target_node,0.17700955292010845
+228,C1366832|51761,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.17700262328436778
+229,C0031634,Phosphocreatine,AAPP,C0598783,Lipid Metabolism,target_node,0.17679581554116375
+230,C0040128,Thyroid Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.1766292961563356
+231,C0003779|551,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.17615510393016093
+232,C0036421,Systemic Scleroderma,DSYN,C0598783,Lipid Metabolism,target_node,0.17609219937931972
+233,C0001473|1769,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.17560424407470165
+234,C0023343,Leprosy,DSYN,C0598783,Lipid Metabolism,target_node,0.17505757062512267
+235,C0023570,levodopa,AAPP,C0598783,Lipid Metabolism,target_node,0.17493339059856672
+236,C1456820|7124,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.17475060289646102
+237,C0003009,angiotensin II,AAPP,C0598783,Lipid Metabolism,target_node,0.17439688512554624
+238,C1171892|7422,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.17383701645516703
+239,C0031727,Phosphotransferases,AAPP,C0598783,Lipid Metabolism,target_node,0.17371199396010145
+240,C0001924,Albumins,AAPP,C0598783,Lipid Metabolism,target_node,0.17369544805178427
+241,C0040005,threonine,AAPP,C0598783,Lipid Metabolism,target_node,0.17361983855560983
+242,C0167627|959,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.17337352922557475
+243,C0028589,Nuclear Proteins,AAPP,C0598783,Lipid Metabolism,target_node,0.1724368841996006
+244,C0033634,Protein Kinase C,AAPP,C0598783,Lipid Metabolism,target_node,0.1723555982505781
+245,C0001476|760,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.17217566748324956
+246,C0025252,Membrane Proteins,GNGM,C0598783,Lipid Metabolism,target_node,0.17208978936673155
+247,C0006685,Calcium Channel,AAPP,C0598783,Lipid Metabolism,target_node,0.17175818490079428
+248,C0669372|4843,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.17165697273299987
+249,C0242383,Age related macular degeneration,DSYN,C0598783,Lipid Metabolism,target_node,0.17083971729689332
+250,C1565489,Renal Insufficiency,DSYN,C0598783,Lipid Metabolism,target_node,0.17082280710590214
+251,C1305923,Polypeptides,AAPP,C0598783,Lipid Metabolism,target_node,0.17057971325116986
+252,C0030567,Parkinson Disease,DSYN,C0598783,Lipid Metabolism,target_node,0.17052965747117713
+253,C0220839,glutamate,AAPP,C0598783,Lipid Metabolism,target_node,0.1701868631651351
+254,C0242275|1950,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.16979643076430323
+255,C0018802,Congestive heart failure,DSYN,C0598783,Lipid Metabolism,target_node,0.1696834527909009
+256,C1561643,Chronic Kidney Diseases,DSYN,C0598783,Lipid Metabolism,target_node,0.16952474764015638
+257,C0009325,collagen,GNGM,C0598783,Lipid Metabolism,target_node,0.169147628427819
+258,C0036690,Septicemia,DSYN,C0598783,Lipid Metabolism,target_node,0.1690411921059967
+259,C0242210,Binding Proteins,AAPP,C0598783,Lipid Metabolism,target_node,0.16903088958652984
+260,C0085584,Encephalopathies,DSYN,C0598783,Lipid Metabolism,target_node,0.168798057104992
+261,C0018784,Sensorineural Hearing Loss (disorder),DSYN,C0598783,Lipid Metabolism,target_node,0.16859515793107635
+262,C0341697,NAME_NOT_FOUND,DSYN,C0598783,Lipid Metabolism,target_node,0.1684202376123039
+263,C0015397,Disorder of eye,DSYN,C0598783,Lipid Metabolism,target_node,0.16784502834027681
+264,C0001044,acetylcholinesterase,GNGM,C0598783,Lipid Metabolism,target_node,0.16770833621738637
+265,C0017968,Glycoproteins,AAPP,C0598783,Lipid Metabolism,target_node,0.16751853966591257
+266,C0002716,Amyloid,GNGM,C0598783,Lipid Metabolism,target_node,0.16735507212413567
+267,C0080222|7040,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.1669022300064875
+268,C0022245,isoproterenol,ORCH,C0598783,Lipid Metabolism,target_node,0.16666393720492909
+269,C0001175,Acquired Immunodeficiency Syndrome,DSYN,C0598783,Lipid Metabolism,target_node,0.16624995211965868
+270,C0037274,Dermatologic disorders,DSYN,C0598783,Lipid Metabolism,target_node,0.166222071243867
+271,C0017817,glutathione,AAPP,C0598783,Lipid Metabolism,target_node,0.1661183074939904
+272,C0155626,Acute myocardial infarction,DSYN,C0598783,Lipid Metabolism,target_node,0.16593198317035981
+273,C0038838,superoxide dismutase,AAPP,C0598783,Lipid Metabolism,target_node,0.1658621072749071
+274,C0002871,Anemia,DSYN,C0598783,Lipid Metabolism,target_node,0.16585561856894349
+275,C0021758,interleukin-4,GNGM,C0598783,Lipid Metabolism,target_node,0.16550745141754653
+276,C1175175,Severe Acute Respiratory Syndrome,DSYN,C0598783,Lipid Metabolism,target_node,0.16546138010432324
+277,C0007570,Celiac Disease,DSYN,C0598783,Lipid Metabolism,target_node,0.16530378464683526
+278,C0599220,Protein Subunits,AAPP,C0598783,Lipid Metabolism,target_node,0.16520145076569098
+279,C0040048,Thromboplastin,AAPP,C0598783,Lipid Metabolism,target_node,0.16516943407241136
+280,C0010654,cysteine,AAPP,C0598783,Lipid Metabolism,target_node,0.16508986609337484
+281,C0017953,Glycopeptides,AAPP,C0598783,Lipid Metabolism,target_node,0.1649454209993018
+282,C0021747,Interferons,AAPP,C0598783,Lipid Metabolism,target_node,0.16466160521852638
+283,C0002103,Atopic rhinitis,DSYN,C0598783,Lipid Metabolism,target_node,0.16417362134615252
+284,C0282193,Iron Overload,DSYN,C0598783,Lipid Metabolism,target_node,0.1634533428354811
+285,C0019693,HIV Infections,DSYN,C0598783,Lipid Metabolism,target_node,0.16333614389751688
+286,C0019046,Hemoglobin,AAPP,C0598783,Lipid Metabolism,target_node,0.16293156417034046
+287,C1281300,Vascular degeneration,DSYN,C0598783,Lipid Metabolism,target_node,0.16289718177069626
+288,C0032285,Pneumonia,DSYN,C0598783,Lipid Metabolism,target_node,0.16268157015448312
+289,C0151747,Renal tubular disorder,DSYN,C0598783,Lipid Metabolism,target_node,0.1625093271618158
+290,C0016904,gamma-aminobutyric acid,AAPP,C0598783,Lipid Metabolism,target_node,0.1620170364814181
+291,C0004238,Atrial Fibrillation,DSYN,C0598783,Lipid Metabolism,target_node,0.16091665395851354
+292,C0026650,Movement Disorders,DSYN,C0598783,Lipid Metabolism,target_node,0.1606294452888613
+293,C0063695,Intercellular adhesion molecule 1,AAPP,C0598783,Lipid Metabolism,target_node,0.1605520612494431
+294,C0017601,Glaucoma,DSYN,C0598783,Lipid Metabolism,target_node,0.1604594582902413
+295,C0333519,Caries (morphologic abnormality),DSYN,C0598783,Lipid Metabolism,target_node,0.16003335436050004
+296,C1527336,Sjogren's Syndrome,DSYN,C0598783,Lipid Metabolism,target_node,0.16000135754821276
+297,C0751956,Acute Cerebrovascular Accidents,DSYN,C0598783,Lipid Metabolism,target_node,0.15992983060656893
+298,C0054450,Calcineurin,AAPP,C0598783,Lipid Metabolism,target_node,0.15982878463245495
+299,C0018213,Graves Disease,DSYN,C0598783,Lipid Metabolism,target_node,0.1591015971880591
+300,C0014544,Epilepsy,DSYN,C0598783,Lipid Metabolism,target_node,0.15878327787674756
+301,C0079633,interleukin-8,AAPP,C0598783,Lipid Metabolism,target_node,0.15876184195305065
+302,C0011168,Deglutition Disorders,DSYN,C0598783,Lipid Metabolism,target_node,0.15874772244325563
+303,C0021359,Infertility,DSYN,C0598783,Lipid Metabolism,target_node,0.15856990751977426
+304,C0024117,Chronic Obstructive Airway Disease,DSYN,C0598783,Lipid Metabolism,target_node,0.15838623174880534
+305,C0917798,Cerebral Ischemia,DSYN,C0598783,Lipid Metabolism,target_node,0.15761667282319552
+306,C0149516,Chronic sinusitis,DSYN,C0598783,Lipid Metabolism,target_node,0.1576068520232224
+307,C0001473,Adenosine Triphosphatases,GNGM,C0598783,Lipid Metabolism,target_node,0.1566485264662255
+308,C0021756,Interleukin-2,AAPP,C0598783,Lipid Metabolism,target_node,0.15623950489350802
+309,C0015230,Exanthema,DSYN,C0598783,Lipid Metabolism,target_node,0.15604527296061382
+310,C0595921,Intraocular pressure disorder,DSYN,C0598783,Lipid Metabolism,target_node,0.1555996436973919
+311,C0021027,Immunoglobulins,AAPP,C0598783,Lipid Metabolism,target_node,0.15543054578440982
+312,C0022118,Transient ischemia,DSYN,C0598783,Lipid Metabolism,target_node,0.15370488138026553
+313,C0754710,Amino-terminal pro-brain natriuretic peptide,AAPP,C0598783,Lipid Metabolism,target_node,0.15363028419364264
+314,C5139167,Severe infection,DSYN,C0598783,Lipid Metabolism,target_node,0.15322207835021062
+315,C0009421,Comatose,DSYN,C0598783,Lipid Metabolism,target_node,0.15265709204380926
+316,C0019721,HLA Antigens,AAPP,C0598783,Lipid Metabolism,target_node,0.1525487653346691
+317,C0022116,Ischemia,DSYN,C0598783,Lipid Metabolism,target_node,0.15233857519696917
+318,C0003242,"Antibodies, Anti-Idiotypic",AAPP,C0598783,Lipid Metabolism,target_node,0.15216745254466216
+319,C0085278,Antiphospholipid Syndrome,DSYN,C0598783,Lipid Metabolism,target_node,0.151942800806272
+320,C0010749,Cytochromes c,AAPP,C0598783,Lipid Metabolism,target_node,0.15191061354570826
+321,C0035078,Kidney Failure,DSYN,C0598783,Lipid Metabolism,target_node,0.15069404797827912
+322,C0148199,Vascular Endothelial Growth Factor Receptor,AAPP,C0598783,Lipid Metabolism,target_node,0.1496441520043778
+323,C0005149,beta-2 Microglobulin,AAPP,C0598783,Lipid Metabolism,target_node,0.14901389191372827
+324,C0038585,Substance P,AAPP,C0598783,Lipid Metabolism,target_node,0.1484863214518021
+325,C0016055,Fibronectins,AAPP,C0598783,Lipid Metabolism,target_node,0.14817407939564514
+326,C0022575,Keratoconjunctivitis Sicca,DSYN,C0598783,Lipid Metabolism,target_node,0.14658673890288781
+327,C5203670,COVID-19,DSYN,C0598783,Lipid Metabolism,target_node,0.14471738532267062
+328,C0003241,Antibodies,AAPP,C0598783,Lipid Metabolism,target_node,0.14194692906153478
+329,C0033706,prothrombin,AAPP,C0598783,Lipid Metabolism,target_node,0.13940903326319387
+330,C0002726,Amyloidosis,DSYN,C0598783,Lipid Metabolism,target_node,0.13400227248808397
+331,C0232197,Fibrillation,DSYN,C0598783,Lipid Metabolism,target_node,0.12030106316772872
+332,C1533070,NAME_NOT_FOUND,AAPP,C0598783,Lipid Metabolism,target_node,0.09774603065105313

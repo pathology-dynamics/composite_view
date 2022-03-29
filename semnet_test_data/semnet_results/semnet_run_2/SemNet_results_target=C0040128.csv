@@ -1,0 +1,334 @@
+,source_node,source_name,source_type,target_node,target_name,target_type,hetesim_score
+0,C0040128,Thyroid Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.4608312311656013
+1,C0549609,adrenal dysfunction,DSYN,C0040128,Thyroid Diseases,target_node,0.3084451775712978
+2,C0020550,Hyperthyroidism,DSYN,C0040128,Thyroid Diseases,target_node,0.3019529080793651
+3,C1510464,Protein Structure,AAPP,C0040128,Thyroid Diseases,target_node,0.30074968022174636
+4,C0018213,Graves Disease,DSYN,C0040128,Thyroid Diseases,target_node,0.2996993508331558
+5,C0002564,PORPHOBILINOGEN SYNTHASE,AAPP,C0040128,Thyroid Diseases,target_node,0.29947894108873835
+6,C0040160,thyrotropin,AAPP,C0040128,Thyroid Diseases,target_node,0.2893440675542128
+7,C0040135,Thyroid Hormones,HORM,C0040128,Thyroid Diseases,target_node,0.28754459181006364
+8,C0020479,Hyperlipoproteinemia Type III,DSYN,C0040128,Thyroid Diseases,target_node,0.2756901802331087
+9,C0154251,Lipid Metabolism Disorders,DSYN,C0040128,Thyroid Diseases,target_node,0.2732245417788211
+10,C0023816,LIPOPROTEIN LIPASE,AAPP,C0040128,Thyroid Diseases,target_node,0.27131165349836656
+11,C0055538,Cholesterol Ester Transfer Proteins,AAPP,C0040128,Thyroid Diseases,target_node,0.26942149984399716
+12,C0079281|1906,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.2692599914008896
+13,C0052451,Arylesterase,AAPP,C0040128,Thyroid Diseases,target_node,0.2667837702794482
+14,C1281300,Vascular degeneration,DSYN,C0040128,Thyroid Diseases,target_node,0.2651110818040164
+15,C0858246,NAME_NOT_FOUND,DSYN,C0040128,Thyroid Diseases,target_node,0.26505810638707494
+16,C0034917,Reduced Glutathione,AAPP,C0040128,Thyroid Diseases,target_node,0.2630235908104889
+17,C0026454,Monoamine Oxidase,AAPP,C0040128,Thyroid Diseases,target_node,0.2591557276467795
+18,C0235950,Zinc deficiency,DSYN,C0040128,Thyroid Diseases,target_node,0.259117264690063
+19,C0005832,Blood Proteins,AAPP,C0040128,Thyroid Diseases,target_node,0.2589018338701283
+20,C0024708,Manganese Superoxide Dismutase,AAPP,C0040128,Thyroid Diseases,target_node,0.2578222665518962
+21,C0008731,Chylomicrons,AAPP,C0040128,Thyroid Diseases,target_node,0.25749021918966913
+22,C0598608,Hyperhomocysteinemia,DSYN,C0040128,Thyroid Diseases,target_node,0.25643672576329485
+23,C0577631,Carotid Atherosclerosis,DSYN,C0040128,Thyroid Diseases,target_node,0.25618836585469507
+24,C0042870,Vitamin D Deficiency,DSYN,C0040128,Thyroid Diseases,target_node,0.25618586405646504
+25,C0746556,metabolic disturbance,DSYN,C0040128,Thyroid Diseases,target_node,0.25607575961566253
+26,C0003593|338,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.25540999028052264
+27,C0149676,Enzyme Deficiency,DSYN,C0040128,Thyroid Diseases,target_node,0.25507085708484706
+28,C0003972,NAME_NOT_FOUND,DSYN,C0040128,Thyroid Diseases,target_node,0.2537722575016986
+29,C0009506|718,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.25289608753269344
+30,C0151449,Primary Sjögren's syndrome,DSYN,C0040128,Thyroid Diseases,target_node,0.2525199929287085
+31,C0026896,Myasthenia Gravis,DSYN,C0040128,Thyroid Diseases,target_node,0.2521107882328385
+32,C0033706,prothrombin,AAPP,C0040128,Thyroid Diseases,target_node,0.250339314256402
+33,C0036883,Sex Hormone-Binding Globulin,AAPP,C0040128,Thyroid Diseases,target_node,0.24996473648877468
+34,C0260662,Hearing problem,DSYN,C0040128,Thyroid Diseases,target_node,0.24881126194419265
+35,C0003591,Apolipoproteins,AAPP,C0040128,Thyroid Diseases,target_node,0.2487437770608555
+36,C0015397,Disorder of eye,DSYN,C0040128,Thyroid Diseases,target_node,0.2478219654681901
+37,C0014130,Endocrine System Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.24563862776577516
+38,C0017732,NAME_NOT_FOUND,DSYN,C0040128,Thyroid Diseases,target_node,0.2445278741721715
+39,C0339573,"Glaucoma, Primary Open Angle",DSYN,C0040128,Thyroid Diseases,target_node,0.24418846459405905
+40,C0022638,Ketosis,DSYN,C0040128,Thyroid Diseases,target_node,0.24415933016406915
+41,C0023816|4023,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.24306562750136532
+42,C0006560|1401,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.2426611635059853
+43,C0034787,Angiotensin Receptor,AAPP,C0040128,Thyroid Diseases,target_node,0.2425705722639503
+44,C0067385,"N,N-dimethylarginine",AAPP,C0040128,Thyroid Diseases,target_node,0.24248154164705812
+45,C0007258,carnitine,PHSU,C0040128,Thyroid Diseases,target_node,0.24241156514853343
+46,C0053396,beta carotene,VITA,C0040128,Thyroid Diseases,target_node,0.24151837586084599
+47,C0001044,acetylcholinesterase,AAPP,C0040128,Thyroid Diseases,target_node,0.24119230360818658
+48,C0017040,Gamma-glutamyl transferase,AAPP,C0040128,Thyroid Diseases,target_node,0.24094055976976403
+49,C0017822,GLUTATHIONE PEROXIDASE,AAPP,C0040128,Thyroid Diseases,target_node,0.23943607617623383
+50,C0064194,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.23892611623773333
+51,C0042373,Vascular Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.23848953358107683
+52,C0001476|760,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.23789632977631142
+53,C0004358,Autoantibodies,IMFT,C0040128,Thyroid Diseases,target_node,0.2375786342781051
+54,C0011854,"Diabetes Mellitus, Insulin-Dependent",DSYN,C0040128,Thyroid Diseases,target_node,0.23726821523270406
+55,C0741949,Cardiovascular Pathology,DSYN,C0040128,Thyroid Diseases,target_node,0.23726039233833737
+56,C1136177,Sirtuins,AAPP,C0040128,Thyroid Diseases,target_node,0.23667274048438236
+57,C0042842,Vitamin A Deficiency,DSYN,C0040128,Thyroid Diseases,target_node,0.23659513191204146
+58,C0024141,"Lupus Erythematosus, Systemic",DSYN,C0040128,Thyroid Diseases,target_node,0.2363818885419641
+59,C0020443,Hypercholesterolemia,DSYN,C0040128,Thyroid Diseases,target_node,0.23636604485094576
+60,C0010749,Cytochromes c,AAPP,C0040128,Thyroid Diseases,target_node,0.2356310429156822
+61,C0035258,Restless Legs Syndrome,DSYN,C0040128,Thyroid Diseases,target_node,0.23511806915913233
+62,C0019878,homocysteine,AAPP,C0040128,Thyroid Diseases,target_node,0.2348119045403377
+63,C0085278,Antiphospholipid Syndrome,DSYN,C0040128,Thyroid Diseases,target_node,0.23476971367099134
+64,C0086543,Cataract,DSYN,C0040128,Thyroid Diseases,target_node,0.23421322618391033
+65,C0398623,Thrombophilia,DSYN,C0040128,Thyroid Diseases,target_node,0.2337885916071413
+66,C0054450,Calcineurin,AAPP,C0040128,Thyroid Diseases,target_node,0.2337354262336699
+67,C0003595|348,NAME_NOT_FOUND,BACS,C0040128,Thyroid Diseases,target_node,0.2329625872515245
+68,C0850624,cardiovascular risk factor,DSYN,C0040128,Thyroid Diseases,target_node,0.23273980329391752
+69,C0596577,Flavonoids,ORCH,C0040128,Thyroid Diseases,target_node,0.23258611855386924
+70,C0034785,beta-adrenergic receptor,AAPP,C0040128,Thyroid Diseases,target_node,0.2324849697238151
+71,C0006560,C-reactive protein,AAPP,C0040128,Thyroid Diseases,target_node,0.23219082986976275
+72,C0549622,Sexual Dysfunction,DSYN,C0040128,Thyroid Diseases,target_node,0.232036763507223
+73,C0020473,Hyperlipidemia,DSYN,C0040128,Thyroid Diseases,target_node,0.23189327077855362
+74,C0242383,Age related macular degeneration,DSYN,C0040128,Thyroid Diseases,target_node,0.23185738161016192
+75,C0140283,Retinoid X Receptors,AAPP,C0040128,Thyroid Diseases,target_node,0.23173654136461816
+76,C0018799,Heart Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.23166947296229173
+77,C0010068,Coronary heart disease,DSYN,C0040128,Thyroid Diseases,target_node,0.23164623277794563
+78,C0003011,"Receptor, Angiotensin II",AAPP,C0040128,Thyroid Diseases,target_node,0.23141505757379735
+79,C0007222,Cardiovascular Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.23060068701988437
+80,C0005304,betaine,ORCH,C0040128,Thyroid Diseases,target_node,0.23034196376424712
+81,C0004153,Atherosclerosis,DSYN,C0040128,Thyroid Diseases,target_node,0.2302003607488544
+82,C0007028,CARBONATE DEHYDRATASE,AAPP,C0040128,Thyroid Diseases,target_node,0.22980768878657015
+83,C0948008,Ischemic stroke,DSYN,C0040128,Thyroid Diseases,target_node,0.2286614904880492
+84,C0007292,Carrier Proteins,AAPP,C0040128,Thyroid Diseases,target_node,0.2282944690809038
+85,C0001473,Adenosine Triphosphatases,AAPP,C0040128,Thyroid Diseases,target_node,0.22827693156414866
+86,C0162836,Hidradenitis Suppurativa,DSYN,C0040128,Thyroid Diseases,target_node,0.22773988897025838
+87,C5139167,Severe infection,DSYN,C0040128,Thyroid Diseases,target_node,0.2276907188356703
+88,C1301700,Cardiovascular morbidity,DSYN,C0040128,Thyroid Diseases,target_node,0.22758193550551323
+89,C0911014,ghrelin,AAPP,C0040128,Thyroid Diseases,target_node,0.22676149248849395
+90,C0004364,Autoimmune Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.22660805649682272
+91,C0034818|3643,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.2262606373553235
+92,C0963992|56729,NAME_NOT_FOUND,HORM,C0040128,Thyroid Diseases,target_node,0.22616439317221151
+93,C0003850,Arteriosclerosis,DSYN,C0040128,Thyroid Diseases,target_node,0.22606701425984013
+94,C0021053,Immune System Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.22569207207883973
+95,C0206588,"Receptors, Nuclear",AAPP,C0040128,Thyroid Diseases,target_node,0.22561107576168402
+96,C0003873,Rheumatoid Arthritis,DSYN,C0040128,Thyroid Diseases,target_node,0.22513375567965718
+97,C0148199,Vascular Endothelial Growth Factor Receptor,AAPP,C0040128,Thyroid Diseases,target_node,0.22463590238751294
+98,C0001473|1769,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.22446056435580286
+99,C1533070,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.22434744528505007
+100,C0333519,Caries (morphologic abnormality),DSYN,C0040128,Thyroid Diseases,target_node,0.2243382153518916
+101,C0023343,Leprosy,DSYN,C0040128,Thyroid Diseases,target_node,0.22355571655039366
+102,C0027765,nervous system disorder,DSYN,C0040128,Thyroid Diseases,target_node,0.22347838868321643
+103,C0025517,Metabolic Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.22345583137190123
+104,C0754710,Amino-terminal pro-brain natriuretic peptide,AAPP,C0040128,Thyroid Diseases,target_node,0.2233045284406842
+105,C0036825,Serum Proteins,AAPP,C0040128,Thyroid Diseases,target_node,0.22306506426372794
+106,C0033860,Psoriasis,DSYN,C0040128,Thyroid Diseases,target_node,0.22290716124082255
+107,C0002716,Amyloid,AAPP,C0040128,Thyroid Diseases,target_node,0.2228023406069982
+108,C0023821,High Density Lipoproteins,LIPD,C0040128,Thyroid Diseases,target_node,0.22257488268970743
+109,C0259749,Autonomic neuropathy,DSYN,C0040128,Thyroid Diseases,target_node,0.222249653136118
+110,C0001479,Na(+)-K(+)-Exchanging ATPase,AAPP,C0040128,Thyroid Diseases,target_node,0.22202754203918287
+111,C0021359,Infertility,DSYN,C0040128,Thyroid Diseases,target_node,0.22198004639433075
+112,C0856169,Endothelial dysfunction,DSYN,C0040128,Thyroid Diseases,target_node,0.221731537390219
+113,C0948265,NAME_NOT_FOUND,DSYN,C0040128,Thyroid Diseases,target_node,0.22169455726475676
+114,C0348035,oxidized low density lipoprotein,BACS,C0040128,Thyroid Diseases,target_node,0.22156613202893954
+115,C0037274,Dermatologic disorders,DSYN,C0040128,Thyroid Diseases,target_node,0.2214450311343982
+116,C1290886,Chronic inflammatory disorder,DSYN,C0040128,Thyroid Diseases,target_node,0.22120912294316333
+117,C0442893,Systemic disease,DSYN,C0040128,Thyroid Diseases,target_node,0.22080238326521964
+118,C0032120,Plasma Proteins,AAPP,C0040128,Thyroid Diseases,target_node,0.22062836539709701
+119,C0010287,Creatine Kinase,AAPP,C0040128,Thyroid Diseases,target_node,0.2204270376736822
+120,C0011847,Diabetes,DSYN,C0040128,Thyroid Diseases,target_node,0.2203168728256527
+121,C0031099,Periodontitis,DSYN,C0040128,Thyroid Diseases,target_node,0.22002914672502272
+122,C0026848,Myopathy,DSYN,C0040128,Thyroid Diseases,target_node,0.21982320694534907
+123,C0008679,Chronic disease,DSYN,C0040128,Thyroid Diseases,target_node,0.219779459695674
+124,C0282193,Iron Overload,DSYN,C0040128,Thyroid Diseases,target_node,0.21976154116037028
+125,C0521170,Osteoporotic Fractures,DSYN,C0040128,Thyroid Diseases,target_node,0.21963877854259162
+126,C0167627|959,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.21956760570788256
+127,C0018099,Gout,DSYN,C0040128,Thyroid Diseases,target_node,0.21943675435217197
+128,C0022709,Peptidyl-Dipeptidase A,AAPP,C0040128,Thyroid Diseases,target_node,0.21937557327553894
+129,C0242339,Dyslipidemias,DSYN,C0040128,Thyroid Diseases,target_node,0.21915456574450878
+130,C0669365|4846,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.21913020002658623
+131,C0019721,HLA Antigens,AAPP,C0040128,Thyroid Diseases,target_node,0.2190771561480657
+132,C0235946,Cerebral atrophy,DSYN,C0040128,Thyroid Diseases,target_node,0.21850699007759977
+133,C0032914,Pre-Eclampsia,DSYN,C0040128,Thyroid Diseases,target_node,0.21800672977783841
+134,C0005149,beta-2 Microglobulin,AAPP,C0040128,Thyroid Diseases,target_node,0.21774247295619406
+135,C0400966,Non-alcoholic Fatty Liver Disease,DSYN,C0040128,Thyroid Diseases,target_node,0.21774178315334233
+136,C0972232|26291,NAME_NOT_FOUND,BACS,C0040128,Thyroid Diseases,target_node,0.21773755342417603
+137,C0031117,Peripheral Neuropathy,DSYN,C0040128,Thyroid Diseases,target_node,0.21762698736269276
+138,C0007367,catalase,AAPP,C0040128,Thyroid Diseases,target_node,0.2175521028502799
+139,C1456380|1432,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.21738157358659793
+140,C0085201,Apolipoprotein A-I,BACS,C0040128,Thyroid Diseases,target_node,0.21725024199574386
+141,C0034818,Insulin Receptor,AAPP,C0040128,Thyroid Diseases,target_node,0.21714807889603438
+142,C0007570,Celiac Disease,DSYN,C0040128,Thyroid Diseases,target_node,0.21703977628548382
+143,C1175175,Severe Acute Respiratory Syndrome,DSYN,C0040128,Thyroid Diseases,target_node,0.21683997377209818
+144,C0023820,Lipoproteins,AAPP,C0040128,Thyroid Diseases,target_node,0.21661366688645314
+145,C0036421,Systemic Scleroderma,DSYN,C0040128,Thyroid Diseases,target_node,0.21661071328601086
+146,C0023823,Low-Density Lipoproteins,AAPP,C0040128,Thyroid Diseases,target_node,0.21618997506306165
+147,C0022658,Kidney Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.21572742848065454
+148,C0015879,Ferritin,AAPP,C0040128,Thyroid Diseases,target_node,0.21465896548169489
+149,C0025741,methyldopa,PHSU,C0040128,Thyroid Diseases,target_node,0.21443200584667882
+150,C0021831,Intestinal Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.21433715751122562
+151,C0029408,Degenerative polyarthritis,DSYN,C0040128,Thyroid Diseases,target_node,0.21395119371776145
+152,C0010481,Cushing Syndrome,DSYN,C0040128,Thyroid Diseases,target_node,0.21375359123160664
+153,C0271623,Hypogonadotropic hypogonadism,DSYN,C0040128,Thyroid Diseases,target_node,0.21355605264699284
+154,C1527336,Sjogren's Syndrome,DSYN,C0040128,Thyroid Diseases,target_node,0.2135404225448707
+155,C0389071,Adiponectin,BACS,C0040128,Thyroid Diseases,target_node,0.2127795018094736
+156,C0018784,Sensorineural Hearing Loss (disorder),DSYN,C0040128,Thyroid Diseases,target_node,0.21277603726472646
+157,C0042839,vitamin A,VITA,C0040128,Thyroid Diseases,target_node,0.2127469965257552
+158,C0023882,Little's Disease,DSYN,C0040128,Thyroid Diseases,target_node,0.21266285345928113
+159,C0123091,quetiapine,PHSU,C0040128,Thyroid Diseases,target_node,0.21260170722807564
+160,C0178638,folate,ORCH,C0040128,Thyroid Diseases,target_node,0.21253716787892696
+161,C0028589,Nuclear Proteins,AAPP,C0040128,Thyroid Diseases,target_node,0.21229518356224283
+162,C0030567,Parkinson Disease,DSYN,C0040128,Thyroid Diseases,target_node,0.21149016223803657
+163,C0001175,Acquired Immunodeficiency Syndrome,DSYN,C0040128,Thyroid Diseases,target_node,0.21147291714928623
+164,C0006685,Calcium Channel,AAPP,C0040128,Thyroid Diseases,target_node,0.21130435014308294
+165,C0123707,Insulin-Like Growth Factor Binding Protein 3,AAPP,C0040128,Thyroid Diseases,target_node,0.21126855071864634
+166,C0033640,Protein Kinases,AAPP,C0040128,Thyroid Diseases,target_node,0.21114324296265044
+167,C0085584,Encephalopathies,DSYN,C0040128,Thyroid Diseases,target_node,0.2110480888867602
+168,C0022575,Keratoconjunctivitis Sicca,DSYN,C0040128,Thyroid Diseases,target_node,0.21081854365107286
+169,C0015695,Fatty Liver,DSYN,C0040128,Thyroid Diseases,target_node,0.2106818718601061
+170,C0002594,Transaminases,AAPP,C0040128,Thyroid Diseases,target_node,0.21057440001923475
+171,C0917798,Cerebral Ischemia,DSYN,C0040128,Thyroid Diseases,target_node,0.2103635918051755
+172,C0038838,superoxide dismutase,AAPP,C0040128,Thyroid Diseases,target_node,0.21020642527432776
+173,C0238806,NAME_NOT_FOUND,DSYN,C0040128,Thyroid Diseases,target_node,0.20998896006326662
+174,C0442874,Neuropathy,DSYN,C0040128,Thyroid Diseases,target_node,0.20957849576128898
+175,C0132555,Nitric Oxide Synthase,AAPP,C0040128,Thyroid Diseases,target_node,0.2092153903964994
+176,C0003864,Arthritis,DSYN,C0040128,Thyroid Diseases,target_node,0.20894467569896877
+177,C0006668,calcitonin,HORM,C0040128,Thyroid Diseases,target_node,0.2085778294682967
+178,C0031640,phosphoric diester hydrolase,AAPP,C0040128,Thyroid Diseases,target_node,0.20856867186364136
+179,C0017612,"Glaucoma, Open-Angle",DSYN,C0040128,Thyroid Diseases,target_node,0.20852837119417303
+180,C0669372|4843,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.20838068000638554
+181,C0038454,Cerebrovascular accident,DSYN,C0040128,Thyroid Diseases,target_node,0.20815655762606072
+182,C0299583|3952,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.20795824223858855
+183,C0019247,Hereditary Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.2078887355563566
+184,C1290884,Inflammatory disorder,DSYN,C0040128,Thyroid Diseases,target_node,0.2076364927209841
+185,C0851578,Sleep Disorders,DSYN,C0040128,Thyroid Diseases,target_node,0.2075945346385798
+186,C0010054,Coronary Arteriosclerosis,DSYN,C0040128,Thyroid Diseases,target_node,0.20753775596762053
+187,C0019693,HIV Infections,DSYN,C0040128,Thyroid Diseases,target_node,0.20751681458475368
+188,C0001492,Adenylate Cyclase,AAPP,C0040128,Thyroid Diseases,target_node,0.2074819116307598
+189,C0020456,Hyperglycemia,DSYN,C0040128,Thyroid Diseases,target_node,0.20737628338486727
+190,C0245382,Galectin 3,AAPP,C0040128,Thyroid Diseases,target_node,0.20717320818809404
+191,C0078056,Vascular Cell Adhesion Molecule-1,AAPP,C0040128,Thyroid Diseases,target_node,0.20714117155712672
+192,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",DSYN,C0040128,Thyroid Diseases,target_node,0.20713110430499684
+193,C0003765,arginine,PHSU,C0040128,Thyroid Diseases,target_node,0.20711807740311985
+194,C0033371,prolactin,HORM,C0040128,Thyroid Diseases,target_node,0.20704957480609545
+195,C0149516,Chronic sinusitis,DSYN,C0040128,Thyroid Diseases,target_node,0.20658922292113036
+196,C0751973,Proteome,AAPP,C0040128,Thyroid Diseases,target_node,0.20631702342420297
+197,C0028754,Obesity,DSYN,C0040128,Thyroid Diseases,target_node,0.2062771888280363
+198,C0240066,Iron deficiency,DSYN,C0040128,Thyroid Diseases,target_node,0.20617233246278163
+199,C0017968,Glycoproteins,AAPP,C0040128,Thyroid Diseases,target_node,0.20595010890342394
+200,C0017601,Glaucoma,DSYN,C0040128,Thyroid Diseases,target_node,0.20576547144662222
+201,C0001857,AIDS related complex,DSYN,C0040128,Thyroid Diseases,target_node,0.2056474970873194
+202,C0025252,Membrane Proteins,AAPP,C0040128,Thyroid Diseases,target_node,0.20560534450329135
+203,C0031634,Phosphocreatine,AAPP,C0040128,Thyroid Diseases,target_node,0.20555579613848549
+204,C0011884,Diabetic Retinopathy,DSYN,C0040128,Thyroid Diseases,target_node,0.20542670608655594
+205,C0029453,Osteopenia,DSYN,C0040128,Thyroid Diseases,target_node,0.20539897046670821
+206,C0018801,Heart failure,DSYN,C0040128,Thyroid Diseases,target_node,0.2053895555068343
+207,C0733758,follicle stimulating hormone,AAPP,C0040128,Thyroid Diseases,target_node,0.2047503465798941
+208,C0030016,Oxidoreductase,AAPP,C0040128,Thyroid Diseases,target_node,0.20456585511249972
+209,C0037657,Somatomedins,AAPP,C0040128,Thyroid Diseases,target_node,0.20395340969431708
+210,C0025598,metformin,PHSU,C0040128,Thyroid Diseases,target_node,0.2038440891745059
+211,C0016006,fibrinogen,AAPP,C0040128,Thyroid Diseases,target_node,0.2034478752602583
+212,C0107103,brain-derived neurotrophic factor,BACS,C0040128,Thyroid Diseases,target_node,0.20314864628075954
+213,C0341439,Chronic liver disease,DSYN,C0040128,Thyroid Diseases,target_node,0.20308698269322883
+214,C0017628,glyburide,ORCH,C0040128,Thyroid Diseases,target_node,0.2030424821740331
+215,C0022661,"Kidney Failure, Chronic",DSYN,C0040128,Thyroid Diseases,target_node,0.20288587657411028
+216,C0010654,cysteine,AAPP,C0040128,Thyroid Diseases,target_node,0.2027755063523708
+217,C0010531,Cyclic AMP-Dependent Protein Kinases,AAPP,C0040128,Thyroid Diseases,target_node,0.2025535384503649
+218,C0030305,Pancreatitis,DSYN,C0040128,Thyroid Diseases,target_node,0.20216815141365577
+219,C0022917,Lactate Dehydrogenase,AAPP,C0040128,Thyroid Diseases,target_node,0.20145471299963816
+220,C0149931,Migraine Disorders,DSYN,C0040128,Thyroid Diseases,target_node,0.20132325473050477
+221,C0040005,threonine,AAPP,C0040128,Thyroid Diseases,target_node,0.2013031232191938
+222,C0017742,Glucose Transporter,AAPP,C0040128,Thyroid Diseases,target_node,0.20109108464959924
+223,C0242210,Binding Proteins,AAPP,C0040128,Thyroid Diseases,target_node,0.2009017862789438
+224,C0014544,Epilepsy,DSYN,C0040128,Thyroid Diseases,target_node,0.20083319233563882
+225,C0022118,Transient ischemia,DSYN,C0040128,Thyroid Diseases,target_node,0.20053608300940193
+226,C0002871,Anemia,DSYN,C0040128,Thyroid Diseases,target_node,0.20024060461863283
+227,C0341697,NAME_NOT_FOUND,DSYN,C0040128,Thyroid Diseases,target_node,0.2000608437893346
+228,C0035078,Kidney Failure,DSYN,C0040128,Thyroid Diseases,target_node,0.19960555011878672
+229,C0034392,quercetin,PHSU,C0040128,Thyroid Diseases,target_node,0.1994502375451163
+230,C0026650,Movement Disorders,DSYN,C0040128,Thyroid Diseases,target_node,0.19913688773915317
+231,C0000970,acetaminophen,PHSU,C0040128,Thyroid Diseases,target_node,0.19865382647848498
+232,C0220839,glutamate,AAPP,C0040128,Thyroid Diseases,target_node,0.19851125803279876
+233,C0085096,Peripheral Vascular Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.19827730309901154
+234,C0021027,Immunoglobulins,AAPP,C0040128,Thyroid Diseases,target_node,0.1981771335123539
+235,C0520679,"Sleep Apnea, Obstructive",DSYN,C0040128,Thyroid Diseases,target_node,0.19781356331074215
+236,C0151744,Myocardial Ischemia,DSYN,C0040128,Thyroid Diseases,target_node,0.197482073306574
+237,C0079284,Endothelin,BACS,C0040128,Thyroid Diseases,target_node,0.19731035712880293
+238,C0232197,Fibrillation,DSYN,C0040128,Thyroid Diseases,target_node,0.19724084212249604
+239,C0005210,beta-Endorphin,AAPP,C0040128,Thyroid Diseases,target_node,0.19722063503321297
+240,C0751956,Acute Cerebrovascular Accidents,DSYN,C0040128,Thyroid Diseases,target_node,0.19719302629464072
+241,C0597357,receptor,AAPP,C0040128,Thyroid Diseases,target_node,0.19668297321185524
+242,C0073393,risperidone,PHSU,C0040128,Thyroid Diseases,target_node,0.1958181613168168
+243,C0021641|3630,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.19575503911778108
+244,C0029456,Osteoporosis,DSYN,C0040128,Thyroid Diseases,target_node,0.19568303045139437
+245,C0162429,Malnutrition,DSYN,C0040128,Thyroid Diseases,target_node,0.19558161738357704
+246,C0019630,Histocompatibility Antigens Class II,AAPP,C0040128,Thyroid Diseases,target_node,0.195391108780362
+247,C0020063|5741,NAME_NOT_FOUND,HORM,C0040128,Thyroid Diseases,target_node,0.1944762745885145
+248,C0040162,thyrotropin-releasing hormone,HORM,C0040128,Thyroid Diseases,target_node,0.19443926863723718
+249,C0538161,Tumor necrosis factor receptor 11b,AAPP,C0040128,Thyroid Diseases,target_node,0.1940606998325761
+250,C1456820|7124,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.19388633609103742
+251,C0017817,glutathione,AAPP,C0040128,Thyroid Diseases,target_node,0.19346751935450043
+252,C0299583,leptin,HORM,C0040128,Thyroid Diseases,target_node,0.19345055295285946
+253,C0018061,Gonadotropins,HORM,C0040128,Thyroid Diseases,target_node,0.19303261956027712
+254,C0002059,Alkaline Phosphatase,AAPP,C0040128,Thyroid Diseases,target_node,0.1930062313783652
+255,C0011168,Deglutition Disorders,DSYN,C0040128,Thyroid Diseases,target_node,0.19262499547320158
+256,C0001622,Adrenal Gland Hyperfunction,DSYN,C0040128,Thyroid Diseases,target_node,0.19244582494896903
+257,C0004238,Atrial Fibrillation,PATF,C0040128,Thyroid Diseases,target_node,0.19197172858525755
+258,C0023570,levodopa,PHSU,C0040128,Thyroid Diseases,target_node,0.1918206531672651
+259,C0020538,Hypertensive disease,DSYN,C0040128,Thyroid Diseases,target_node,0.19168685095910876
+260,C0027051,Myocardial Infarction,DSYN,C0040128,Thyroid Diseases,target_node,0.1915947209818156
+261,C0018802,Congestive heart failure,DSYN,C0040128,Thyroid Diseases,target_node,0.1915068263151767
+262,C0021665,Insulin-Like Growth Factor I,AAPP,C0040128,Thyroid Diseases,target_node,0.19122581776407915
+263,C0242966,Systemic Inflammatory Response Syndrome,DSYN,C0040128,Thyroid Diseases,target_node,0.1910921810462571
+264,C0037663,Growth Hormone,HORM,C0040128,Thyroid Diseases,target_node,0.1909001438202018
+265,C2744535|969,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.19065401687900685
+266,C0016904,gamma-aminobutyric acid,AAPP,C0040128,Thyroid Diseases,target_node,0.19060521512503031
+267,C0079281,Endothelin-1,AAPP,C0040128,Thyroid Diseases,target_node,0.1902786531488594
+268,C0031727,Phosphotransferases,AAPP,C0040128,Thyroid Diseases,target_node,0.19003946660398924
+269,C0014822|2056,NAME_NOT_FOUND,HORM,C0040128,Thyroid Diseases,target_node,0.18989654195556716
+270,C0063695,Intercellular adhesion molecule 1,AAPP,C0040128,Thyroid Diseases,target_node,0.1897074363015946
+271,C0040648,TRANSCRIPTION FACTOR,AAPP,C0040128,Thyroid Diseases,target_node,0.18944980125058816
+272,C0010340,Critical Illness,DSYN,C0040128,Thyroid Diseases,target_node,0.18932779595495594
+273,C0037315,Sleep Apnea Syndromes,DSYN,C0040128,Thyroid Diseases,target_node,0.1893146583761134
+274,C0023607,luteinizing hormone,HORM,C0040128,Thyroid Diseases,target_node,0.18864309122912715
+275,C0002726,Amyloidosis,DSYN,C0040128,Thyroid Diseases,target_node,0.18861430646048533
+276,C0024117,Chronic Obstructive Airway Disease,DSYN,C0040128,Thyroid Diseases,target_node,0.1884873798208212
+277,C0003242,"Antibodies, Anti-Idiotypic",AAPP,C0040128,Thyroid Diseases,target_node,0.18819323385434897
+278,C0242275|1950,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.18694717814711134
+279,C0004096,Asthma,DSYN,C0040128,Thyroid Diseases,target_node,0.18661269642272013
+280,C1561643,Chronic Kidney Diseases,DSYN,C0040128,Thyroid Diseases,target_node,0.18586658560133237
+281,C0017953,Glycopeptides,AAPP,C0040128,Thyroid Diseases,target_node,0.1853925368219474
+282,C0027893|4852,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.18527745684876665
+283,C0020615,Hypoglycemia,DSYN,C0040128,Thyroid Diseases,target_node,0.18514100138016848
+284,C1565489,Renal Insufficiency,DSYN,C0040128,Thyroid Diseases,target_node,0.18511875862390495
+285,C0019046,Hemoglobin,AAPP,C0040128,Thyroid Diseases,target_node,0.18511306740035638
+286,C0151747,Renal tubular disorder,DSYN,C0040128,Thyroid Diseases,target_node,0.18497356069139084
+287,C0085295,interleukin-10,AAPP,C0040128,Thyroid Diseases,target_node,0.18420778578944766
+288,C0021747,Interferons,PHSU,C0040128,Thyroid Diseases,target_node,0.18414429418361827
+289,C0002103,Atopic rhinitis,DSYN,C0040128,Thyroid Diseases,target_node,0.18357831775858047
+290,C0015230,Exanthema,DSYN,C0040128,Thyroid Diseases,target_node,0.18344182830894973
+291,C0001655,corticotropin,HORM,C0040128,Thyroid Diseases,target_node,0.18343990122031983
+292,C0033634,Protein Kinase C,AAPP,C0040128,Thyroid Diseases,target_node,0.1832147099156835
+293,C0016026,Fibroblast Growth Factor,AAPP,C0040128,Thyroid Diseases,target_node,0.18301020238734317
+294,C1366832|51761,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.1824548682488788
+295,C0001924,Albumins,AAPP,C0040128,Thyroid Diseases,target_node,0.1822588116461716
+296,C0021311,NAME_NOT_FOUND,DSYN,C0040128,Thyroid Diseases,target_node,0.18073094830339725
+297,C0155626,Acute myocardial infarction,DSYN,C0040128,Thyroid Diseases,target_node,0.18068231419785064
+298,C0042395,vasoactive intestinal peptide,AAPP,C0040128,Thyroid Diseases,target_node,0.1806727037105258
+299,C0021641,Insulin,AAPP,C0040128,Thyroid Diseases,target_node,0.18036750843974536
+300,C0003779|551,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.17995450843212724
+301,C0016055,Fibronectins,AAPP,C0040128,Thyroid Diseases,target_node,0.17945380086671522
+302,C0079189,cytokine,AAPP,C0040128,Thyroid Diseases,target_node,0.1792882170843399
+303,C0032285,Pneumonia,DSYN,C0040128,Thyroid Diseases,target_node,0.1790653885354736
+304,C0599220,Protein Subunits,AAPP,C0040128,Thyroid Diseases,target_node,0.17873288817358507
+305,C0040048,Thromboplastin,AAPP,C0040128,Thyroid Diseases,target_node,0.17840717933407785
+306,C0034783,Adrenergic Receptor,AAPP,C0040128,Thyroid Diseases,target_node,0.17765910306443297
+307,C0021753,"interleukin-1, beta",AAPP,C0040128,Thyroid Diseases,target_node,0.17594632510979946
+308,C1448177|7124,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.17581908274198
+309,C5203670,COVID-19,DSYN,C0040128,Thyroid Diseases,target_node,0.17581508383185043
+310,C0037659,somatostatin,HORM,C0040128,Thyroid Diseases,target_node,0.17562941806641563
+311,C0079633,interleukin-8,AAPP,C0040128,Thyroid Diseases,target_node,0.17552792668606848
+312,C0595921,Intraocular pressure disorder,DSYN,C0040128,Thyroid Diseases,target_node,0.17427859379377827
+313,C0036690,Septicemia,DSYN,C0040128,Thyroid Diseases,target_node,0.17218422391222798
+314,C0003779,argipressin,AAPP,C0040128,Thyroid Diseases,target_node,0.1713803371015339
+315,C0003241,Antibodies,AAPP,C0040128,Thyroid Diseases,target_node,0.17130474269352486
+316,C0033497,propranolol,PHSU,C0040128,Thyroid Diseases,target_node,0.17088230414890326
+317,C1305923,Polypeptides,AAPP,C0040128,Thyroid Diseases,target_node,0.1707093839239498
+318,C0021756,Interleukin-2,IMFT,C0040128,Thyroid Diseases,target_node,0.17064558673155844
+319,C0021760,interleukin-6,AAPP,C0040128,Thyroid Diseases,target_node,0.16949827177617552
+320,C0021758,interleukin-4,AAPP,C0040128,Thyroid Diseases,target_node,0.16937453870721653
+321,C0076088,Tenascin,AAPP,C0040128,Thyroid Diseases,target_node,0.1693720522357788
+322,C0001655|5443,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.16935700322505773
+323,C0027754|4803,NAME_NOT_FOUND,BACS,C0040128,Thyroid Diseases,target_node,0.1689699848076419
+324,C0080222|7040,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.16784658450210832
+325,C0009325,collagen,AAPP,C0040128,Thyroid Diseases,target_node,0.1672774603713878
+326,C1171892|7422,NAME_NOT_FOUND,AAPP,C0040128,Thyroid Diseases,target_node,0.16718997581822123
+327,C0001962,ethanol,ORCH,C0040128,Thyroid Diseases,target_node,0.16673599803891712
+328,C0022245,isoproterenol,PHSU,C0040128,Thyroid Diseases,target_node,0.16570017123411582
+329,C0038585,Substance P,AAPP,C0040128,Thyroid Diseases,target_node,0.163924519149133
+330,C0009421,Comatose,DSYN,C0040128,Thyroid Diseases,target_node,0.1626923814944735
+331,C0003009,angiotensin II,PHSU,C0040128,Thyroid Diseases,target_node,0.16152698642143712
+332,C0022116,Ischemia,DSYN,C0040128,Thyroid Diseases,target_node,0.1514770786739554

@@ -1,0 +1,334 @@
+,source_node,source_name,source_type,target_node,target_name,target_type,hetesim_score
+0,C0040135,Thyroid Hormones,AAPP,C0020676,Hypothyroidism,target_node,0.29032886939741437
+1,C0040128,Thyroid Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.2854007448647703
+2,C0040160,thyrotropin,AAPP,C0020676,Hypothyroidism,target_node,0.27774675395447057
+3,C0020550,Hyperthyroidism,DSYN,C0020676,Hypothyroidism,target_node,0.27296913375300363
+4,C1510464,Protein Structure,AAPP,C0020676,Hypothyroidism,target_node,0.2717723983601161
+5,C0549609,adrenal dysfunction,DSYN,C0020676,Hypothyroidism,target_node,0.2710878061464222
+6,C0034785,beta-adrenergic receptor,AAPP,C0020676,Hypothyroidism,target_node,0.2694340763125439
+7,C0026454,Monoamine Oxidase,AAPP,C0020676,Hypothyroidism,target_node,0.265638363412048
+8,C0064194,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.2636617724357619
+9,C0036883,Sex Hormone-Binding Globulin,AAPP,C0020676,Hypothyroidism,target_node,0.25982877483711553
+10,C0235950,Zinc deficiency,DSYN,C0020676,Hypothyroidism,target_node,0.2575582662348618
+11,C0018213,Graves Disease,DSYN,C0020676,Hypothyroidism,target_node,0.25657106459965867
+12,C0001479,Na(+)-K(+)-Exchanging ATPase,AAPP,C0020676,Hypothyroidism,target_node,0.25471836064530357
+13,C0003011,"Receptor, Angiotensin II",AAPP,C0020676,Hypothyroidism,target_node,0.25347744320036997
+14,C0034818,Insulin Receptor,AAPP,C0020676,Hypothyroidism,target_node,0.25214575619735063
+15,C0034818|3643,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.2514044983363119
+16,C0017040,Gamma-glutamyl transferase,AAPP,C0020676,Hypothyroidism,target_node,0.24988931840751777
+17,C0024708,Manganese Superoxide Dismutase,AAPP,C0020676,Hypothyroidism,target_node,0.249002272748531
+18,C0034917,Reduced Glutathione,AAPP,C0020676,Hypothyroidism,target_node,0.24869531642796847
+19,C0598608,Hyperhomocysteinemia,DSYN,C0020676,Hypothyroidism,target_node,0.2462906486693342
+20,C0034787,Angiotensin Receptor,AAPP,C0020676,Hypothyroidism,target_node,0.24613444313735555
+21,C0002564,PORPHOBILINOGEN SYNTHASE,AAPP,C0020676,Hypothyroidism,target_node,0.24582891551170155
+22,C0001476|760,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.24408138640101792
+23,C0003593|338,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.24382564105764712
+24,C0037663,Growth Hormone,AAPP,C0020676,Hypothyroidism,target_node,0.2437163694658483
+25,C0911014,ghrelin,AAPP,C0020676,Hypothyroidism,target_node,0.24338814035220935
+26,C0299583|3952,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.24306460476720868
+27,C0079281|1906,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.24306203649387056
+28,C0206588,"Receptors, Nuclear",AAPP,C0020676,Hypothyroidism,target_node,0.24263334973423492
+29,C0007258,carnitine,AAPP,C0020676,Hypothyroidism,target_node,0.24251449400533098
+30,C0001473|1769,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.24239790352198862
+31,C0858246,NAME_NOT_FOUND,DSYN,C0020676,Hypothyroidism,target_node,0.24229377682644956
+32,C0023816|4023,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.24207294261508006
+33,C0005304,betaine,ORCH,C0020676,Hypothyroidism,target_node,0.24193048248243712
+34,C0348035,oxidized low density lipoprotein,AAPP,C0020676,Hypothyroidism,target_node,0.241602862439055
+35,C0003591,Apolipoproteins,AAPP,C0020676,Hypothyroidism,target_node,0.24142520310279622
+36,C0052451,Arylesterase,AAPP,C0020676,Hypothyroidism,target_node,0.24133509115565824
+37,C0003595|348,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.2410767689749923
+38,C0027893|4852,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.24076160053010082
+39,C0746556,metabolic disturbance,DSYN,C0020676,Hypothyroidism,target_node,0.24028461200300522
+40,C0154251,Lipid Metabolism Disorders,DSYN,C0020676,Hypothyroidism,target_node,0.2395846600629946
+41,C0006560|1401,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.23952272472899344
+42,C0007292,Carrier Proteins,AAPP,C0020676,Hypothyroidism,target_node,0.23903813502110943
+43,C0055538,Cholesterol Ester Transfer Proteins,AAPP,C0020676,Hypothyroidism,target_node,0.23742372228582814
+44,C0020473,Hyperlipidemia,DSYN,C0020676,Hypothyroidism,target_node,0.23730623790377225
+45,C0001044,acetylcholinesterase,AAPP,C0020676,Hypothyroidism,target_node,0.23705536816789327
+46,C0023823,Low-Density Lipoproteins,AAPP,C0020676,Hypothyroidism,target_node,0.23677342779248303
+47,C0023821,High Density Lipoproteins,AAPP,C0020676,Hypothyroidism,target_node,0.23674613294633254
+48,C0020443,Hypercholesterolemia,DSYN,C0020676,Hypothyroidism,target_node,0.23650080801790258
+49,C0972232|26291,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.2362625827843078
+50,C0123707,Insulin-Like Growth Factor Binding Protein 3,AAPP,C0020676,Hypothyroidism,target_node,0.23624239407853367
+51,C0053396,beta carotene,ORCH,C0020676,Hypothyroidism,target_node,0.2357187817045369
+52,C0596577,Flavonoids,ORCH,C0020676,Hypothyroidism,target_node,0.23543668881102617
+53,C0020479,Hyperlipoproteinemia Type III,DSYN,C0020676,Hypothyroidism,target_node,0.2352591711454038
+54,C0733758,follicle stimulating hormone,AAPP,C0020676,Hypothyroidism,target_node,0.23515643907472655
+55,C0085201,Apolipoprotein A-I,AAPP,C0020676,Hypothyroidism,target_node,0.23440985787362703
+56,C0023816,LIPOPROTEIN LIPASE,AAPP,C0020676,Hypothyroidism,target_node,0.23415714752845393
+57,C0017732,NAME_NOT_FOUND,DSYN,C0020676,Hypothyroidism,target_node,0.23399940320316073
+58,C0178638,folate,ORCH,C0020676,Hypothyroidism,target_node,0.2333851071099207
+59,C0019878,homocysteine,AAPP,C0020676,Hypothyroidism,target_node,0.23326391135735045
+60,C0017822,GLUTATHIONE PEROXIDASE,AAPP,C0020676,Hypothyroidism,target_node,0.2325732561448975
+61,C0040162,thyrotropin-releasing hormone,AAPP,C0020676,Hypothyroidism,target_node,0.23245657939790063
+62,C0149676,Enzyme Deficiency,DSYN,C0020676,Hypothyroidism,target_node,0.23227034808111474
+63,C0023607,luteinizing hormone,AAPP,C0020676,Hypothyroidism,target_node,0.23226427706041253
+64,C0067385,"N,N-dimethylarginine",AAPP,C0020676,Hypothyroidism,target_node,0.2322195367915436
+65,C0023820,Lipoproteins,AAPP,C0020676,Hypothyroidism,target_node,0.23171492021228518
+66,C0963992|56729,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.23110926376175803
+67,C0037657,Somatomedins,AAPP,C0020676,Hypothyroidism,target_node,0.23080379178931762
+68,C0389071,Adiponectin,AAPP,C0020676,Hypothyroidism,target_node,0.23036318364004038
+69,C0021641|3630,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.23027566701591476
+70,C0028589,Nuclear Proteins,AAPP,C0020676,Hypothyroidism,target_node,0.23017358898979498
+71,C0015397,Disorder of eye,DSYN,C0020676,Hypothyroidism,target_node,0.23009656149374444
+72,C0031640,phosphoric diester hydrolase,AAPP,C0020676,Hypothyroidism,target_node,0.22972630153057325
+73,C0021665,Insulin-Like Growth Factor I,AAPP,C0020676,Hypothyroidism,target_node,0.22965630624004732
+74,C0010749,Cytochromes c,AAPP,C0020676,Hypothyroidism,target_node,0.22957489030311512
+75,C0026848,Myopathy,DSYN,C0020676,Hypothyroidism,target_node,0.2289515905376013
+76,C0001473,Adenosine Triphosphatases,AAPP,C0020676,Hypothyroidism,target_node,0.22837813176822763
+77,C0033371,prolactin,AAPP,C0020676,Hypothyroidism,target_node,0.2280051609207231
+78,C0260662,Hearing problem,DSYN,C0020676,Hypothyroidism,target_node,0.22798459605483617
+79,C0086543,Cataract,DSYN,C0020676,Hypothyroidism,target_node,0.22772147233724868
+80,C0010654,cysteine,AAPP,C0020676,Hypothyroidism,target_node,0.2276728190019566
+81,C0021641,Insulin,AAPP,C0020676,Hypothyroidism,target_node,0.22745918014667738
+82,C0003972,NAME_NOT_FOUND,DSYN,C0020676,Hypothyroidism,target_node,0.2274560525956988
+83,C0299583,leptin,AAPP,C0020676,Hypothyroidism,target_node,0.22674300171851608
+84,C0028754,Obesity,DSYN,C0020676,Hypothyroidism,target_node,0.22668762531542663
+85,C0040005,threonine,AAPP,C0020676,Hypothyroidism,target_node,0.22650289653242997
+86,C0054450,Calcineurin,AAPP,C0020676,Hypothyroidism,target_node,0.2264644222701605
+87,C0015879,Ferritin,AAPP,C0020676,Hypothyroidism,target_node,0.22600156304564795
+88,C0042839,vitamin A,ORCH,C0020676,Hypothyroidism,target_node,0.22563527424369004
+89,C0007028,CARBONATE DEHYDRATASE,AAPP,C0020676,Hypothyroidism,target_node,0.22515924810170823
+90,C0010287,Creatine Kinase,AAPP,C0020676,Hypothyroidism,target_node,0.22456673734182275
+91,C0005832,Blood Proteins,AAPP,C0020676,Hypothyroidism,target_node,0.22438318631010315
+92,C0850624,cardiovascular risk factor,DSYN,C0020676,Hypothyroidism,target_node,0.22433914384833117
+93,C0001492,Adenylate Cyclase,AAPP,C0020676,Hypothyroidism,target_node,0.2239343123758329
+94,C0022709,Peptidyl-Dipeptidase A,AAPP,C0020676,Hypothyroidism,target_node,0.22359999105011966
+95,C0042842,Vitamin A Deficiency,DSYN,C0020676,Hypothyroidism,target_node,0.22355807076134582
+96,C0011847,Diabetes,DSYN,C0020676,Hypothyroidism,target_node,0.22345919092929997
+97,C0025598,metformin,ORCH,C0020676,Hypothyroidism,target_node,0.2232325044432124
+98,C0002594,Transaminases,AAPP,C0020676,Hypothyroidism,target_node,0.22317879835138038
+99,C0025741,methyldopa,AAPP,C0020676,Hypothyroidism,target_node,0.22317093665547488
+100,C0020456,Hyperglycemia,DSYN,C0020676,Hypothyroidism,target_node,0.22300187366919613
+101,C0010531,Cyclic AMP-Dependent Protein Kinases,AAPP,C0020676,Hypothyroidism,target_node,0.22268513651282298
+102,C0948265,NAME_NOT_FOUND,DSYN,C0020676,Hypothyroidism,target_node,0.2225495047348242
+103,C0242210,Binding Proteins,AAPP,C0020676,Hypothyroidism,target_node,0.22252610307390094
+104,C0003765,arginine,AAPP,C0020676,Hypothyroidism,target_node,0.22239333913016132
+105,C0079281,Endothelin-1,AAPP,C0020676,Hypothyroidism,target_node,0.22221922446249312
+106,C0001655|5443,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.22219885045967072
+107,C0741949,Cardiovascular Pathology,DSYN,C0020676,Hypothyroidism,target_node,0.22216477749890182
+108,C0006685,Calcium Channel,AAPP,C0020676,Hypothyroidism,target_node,0.2220930949627162
+109,C0034392,quercetin,ORCH,C0020676,Hypothyroidism,target_node,0.22186635145463005
+110,C0032120,Plasma Proteins,AAPP,C0020676,Hypothyroidism,target_node,0.22174427879878683
+111,C0014130,Endocrine System Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.2209378691006114
+112,C0001655,corticotropin,AAPP,C0020676,Hypothyroidism,target_node,0.2209258192306002
+113,C0007367,catalase,AAPP,C0020676,Hypothyroidism,target_node,0.22058898286141132
+114,C0220839,glutamate,AAPP,C0020676,Hypothyroidism,target_node,0.22046333369596138
+115,C0030016,Oxidoreductase,AAPP,C0020676,Hypothyroidism,target_node,0.22042439291252983
+116,C0006560,C-reactive protein,AAPP,C0020676,Hypothyroidism,target_node,0.22040789614945033
+117,C0242339,Dyslipidemias,DSYN,C0020676,Hypothyroidism,target_node,0.22015500134199814
+118,C0042373,Vascular Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.22007967321171365
+119,C0027754|4803,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.219742795618557
+120,C0034783,Adrenergic Receptor,AAPP,C0020676,Hypothyroidism,target_node,0.21933490620288726
+121,C0022638,Ketosis,DSYN,C0020676,Hypothyroidism,target_node,0.21931042512539062
+122,C0148199,Vascular Endothelial Growth Factor Receptor,AAPP,C0020676,Hypothyroidism,target_node,0.21887744951494473
+123,C0107103,brain-derived neurotrophic factor,AAPP,C0020676,Hypothyroidism,target_node,0.21858336186632968
+124,C0018799,Heart Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.21840027530901268
+125,C0079284,Endothelin,AAPP,C0020676,Hypothyroidism,target_node,0.2182406080164416
+126,C0017742,Glucose Transporter,AAPP,C0020676,Hypothyroidism,target_node,0.21823965863835176
+127,C0033706,prothrombin,AAPP,C0020676,Hypothyroidism,target_node,0.21820023470533995
+128,C0400966,Non-alcoholic Fatty Liver Disease,DSYN,C0020676,Hypothyroidism,target_node,0.21795390842615472
+129,C0282193,Iron Overload,DSYN,C0020676,Hypothyroidism,target_node,0.21733708944950558
+130,C0023882,Little's Disease,DSYN,C0020676,Hypothyroidism,target_node,0.2172912842750523
+131,C0003779|551,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.2172896699486473
+132,C0140283,Retinoid X Receptors,AAPP,C0020676,Hypothyroidism,target_node,0.21714011840725647
+133,C0002059,Alkaline Phosphatase,AAPP,C0020676,Hypothyroidism,target_node,0.2167787474690656
+134,C0008731,Chylomicrons,AAPP,C0020676,Hypothyroidism,target_node,0.2165795679636557
+135,C0073393,risperidone,ORCH,C0020676,Hypothyroidism,target_node,0.21640587514933707
+136,C0577631,Carotid Atherosclerosis,DSYN,C0020676,Hypothyroidism,target_node,0.21626182094578722
+137,C0033640,Protein Kinases,AAPP,C0020676,Hypothyroidism,target_node,0.2158921576933527
+138,C0333519,Caries (morphologic abnormality),DSYN,C0020676,Hypothyroidism,target_node,0.21568528158291894
+139,C0001857,AIDS related complex,DSYN,C0020676,Hypothyroidism,target_node,0.2155125004289706
+140,C0005210,beta-Endorphin,AAPP,C0020676,Hypothyroidism,target_node,0.21513090446289487
+141,C0018061,Gonadotropins,AAPP,C0020676,Hypothyroidism,target_node,0.2149701287741403
+142,C0023570,levodopa,AAPP,C0020676,Hypothyroidism,target_node,0.21470231640150605
+143,C0015695,Fatty Liver,DSYN,C0020676,Hypothyroidism,target_node,0.21463336969701843
+144,C0016904,gamma-aminobutyric acid,AAPP,C0020676,Hypothyroidism,target_node,0.21452548089513002
+145,C0042870,Vitamin D Deficiency,DSYN,C0020676,Hypothyroidism,target_node,0.214288918390792
+146,C0017953,Glycopeptides,AAPP,C0020676,Hypothyroidism,target_node,0.21350796917058323
+147,C0022917,Lactate Dehydrogenase,AAPP,C0020676,Hypothyroidism,target_node,0.2133503503726011
+148,C1281300,Vascular degeneration,DSYN,C0020676,Hypothyroidism,target_node,0.213263245521675
+149,C0036825,Serum Proteins,AAPP,C0020676,Hypothyroidism,target_node,0.21309586592816115
+150,C0132555,Nitric Oxide Synthase,AAPP,C0020676,Hypothyroidism,target_node,0.2126243616287149
+151,C0025517,Metabolic Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.21240082464051946
+152,C0038838,superoxide dismutase,AAPP,C0020676,Hypothyroidism,target_node,0.2123452200061808
+153,C1136177,Sirtuins,AAPP,C0020676,Hypothyroidism,target_node,0.21194185517740224
+154,C1305923,Polypeptides,AAPP,C0020676,Hypothyroidism,target_node,0.2119098823616891
+155,C0030567,Parkinson Disease,DSYN,C0020676,Hypothyroidism,target_node,0.211865666768316
+156,C0020538,Hypertensive disease,DSYN,C0020676,Hypothyroidism,target_node,0.211776977210479
+157,C0031634,Phosphocreatine,AAPP,C0020676,Hypothyroidism,target_node,0.2116884497236444
+158,C0026896,Myasthenia Gravis,DSYN,C0020676,Hypothyroidism,target_node,0.21155209256511742
+159,C0002716,Amyloid,AAPP,C0020676,Hypothyroidism,target_node,0.21148620190596024
+160,C0019046,Hemoglobin,AAPP,C0020676,Hypothyroidism,target_node,0.21140748329237266
+161,C0597357,receptor,AAPP,C0020676,Hypothyroidism,target_node,0.21133308560260797
+162,C0018784,Sensorineural Hearing Loss (disorder),DSYN,C0020676,Hypothyroidism,target_node,0.21126974717913505
+163,C0040648,TRANSCRIPTION FACTOR,AAPP,C0020676,Hypothyroidism,target_node,0.21108969386197848
+164,C0669365|4846,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.21098480283707816
+165,C0242383,Age related macular degeneration,DSYN,C0020676,Hypothyroidism,target_node,0.2108514964762542
+166,C0033634,Protein Kinase C,AAPP,C0020676,Hypothyroidism,target_node,0.21077721046386041
+167,C0004153,Atherosclerosis,DSYN,C0020676,Hypothyroidism,target_node,0.21055363561532137
+168,C0078056,Vascular Cell Adhesion Molecule-1,AAPP,C0020676,Hypothyroidism,target_node,0.21033572972883466
+169,C0005149,beta-2 Microglobulin,AAPP,C0020676,Hypothyroidism,target_node,0.21019926695986
+170,C0123091,quetiapine,ORCH,C0020676,Hypothyroidism,target_node,0.21004014240249735
+171,C0085584,Encephalopathies,DSYN,C0020676,Hypothyroidism,target_node,0.20976793643199088
+172,C0037659,somatostatin,AAPP,C0020676,Hypothyroidism,target_node,0.20950152454854326
+173,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",DSYN,C0020676,Hypothyroidism,target_node,0.20944497727870282
+174,C0240066,Iron deficiency,DSYN,C0020676,Hypothyroidism,target_node,0.20860167576449318
+175,C0014822|2056,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.2085840071882904
+176,C1456380|1432,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.20856705164213565
+177,C0027765,nervous system disorder,DSYN,C0020676,Hypothyroidism,target_node,0.2084906904543004
+178,C0022245,isoproterenol,ORCH,C0020676,Hypothyroidism,target_node,0.20812803883220787
+179,C0751973,Proteome,AAPP,C0020676,Hypothyroidism,target_node,0.20798886608358402
+180,C0006668,calcitonin,AAPP,C0020676,Hypothyroidism,target_node,0.20795152266683717
+181,C0235946,Cerebral atrophy,DSYN,C0020676,Hypothyroidism,target_node,0.2078208121539169
+182,C0010068,Coronary heart disease,DSYN,C0020676,Hypothyroidism,target_node,0.20766729110714816
+183,C0162429,Malnutrition,DSYN,C0020676,Hypothyroidism,target_node,0.2076546502350619
+184,C0001924,Albumins,AAPP,C0020676,Hypothyroidism,target_node,0.20761428959226952
+185,C0151449,Primary Sjögren's syndrome,DSYN,C0020676,Hypothyroidism,target_node,0.20758290292194226
+186,C0856169,Endothelial dysfunction,DSYN,C0020676,Hypothyroidism,target_node,0.20722756314436924
+187,C0007222,Cardiovascular Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.20711089970877863
+188,C0025252,Membrane Proteins,AAPP,C0020676,Hypothyroidism,target_node,0.20709285121938792
+189,C0017628,glyburide,ORCH,C0020676,Hypothyroidism,target_node,0.2070791048756971
+190,C0669372|4843,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.2070072466797995
+191,C1301700,Cardiovascular morbidity,DSYN,C0020676,Hypothyroidism,target_node,0.20695813577287678
+192,C0011854,"Diabetes Mellitus, Insulin-Dependent",DSYN,C0020676,Hypothyroidism,target_node,0.20661175613217905
+193,C0003779,argipressin,AAPP,C0020676,Hypothyroidism,target_node,0.20655929008990342
+194,C0021831,Intestinal Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.2065018083511502
+195,C1366832|51761,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.20647318001891687
+196,C0022658,Kidney Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.2061747294825333
+197,C0167627|959,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.20596282277202627
+198,C0017817,glutathione,AAPP,C0020676,Hypothyroidism,target_node,0.20593158033118722
+199,C0033497,propranolol,ORCH,C0020676,Hypothyroidism,target_node,0.20553092768004133
+200,C0076088,Tenascin,AAPP,C0020676,Hypothyroidism,target_node,0.20518067840878976
+201,C0031727,Phosphotransferases,AAPP,C0020676,Hypothyroidism,target_node,0.20514821490677826
+202,C0003850,Arteriosclerosis,DSYN,C0020676,Hypothyroidism,target_node,0.20463587254585147
+203,C0009506|718,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.20463382880215447
+204,C0033860,Psoriasis,DSYN,C0020676,Hypothyroidism,target_node,0.20458928176732386
+205,C0001962,ethanol,ORCH,C0020676,Hypothyroidism,target_node,0.20451827197090378
+206,C0016026,Fibroblast Growth Factor,AAPP,C0020676,Hypothyroidism,target_node,0.2045179925163965
+207,C0242275|1950,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.2038667732334091
+208,C0151747,Renal tubular disorder,DSYN,C0020676,Hypothyroidism,target_node,0.20366326672737756
+209,C0019247,Hereditary Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.20349961422444307
+210,C0032914,Pre-Eclampsia,DSYN,C0020676,Hypothyroidism,target_node,0.2033349147868496
+211,C0016006,fibrinogen,AAPP,C0020676,Hypothyroidism,target_node,0.20333179953400624
+212,C0549622,Sexual Dysfunction,DSYN,C0020676,Hypothyroidism,target_node,0.2026429523567464
+213,C0339573,"Glaucoma, Primary Open Angle",DSYN,C0020676,Hypothyroidism,target_node,0.20262190815099262
+214,C1290886,Chronic inflammatory disorder,DSYN,C0020676,Hypothyroidism,target_node,0.20176881547278047
+215,C0002871,Anemia,DSYN,C0020676,Hypothyroidism,target_node,0.20169366517004306
+216,C0004358,Autoantibodies,AAPP,C0020676,Hypothyroidism,target_node,0.2016648400946373
+217,C0017601,Glaucoma,DSYN,C0020676,Hypothyroidism,target_node,0.20122230983897105
+218,C0031117,Peripheral Neuropathy,DSYN,C0020676,Hypothyroidism,target_node,0.20082486942484945
+219,C0000970,acetaminophen,ORCH,C0020676,Hypothyroidism,target_node,0.2007731080164333
+220,C0020063|5741,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.2004955083845084
+221,C0442893,Systemic disease,DSYN,C0020676,Hypothyroidism,target_node,0.20012700089523014
+222,C0063695,Intercellular adhesion molecule 1,AAPP,C0020676,Hypothyroidism,target_node,0.19999136725397063
+223,C1290884,Inflammatory disorder,DSYN,C0020676,Hypothyroidism,target_node,0.199854465184591
+224,C0010054,Coronary Arteriosclerosis,DSYN,C0020676,Hypothyroidism,target_node,0.19984018048998237
+225,C0010481,Cushing Syndrome,DSYN,C0020676,Hypothyroidism,target_node,0.19966485614715435
+226,C0021359,Infertility,DSYN,C0020676,Hypothyroidism,target_node,0.1995234012720397
+227,C0022661,"Kidney Failure, Chronic",DSYN,C0020676,Hypothyroidism,target_node,0.19911904079666828
+228,C0003242,"Antibodies, Anti-Idiotypic",AAPP,C0020676,Hypothyroidism,target_node,0.1989169037449929
+229,C0245382,Galectin 3,AAPP,C0020676,Hypothyroidism,target_node,0.1989030450527956
+230,C0021053,Immune System Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.19889194232541965
+231,C0020615,Hypoglycemia,DSYN,C0020676,Hypothyroidism,target_node,0.19873212505455007
+232,C0008679,Chronic disease,DSYN,C0020676,Hypothyroidism,target_node,0.1983626519456668
+233,C0024141,"Lupus Erythematosus, Systemic",DSYN,C0020676,Hypothyroidism,target_node,0.19809124679854245
+234,C0042395,vasoactive intestinal peptide,AAPP,C0020676,Hypothyroidism,target_node,0.1980563854719822
+235,C0017968,Glycoproteins,AAPP,C0020676,Hypothyroidism,target_node,0.1979522468296437
+236,C0754710,Amino-terminal pro-brain natriuretic peptide,AAPP,C0020676,Hypothyroidism,target_node,0.19794755483910087
+237,C0021027,Immunoglobulins,AAPP,C0020676,Hypothyroidism,target_node,0.19783026763286518
+238,C0442874,Neuropathy,DSYN,C0020676,Hypothyroidism,target_node,0.19782403390933054
+239,C0851578,Sleep Disorders,DSYN,C0020676,Hypothyroidism,target_node,0.19759956047195748
+240,C0021760,interleukin-6,AAPP,C0020676,Hypothyroidism,target_node,0.19758652473582186
+241,C1565489,Renal Insufficiency,DSYN,C0020676,Hypothyroidism,target_node,0.1975231498148524
+242,C0003009,angiotensin II,AAPP,C0020676,Hypothyroidism,target_node,0.1974732175766024
+243,C0520679,"Sleep Apnea, Obstructive",DSYN,C0020676,Hypothyroidism,target_node,0.19656536518609283
+244,C0259749,Autonomic neuropathy,DSYN,C0020676,Hypothyroidism,target_node,0.19650334016077983
+245,C0037274,Dermatologic disorders,DSYN,C0020676,Hypothyroidism,target_node,0.19612972870080514
+246,C0029453,Osteopenia,DSYN,C0020676,Hypothyroidism,target_node,0.19603790177200217
+247,C0014544,Epilepsy,DSYN,C0020676,Hypothyroidism,target_node,0.1957553003851684
+248,C0035078,Kidney Failure,DSYN,C0020676,Hypothyroidism,target_node,0.19553707378495214
+249,C0019630,Histocompatibility Antigens Class II,AAPP,C0020676,Hypothyroidism,target_node,0.19546882565348575
+250,C0238806,NAME_NOT_FOUND,DSYN,C0020676,Hypothyroidism,target_node,0.19536534953892
+251,C1448177|7124,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.19517229573719347
+252,C0038454,Cerebrovascular accident,DSYN,C0020676,Hypothyroidism,target_node,0.19488957173957205
+253,C0031099,Periodontitis,DSYN,C0020676,Hypothyroidism,target_node,0.19478213745593267
+254,C0538161,Tumor necrosis factor receptor 11b,AAPP,C0020676,Hypothyroidism,target_node,0.19430447215184923
+255,C0149931,Migraine Disorders,DSYN,C0020676,Hypothyroidism,target_node,0.1937821034156989
+256,C0018801,Heart failure,DSYN,C0020676,Hypothyroidism,target_node,0.1936865616380359
+257,C0036421,Systemic Scleroderma,DSYN,C0020676,Hypothyroidism,target_node,0.19346946566268852
+258,C0030305,Pancreatitis,DSYN,C0020676,Hypothyroidism,target_node,0.1933596551014153
+259,C1456820|7124,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.19327179602509806
+260,C0038585,Substance P,AAPP,C0020676,Hypothyroidism,target_node,0.193269991039347
+261,C0151744,Myocardial Ischemia,DSYN,C0020676,Hypothyroidism,target_node,0.19260672916246613
+262,C0149516,Chronic sinusitis,DSYN,C0020676,Hypothyroidism,target_node,0.1925688663979746
+263,C0035258,Restless Legs Syndrome,DSYN,C0020676,Hypothyroidism,target_node,0.1921993083144529
+264,C0021747,Interferons,AAPP,C0020676,Hypothyroidism,target_node,0.19217424173324138
+265,C0341439,Chronic liver disease,DSYN,C0020676,Hypothyroidism,target_node,0.19187066071613748
+266,C1171892|7422,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.19162167333232286
+267,C0018099,Gout,DSYN,C0020676,Hypothyroidism,target_node,0.19162154204502732
+268,C0018802,Congestive heart failure,DSYN,C0020676,Hypothyroidism,target_node,0.19155509247206876
+269,C1175175,Severe Acute Respiratory Syndrome,DSYN,C0020676,Hypothyroidism,target_node,0.1914330067004193
+270,C0004364,Autoimmune Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.19119656428082318
+271,C0079189,cytokine,AAPP,C0020676,Hypothyroidism,target_node,0.1908766695457365
+272,C0599220,Protein Subunits,AAPP,C0020676,Hypothyroidism,target_node,0.1908150802380215
+273,C0009325,collagen,AAPP,C0020676,Hypothyroidism,target_node,0.1905316586404123
+274,C0019693,HIV Infections,DSYN,C0020676,Hypothyroidism,target_node,0.19026291541269022
+275,C0021753,"interleukin-1, beta",AAPP,C0020676,Hypothyroidism,target_node,0.1902550823244193
+276,C0023343,Leprosy,DSYN,C0020676,Hypothyroidism,target_node,0.1902076416330175
+277,C0001175,Acquired Immunodeficiency Syndrome,DSYN,C0020676,Hypothyroidism,target_node,0.18985446338828613
+278,C0032285,Pneumonia,DSYN,C0020676,Hypothyroidism,target_node,0.189657752440084
+279,C0003873,Rheumatoid Arthritis,DSYN,C0020676,Hypothyroidism,target_node,0.189287815750119
+280,C0016055,Fibronectins,AAPP,C0020676,Hypothyroidism,target_node,0.18910888812994514
+281,C0029408,Degenerative polyarthritis,DSYN,C0020676,Hypothyroidism,target_node,0.18900347624355693
+282,C0029456,Osteoporosis,DSYN,C0020676,Hypothyroidism,target_node,0.18887591655206712
+283,C0026650,Movement Disorders,DSYN,C0020676,Hypothyroidism,target_node,0.18879549291954406
+284,C0398623,Thrombophilia,DSYN,C0020676,Hypothyroidism,target_node,0.1886893355711331
+285,C0027051,Myocardial Infarction,DSYN,C0020676,Hypothyroidism,target_node,0.1886104477005591
+286,C0001622,Adrenal Gland Hyperfunction,DSYN,C0020676,Hypothyroidism,target_node,0.18849461172108672
+287,C0021311,NAME_NOT_FOUND,DSYN,C0020676,Hypothyroidism,target_node,0.1877639351658441
+288,C0015230,Exanthema,DSYN,C0020676,Hypothyroidism,target_node,0.18775586742255743
+289,C0080222|7040,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.18759699142955463
+290,C1533070,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.18700598758273812
+291,C0003864,Arthritis,DSYN,C0020676,Hypothyroidism,target_node,0.1861178843652926
+292,C0002726,Amyloidosis,DSYN,C0020676,Hypothyroidism,target_node,0.18599548409684744
+293,C0595921,Intraocular pressure disorder,DSYN,C0020676,Hypothyroidism,target_node,0.18578586698649047
+294,C0085096,Peripheral Vascular Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.18457847417036105
+295,C0017612,"Glaucoma, Open-Angle",DSYN,C0020676,Hypothyroidism,target_node,0.18450440134985646
+296,C0085295,interleukin-10,AAPP,C0020676,Hypothyroidism,target_node,0.18444344285323086
+297,C1561643,Chronic Kidney Diseases,DSYN,C0020676,Hypothyroidism,target_node,0.184137281931161
+298,C0037315,Sleep Apnea Syndromes,DSYN,C0020676,Hypothyroidism,target_node,0.18412153125476802
+299,C0521170,Osteoporotic Fractures,DSYN,C0020676,Hypothyroidism,target_node,0.18403089185345486
+300,C0004238,Atrial Fibrillation,DSYN,C0020676,Hypothyroidism,target_node,0.1839567393344236
+301,C0085278,Antiphospholipid Syndrome,DSYN,C0020676,Hypothyroidism,target_node,0.18376527510366714
+302,C0003241,Antibodies,AAPP,C0020676,Hypothyroidism,target_node,0.18364838702154215
+303,C0341697,NAME_NOT_FOUND,DSYN,C0020676,Hypothyroidism,target_node,0.18322626852488103
+304,C0232197,Fibrillation,DSYN,C0020676,Hypothyroidism,target_node,0.1832118303703834
+305,C0040048,Thromboplastin,AAPP,C0020676,Hypothyroidism,target_node,0.18319842570036085
+306,C0079633,interleukin-8,AAPP,C0020676,Hypothyroidism,target_node,0.18252908627899334
+307,C0004096,Asthma,DSYN,C0020676,Hypothyroidism,target_node,0.18203972371504828
+308,C2744535|969,NAME_NOT_FOUND,AAPP,C0020676,Hypothyroidism,target_node,0.18171235888211362
+309,C0162836,Hidradenitis Suppurativa,DSYN,C0020676,Hypothyroidism,target_node,0.18132397634879596
+310,C0021756,Interleukin-2,AAPP,C0020676,Hypothyroidism,target_node,0.18132240516949974
+311,C1527336,Sjogren's Syndrome,DSYN,C0020676,Hypothyroidism,target_node,0.1811647521847422
+312,C0007570,Celiac Disease,DSYN,C0020676,Hypothyroidism,target_node,0.18091076041565862
+313,C0011168,Deglutition Disorders,DSYN,C0020676,Hypothyroidism,target_node,0.1808766467048301
+314,C0948008,Ischemic stroke,DSYN,C0020676,Hypothyroidism,target_node,0.1804112877359897
+315,C0011884,Diabetic Retinopathy,DSYN,C0020676,Hypothyroidism,target_node,0.17985172251555007
+316,C0036690,Septicemia,DSYN,C0020676,Hypothyroidism,target_node,0.1794855678992489
+317,C0024117,Chronic Obstructive Airway Disease,DSYN,C0020676,Hypothyroidism,target_node,0.1790955658441345
+318,C0021758,interleukin-4,AAPP,C0020676,Hypothyroidism,target_node,0.17897202472836266
+319,C0010340,Critical Illness,DSYN,C0020676,Hypothyroidism,target_node,0.17883310648587733
+320,C0917798,Cerebral Ischemia,DSYN,C0020676,Hypothyroidism,target_node,0.17764667490003014
+321,C0002103,Atopic rhinitis,DSYN,C0020676,Hypothyroidism,target_node,0.177225996863821
+322,C0022116,Ischemia,DSYN,C0020676,Hypothyroidism,target_node,0.17670201557438675
+323,C0022575,Keratoconjunctivitis Sicca,DSYN,C0020676,Hypothyroidism,target_node,0.1751906005371345
+324,C0242966,Systemic Inflammatory Response Syndrome,DSYN,C0020676,Hypothyroidism,target_node,0.17503891757484263
+325,C0019721,HLA Antigens,AAPP,C0020676,Hypothyroidism,target_node,0.16987440181719216
+326,C0271623,Hypogonadotropic hypogonadism,DSYN,C0020676,Hypothyroidism,target_node,0.1697729202449916
+327,C0751956,Acute Cerebrovascular Accidents,DSYN,C0020676,Hypothyroidism,target_node,0.16402627836715303
+328,C0155626,Acute myocardial infarction,DSYN,C0020676,Hypothyroidism,target_node,0.16174830716601393
+329,C0009421,Comatose,DSYN,C0020676,Hypothyroidism,target_node,0.16068244917932403
+330,C0022118,Transient ischemia,DSYN,C0020676,Hypothyroidism,target_node,0.15955127932601593
+331,C5139167,Severe infection,DSYN,C0020676,Hypothyroidism,target_node,0.1577672260290059
+332,C5203670,COVID-19,DSYN,C0020676,Hypothyroidism,target_node,0.14620961418146272
