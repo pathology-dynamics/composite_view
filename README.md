@@ -1,27 +1,41 @@
-# Combined Scores Visualizer
+# CompositeView
 
-This software is designed to visualize data, specifically combined scores data, utilizing graph theory and network analysis concepts. It was initially an offshoot of the literature-based discovery (LBD) tool SemNet [cite SemNet], where interpreting results (especially multi-target results) all but require such a tool. Given the nature of the SemNet results data, the visualizer was generalized to allow similar data sets to be used.
+This software is designed to visualize data, specifically combined scores data, utilizing graph theory and network analysis concepts. It was initially an offshoot of the literature-based discovery (LBD) tool SemNet, where interpreting results (especially multi-target results) all but required such a tool. Given the nature of the SemNet results data, CompositeView has since been generalized to allow similar data sets to visualized.
 
 ### Recomended Installation
 
 1. Create and activate a custom virtual environment using the venv module. 
     * Documentation: https://docs.python.org/3/library/venv.html
     * Additional resource: https://python.land/virtual-environments/virtualenv
-2. Once the virtual environment is activated, use pip to install all the necessary packages. Use the command `pip install path/to/visualizer/directory`, where the directory pointed to contains `setup.py`. Make sure the virtual environment is activated before using pip! 
+2. Once the virtual environment is activated, use pip to install all the necessary packages. Use the command `pip install path/to/CompositeView/directory`, where the directory pointed to contains `setup.py`. Make sure the virtual environment is activated before using pip! 
     * Pip documentation: https://pypi.org/project/pip/
     * Potentially useful Stack thread: https://stackoverflow.com/questions/41535915/python-pip-install-from-local-dir
-3. Simply run `visualizer.py` using the virtual environment described above and voilà! The app should be running on `localhost`, using whatever port/host is indicated in the output.
+3. Simply run `app.py` using the virtual environment described above and voilà! The app should be running on `localhost`, using whatever port/host is indicated in the output.
     * If you want to change the port, this thread should help you: https://stackoverflow.com/questions/45807913/plotly-dash-change-default-port.
+    * If you want to externally host CompositeView instead, check out the Dash documentation here: https://dash.plotly.com/deployment
+
+### Key Packages
+* Dash: https://dash.plotly.com/
+    * Dash is a low-code framework for quickly developing applications in Python (along with other languages). 
+    * Dash is simple to use, allowing quick adjustments to the application without extensive JS/HTML/CSS/web development knowledge. 
+    * Dash Cytoscape: https://dash.plotly.com/cytoscape
+* NetworkX: https://networkx.org/documentation/stable/index.html
+    * NetworkX is a Python package for creating and analyzing graphs.
+
+### Useful Reading
+* SemNet version 1: https://www.frontiersin.org/articles/10.3389/fbioe.2019.00156/full
+* SemNet version 2: https://www.mdpi.com/2504-2289/6/1/27
+* CompositeView: TBD
 
 ### Useful Definitions
 
 * **Combined score**: An aggregate score across multiple performance metrics. Take the Human Development Index (HDI) as an example (https://hdr.undp.org/en/indicators/137506). The HDI value assigned to a country is the geometric mean of three normalized performance metrics: life expectancy index, education index, and income index. The HDI value in this case is the combined score of the three performance metrics mentioned.
 
-* **Source node**: A node that has an in-degree of zero. This term is borrowed from graph theory, and it is used to model the individual datapoints that are being visualized. Each source node represents a different entity, in this case a specific datapoint being compared to some number of target nodes. Continuing the HDI example, both Norway and Malawi, countries ranked based on their respective HDI, would each be represented in the visualizer as a source node.
+* **Source node**: A node that has an in-degree of zero. This term is borrowed from graph theory, and it is used to model the individual datapoints that are being visualized. Each source node represents a different entity, in this case a specific datapoint being compared to some number of target nodes. Continuing the HDI example, both Norway and Malawi, countries ranked based on their respective HDI, would each be represented in CompositeView as a source node.
 
 * **Target node**: A node that has an out-degree of zero. This is another term borrowed from graph theory, and it is used to model the individual metrics used to form the combined score. In the HDI example, the target nodes would model life expectancy index, education index, and income index. In this example, each source node, representing each country, is assigned a value in respect to each target node.
 
-* **Edge value**: The value assigned to each connection between a source and target node. In the HDI example, Norway is assigned a value in respect to all three target nodes. This relationship could be described as "Norway scores X in respect to life expectancy index" or "Malawi scores Y in respect to income index." In these example relationships, the X and Y values represent the edge values. These edge values are combined, per unique source node, to generate the combined score (which is then assigned to that source node).
+* **Edge value**: The value assigned to each connection between a source and target node. In the HDI example, Norway is assigned a value in respect to all three target nodes. This relationship could be described as "Norway scores X in respect to life expectancy index" or "Malawi scores Y in respect to income index." In these example relationships, the X and Y values represent the edge values (weights). These edge values are combined, per unique source node, to generate the combined score (which is then assigned to that source node).
 
 * **Node Type**: A discrete categorization that can be assigned to both source and target nodes. For example, the source node "Norway" in the HDI example might be assigned the type "very_high_development" to indicate what development category the country resides in. The target node "life expectancy" might be assigned the type "target_node" to indicate that it's a target node. 
 
@@ -34,7 +48,7 @@ Figure 1: A labeled example graph.
 
 ### Formatting the Data
 
-The following table shows the data format required for the Visualizer. In Figure 1 above, the source node with the name "Sweden" is isolated, so it will act as the example. As seen in the image, Sweden is connected to the three targets: income_index, life_expectancy_index, and education_index. Each of these three connections is represented by the three rows in the table below.
+The following table shows the data input format required for CompositeView. In Figure 1 above, the source node with the name "Sweden" is isolated, so it will act as the example. As seen in the image, Sweden is connected to the three targets: income_index, life_expectancy_index, and education_index. Each of these three connections is represented by the three rows in the table below.
 
 |source_id|source_name|source_type|target_id|target_name|target_id|edge_value|
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
@@ -54,13 +68,13 @@ The following table shows the data format required for the Visualizer. In Figure
 
 * **target_type**: The "category" or "bucket" for the associated target node, similar to source_type.
 
-* **edge_value**: The determined value or "metric" between the source node and target node. In the above table, each row indicates a unique connection between the row's source and target nodes. That connection is quantified by edge_value. As a rule of thumb, this value should share similar exist with the same units or on the same scale as other edge values (to keep certain sliders within the visualizer relevant).
+* **edge_value**: The quantifiable value shared between the source node and target node. In the above table, each row indicates a unique connection between the row's source and target nodes. That connection is quantified by edge_value. As a rule of thumb, this value should exist with the same units or on the same scale as other edge values (to keep certain sliders within CompositeView relevant, particulalry the edge value slider).
 
-As a brief aside, the table above shows all three HDI metrics for Sweden, modeled as a network. When calculating HDI, the geometric mean of all three edge values determines the actual HDI score, which is assigned to the country (this allows the country to be ranked in relation to other countries). The node size is determined by this combined value, which the visualizer will automatically calculate. The method for combining these scores can be directly modified within the `generate_graph` class, specifically the `_combine_values()` method. Other features, such as node size scaling, edge size scaling, etc. can also be adjusted.
+As a brief aside, the table above shows all three HDI metrics for Sweden, modeled as a network. When calculating HDI, the geometric mean of all three edge values determines the actual HDI score, which is assigned to the country (this allows the country to be ranked in relation to other countries). The node size is determined by this combined value, which CompositeView will automatically calculate. The method for combining these scores can be directly modified within the `generate_graph` class, specifically the `_combine_values()` method. Other features, such as node size scaling, edge size scaling, etc. can also be adjusted.
 
 ### Filters/Interactive Elements
 
-The Visualizer contains filters/interactive elements that can be accessed through the "Expand Settings" button. This will activate a dropdown with the following categories:
+CompositeView contains filters/interactive elements that can be accessed through the "Expand Settings" button. This will activate a dropdown with the following categories:
 
 * **Graph Sliders**: Sliding elements that allow the user to set precise value bounds.
     * **Combined Value**: Set the combined value bound.
@@ -96,7 +110,7 @@ Other interactive elements:
 * **Reset Graph**: A button element that resets the graph to its original state. If no data has been uploaded, then the graph will revert to the initial load state. If data has been uploaded, the graph will revert to the state where the uploaded data was first initialized.
 
 * **Upload Data**: A button element that allows for new data to be uploaded.
-    * VERY IMPORTANT: The upload must follow the data format as described above and be a .csv file.
+    * VERY IMPORTANT: The upload must follow the data format as described above and be a CSV file.
 
 * **Download Image**: A button elements that downloads an image of the graph.
 
@@ -106,9 +120,9 @@ Other interactive elements:
 
 * Simulation details.
 
-    * Force-directed graph drawing algorithms, including the one used in this visualizer, are a class of algorithms with the purpose of reducing edge overlap and generating equal length edges. The algorithm used in the visualizer is one of these force-directed graph drawing algorithms, specifically the Fruchterman-Reingold force-directed algorithm (NetworkX spring_layout documentation: https://networkx.org/documentation/stable/reference/generated/networkx.drawing.layout.spring_layout.html).
+    * Force-directed graph drawing algorithms, including the one used in this visualizer, are a class of algorithms with the purpose of reducing edge overlap and generating equal length edges. The algorithm used in CompositeView is one of these force-directed graph drawing algorithms, specifically the Fruchterman-Reingold force-directed algorithm (NetworkX spring_layout documentation: https://networkx.org/documentation/stable/reference/generated/networkx.drawing.layout.spring_layout.html). More detail on the problem/solution for the network layout is described in the associated article.
 
-    * **The problem**: Often, using algorithms such as FR isn't enough. In the case of the Visualizer, what would often happen (without any tampering) is that nodes would often get "stuck" and fail to reach their (often obvious) optimal positions. All of the source nodes would cluster with target nodes in the center, creating a very obvious visibility problem (see below).
+    * **The problem**: Often, using algorithms such as FR isn't enough. In the case of CompositeView, what would often happen (without any tampering) is that nodes would often get "stuck" and fail to reach their (often obvious) optimal positions. All of the source nodes would cluster with target nodes in the center, creating a very obvious visibility problem (see below).
 
     * **The solution**: Given the structure of the data, generally there will be few highly connected target nodes and many slightly connected source nodes. These source nodes will cluster together based on which shared targets they are connected to; spacing the target nodes and source node "clusters" in an intuitive way is the goal. Given this feature of the data, a method has been devised to initialize the nodes and prevent this "sticking" behavior.
 
@@ -126,9 +140,11 @@ Figure 2: The graph visualized using a spring layout.
 ![](images/adjusted_spring_layout.png)
 Figure 3: The graph visualized using the adjusted spring layout, as described above. The target nodes are much easier to identify, and the source node clusters can be easily parsed.
 
-## Additional Files
+## Additional Folders/Files
 
-* `node_connectivity.py` contains an experimental script for identifying highly connected nodes (utilizing kerned density estimation and k-means clustering). This is mostly obsolete, assuming the data input for the visualizer is correctly formatted. If not, however, this script will assist in identifying any highly connected nodes (i.e. target nodes); the data input structure is the same as the visualizer, but the source_id and target_id columns don't necessarily have to correspond to the name.
+* `misc/node_connectivity.py` contains an experimental script for identifying highly connected nodes (utilizing kerned density estimation and k-means clustering). This is mostly obsolete, assuming the data input for CompositeView is correctly formatted. If not, however, this script will assist in identifying any highly connected nodes (i.e. target nodes); the data input structure is the same as CompositeView, but the source_id and target_id columns don't necessarily have to correspond to the name.
+* `other_test_data` contains three test data sets that have been formatted to be used with CompositeView. These are the same sample data sets used in the CompositeView companion article. 
+* `semnet_test_data` contains testing data specific to SemNet.
 
 ## Contact
-If you have any questions regard the Visualizer, email sallegri3@gatech.edu.
+If you have any questions regard CompositeView, email sallegri3@gatech.edu.
