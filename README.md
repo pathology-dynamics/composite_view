@@ -141,7 +141,7 @@ Figure 2: The graph visualized using a spring layout.
 Figure 3: The graph visualized using the adjusted spring layout, as described above. The target nodes are much easier to identify, and the source node clusters can be easily parsed.
 
 ## Known Problems
-* Browser/OS compatability: CompositeView is optimally run using Windows 10 and Chrome, though Linux and Microsoft Edge have been tested successfully. Known problems with Dash components using macOS and Safari have been noted. 
+* Browser/OS compatability: CompositeView is optimally run using Windows 10 and Chrome, though Linux and Microsoft Edge have been tested successfully. Known problems with Dash components using macOS and Safari have been noted. Most compatability problems originate with Dash itself; hosting the app externally could be a work around.
 
 ## Additional Folders/Files
 
