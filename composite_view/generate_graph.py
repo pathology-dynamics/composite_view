@@ -86,7 +86,6 @@ class Generate_Graph:
         self.simulation_iterations = 10
         self.simulation_iterations_initial = self.simulation_iterations
 
-
     def _generate_dummy_data(self):
         """
         Generates formatted dummy data, in the case that other data isn't initially used.
@@ -162,7 +161,14 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        edges_df_initial = pd.read_json(self.edges_json_initial)
+        edges_df_initial = pd.read_json(self.edges_json_initial, dtype={
+            'source_id': str, 
+            'source_name': str, 
+            'source_type': str, 
+            'target_id': str, 
+            'target_name': str, 
+            'target_type': str, 
+            'edge_value': float})
 
         self.target_types = list(edges_df_initial['target_type'].unique())
         self.all_types = list(edges_df_initial['source_type'].unique()) + self.target_types
@@ -193,13 +199,13 @@ class Generate_Graph:
             if combined_value < self.min_combined_value:
                 self.min_combined_value = combined_value
 
+        self.source_id_combined_scores_dict_initial = self.source_id_combined_scores_dict
+
         self.max_combined_value = float(self.max_combined_value)
         self.min_combined_value = float(self.min_combined_value)
 
         self.max_combined_value_start = self.max_combined_value
         self.min_combined_value_start = self.min_combined_value
-
-        self.source_id_combined_scores_dict_initial = self.source_id_combined_scores_dict
 
         self.unique_id_data_dict = {}
         source_sub_df = edges_df_initial[['source_id', 'source_name', 'source_type']].drop_duplicates()
@@ -270,8 +276,8 @@ class Generate_Graph:
 
         # Type filtering initialization
         self.type_dropdown_options = []
-        for type in self.all_types:
-            self.type_dropdown_options.append({'label': type, 'value': type})
+        for type_val in self.all_types:
+            self.type_dropdown_options.append({'label': type_val, 'value': type_val})
         
         self.type_dropdown_options_initial = self.type_dropdown_options
 
@@ -355,15 +361,15 @@ class Generate_Graph:
         
         if method == 'arithmetic_mean':
 
-            return df['edge_value'].mean()
+            return float(df['edge_value'].mean())
 
         elif method == 'geometric_mean':
 
-            return stats.gmean(df['edge_value'])
+            return float(stats.gmean(df['edge_value']))
 
         elif method == 'other':
 
-            return df['edge_value'].sum()
+            return float(df['edge_value'].sum())
 
     def _filter_data(self):
         """
@@ -374,7 +380,14 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        temporary_full_edges_df = pd.read_json(self.edges_json_initial).copy()
+        temporary_full_edges_df = pd.read_json(self.edges_json_initial, dtype={
+            'source_id': str, 
+            'source_name': str, 
+            'source_type': str, 
+            'target_id': str, 
+            'target_name': str, 
+            'target_type': str, 
+            'edge_value': float}).copy()
 
         if self.edge_value_range != self.edge_value_range_initial:
             temporary_full_edges_df = temporary_full_edges_df[(temporary_full_edges_df['edge_value'] >= self.edge_value_range[0]) & (temporary_full_edges_df['edge_value'] <= self.edge_value_range[1])]
@@ -430,7 +443,15 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        edges_df = pd.read_json(self.edges_json)
+        edges_df = pd.read_json(self.edges_json, dtype={
+            'source_id': str, 
+            'source_name': str, 
+            'source_type': str, 
+            'target_id': str, 
+            'target_name': str, 
+            'target_type': str, 
+            'edge_value': float})
+
         adjusted_nx_graph = nx.node_link_graph(self.adjusted_nx_graph)
 
         if self.target_spread != self.target_spread_previous:
@@ -447,7 +468,14 @@ class Generate_Graph:
         else:
             if not self.graph_update_shortcut:
                 remaining_edges_df = edges_df[['source_id', 'target_id']]
-                total_edges_df = pd.read_json(self.edges_json_initial)[['source_id', 'target_id']]
+                total_edges_df = pd.read_json(self.edges_json_initial, dtype={
+                    'source_id': str, 
+                    'source_name': str, 
+                    'source_type': str, 
+                    'target_id': str, 
+                    'target_name': str, 
+                    'target_type': str, 
+                    'edge_value': float})[['source_id', 'target_id']]
 
                 remove_edges_df = total_edges_df[~total_edges_df.apply(tuple, 1).isin(remaining_edges_df.apply(tuple, 1))]
 
@@ -522,8 +550,8 @@ class Generate_Graph:
 
             random_color_list = np.random.choice(random_color_list, len(self.all_types), replace=False)
 
-            for i, type in enumerate(self.all_types):
-                self.type_color_dict[type] = random_color_list[i]
+            for i, type_val in enumerate(self.all_types):
+                self.type_color_dict[type_val] = random_color_list[i]
 
             self.random_color_primacy = False
         
@@ -531,28 +559,28 @@ class Generate_Graph:
             starting_color = Color(self.gradient_start)
             color_gradient_list = list(starting_color.range_to(Color(self.gradient_end), len(self.all_types)))
 
-            for i, type in enumerate(self.all_types):
-                self.type_color_dict[type] = str(color_gradient_list[i])
+            for i, type_val in enumerate(self.all_types):
+                self.type_color_dict[type_val] = str(color_gradient_list[i])
 
             self.gradient_color_primacy = False
 
         if self.type_color_primacy:
-            for type in self.selected_types:
-                self.type_color_dict[type] = self.selected_type_color
+            for type_val in self.selected_types:
+                self.type_color_dict[type_val] = self.selected_type_color
 
             self.type_color_primacy = False
 
         if self.source_color_primacy:
-            for type in self.type_color_dict:
-                if type not in self.target_types:
-                    self.type_color_dict[type] = self.source_color
+            for type_val in self.type_color_dict:
+                if type_val not in self.target_types:
+                    self.type_color_dict[type_val] = self.source_color
 
             self.source_color_primacy = False
 
         if self.target_color_primacy:
-            for type in self.type_color_dict:
-                if type in self.target_types:
-                    self.type_color_dict[type] = self.target_color
+            for type_val in self.type_color_dict:
+                if type_val in self.target_types:
+                    self.type_color_dict[type_val] = self.target_color
 
             self.target_color_primacy = False
 
@@ -572,7 +600,14 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        temp_df = pd.read_json(self.edges_json)[['source_id', 'target_id', 'edge_value']].copy()
+        temp_df = pd.read_json(self.edges_json, dtype={
+            'source_id': str, 
+            'source_name': str, 
+            'source_type': str, 
+            'target_id': str, 
+            'target_name': str, 
+            'target_type': str, 
+            'edge_value': float})[['source_id', 'target_id', 'edge_value']].copy()
 
         if self.layout == 'random':
             nx_graph = nx.from_pandas_edgelist(temp_df, 'source_id', 'target_id')
@@ -845,19 +880,19 @@ class Generate_Graph:
                 size_val = self._generate_size(self.target_size)
 
             else:
-                node_value = float(self.source_id_combined_scores_dict[node])
+                node_value = self.source_id_combined_scores_dict[node]
                 size_val = self._generate_size(node_value)
                 
             elements.append({
                 'data': {
-                    'id': str(node), 
-                    'label': str(self.unique_id_data_dict[node]['name']), 
+                    'id': node, 
+                    'label': self.unique_id_data_dict[node]['name'], 
                     'value': node_value,
-                    'type': str(self.unique_id_data_dict[node]['type']), 
-                    'size': float(size_val), 
-                    'label_size': float(size_val * 0.3),
-                    'color': str(self.type_color_dict[self.unique_id_data_dict[node]['type']]),
-                    'sn_or_tn': str(self.unique_id_data_dict[node]['sn_or_tn'])
+                    'type': self.unique_id_data_dict[node]['type'], 
+                    'size': size_val, 
+                    'label_size': size_val * 0.3,
+                    'color': self.type_color_dict[self.unique_id_data_dict[node]['type']],
+                    'sn_or_tn': self.unique_id_data_dict[node]['sn_or_tn']
                 }, 
                 'position': {'x': float(100 * self.final_spring[node][0]), 'y': float(100 * self.final_spring[node][1])}
             })
@@ -891,7 +926,14 @@ class Generate_Graph:
 
         start_time = time.time()
 
-        table_df = pd.read_json(self.edges_json).copy()
+        table_df = pd.read_json(self.edges_json, dtype={
+            'source_id': str, 
+            'source_name': str, 
+            'source_type': str, 
+            'target_id': str, 
+            'target_name': str, 
+            'target_type': str, 
+            'edge_value': float}).copy()
 
         table_df['combined_source_value'] = table_df['source_id']
 

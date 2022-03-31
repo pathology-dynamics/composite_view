@@ -408,7 +408,14 @@ def format_data_input(csv_input, filename):
         decoded = base64.b64decode(content_string)
 
         try:
-            decoded_df = pd.read_csv(io.StringIO(decoded.decode('utf-8')), encoding='utf-8', index_col=0)
+            decoded_df = pd.read_csv(io.StringIO(decoded.decode('utf-8')), encoding='utf-8', index_col=0, dtype={
+                'source_id': str, 
+                'source_name': str, 
+                'source_type': str, 
+                'target_id': str, 
+                'target_name': str, 
+                'target_type': str, 
+                'edge_value': float})
 
         except Exception as e:
             print(e)
@@ -1035,4 +1042,4 @@ if test_timing:
     print('================')
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
