@@ -25,7 +25,7 @@ if test_timing:
     start_time_global = time.time()
     print('================')
 
-app = dash.Dash(external_stylesheets=[__name__, dbc.themes.SLATE])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
 
 server = app.server
 # server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
